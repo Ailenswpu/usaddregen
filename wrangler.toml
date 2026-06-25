@@ -1,4 +1,4 @@
-name = "us-tax-free-address-generator"
+name = "usaddregen"
 compatibility_date = "2026-06-25"
 
 [assets]
