@@ -309,13 +309,17 @@ function getInitialLanguage() {
   const savedLanguage = window.localStorage.getItem("addressGeneratorLanguage");
   if (LANGUAGES.includes(savedLanguage)) return savedLanguage;
 
-  const browserLanguage = navigator.language || "";
-  if (browserLanguage.toLowerCase().startsWith("zh-tw") || browserLanguage.toLowerCase().startsWith("zh-hk")) {
+  const browserLanguage = (navigator.language || "").toLowerCase();
+  if (browserLanguage.startsWith("zh-tw") || browserLanguage.startsWith("zh-hk") || browserLanguage.startsWith("zh-mo") || browserLanguage.startsWith("zh-hant")) {
     return "zh-TW";
   }
 
-  if (browserLanguage.toLowerCase().startsWith("zh")) {
+  if (browserLanguage.startsWith("zh-cn") || browserLanguage.startsWith("zh-sg") || browserLanguage.startsWith("zh-hans") || browserLanguage === "zh") {
     return "zh-CN";
+  }
+
+  if (browserLanguage.startsWith("en")) {
+    return "en";
   }
 
   return "en";
