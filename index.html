@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>US Tax-Free State Address Generator | Random No Sales Tax Address</title>
+    <meta
+      name="description"
+      content="Generate random US tax-free state address data for testing, form development, demos, QA, and placeholder records. Supports Delaware, Montana, New Hampshire, Oregon, and Alaska."
+    />
+    <meta
+      name="keywords"
+      content="US Tax-Free State Address Generator, Random US Address Generator, Sales Tax Free States Address Generator, No Sales Tax State Address Generator"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://usaddregen.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="US Tax-Free State Address Generator" />
+    <meta
+      property="og:description"
+      content="A lightweight random address generator for US states with no statewide sales tax. Built for testing, demos, and form development."
+    />
+    <meta property="og:url" content="https://usaddregen.com/" />
+    <meta property="og:site_name" content="US Tax-Free Address Generator" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="US Tax-Free State Address Generator" />
+    <meta
+      name="twitter:description"
+      content="Generate realistic-format test addresses for Delaware, Montana, New Hampshire, Oregon, and Alaska."
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="US Tax-Free Address Generator home">
+          <span class="brand-mark">US</span>
+          <span data-i18n="brand">Tax-Free Address Generator</span>
+        </a>
+        <div class="header-actions">
+          <span class="header-note" data-i18n="headerNote">Testing data for no-sales-tax states</span>
+          <label class="language-control" for="language-select">
+            <span data-i18n="languageLabel">Language</span>
+            <select id="language-select" aria-label="Language">
+              <option value="en">English</option>
+              <option value="zh-CN">简体中文</option>
+              <option value="zh-TW">繁體中文</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow" data-i18n="eyebrow">US Tax-Free State Address Generator</p>
+          <h1 id="page-title" data-i18n="h1">Random US address generator for no-sales-tax states</h1>
+          <p class="lede" data-i18n="lede">
+            Generate realistic-format US address data for Delaware, Montana, New Hampshire,
+            Oregon, and Alaska. Use it for QA, form development, demos, seed data, and safe
+            placeholder records.
+          </p>
+        </section>
+
+        <section class="tool-shell" aria-label="Address generator">
+          <div class="controls-panel">
+            <label for="state-select" data-i18n="stateLabel">Tax-free state</label>
+            <div class="control-row">
+              <select id="state-select" aria-describedby="state-help">
+                <option value="RANDOM" data-i18n="randomStateOption">Random tax-free state</option>
+              </select>
+              <button
+                id="generate-button"
+                class="button button-primary"
+                type="button"
+                data-i18n="generateButton"
+              >
+                Generate
+              </button>
+            </div>
+            <p id="state-help" data-i18n="stateHelp">
+              City, state, ZIP Code, and phone area code are generated from the same state dataset.
+            </p>
+          </div>
+
+          <article class="address-card" aria-live="polite" aria-label="Generated address">
+            <div class="card-topline">
+              <span id="state-badge" class="state-badge">Ready</span>
+              <span id="updated-at" class="updated-at">Generated on load</span>
+            </div>
+
+            <div class="primary-address">
+              <span class="field-label" data-i18n="fieldFullAddress">Full Address</span>
+              <p id="full-address" class="full-address">Generating address...</p>
+            </div>
+
+            <dl class="field-grid">
+              <div>
+                <dt data-i18n="fieldFullName">Full Name</dt>
+                <dd id="full-name">-</dd>
+              </div>
+              <div>
+                <dt data-i18n="fieldStreetAddress">Street Address</dt>
+                <dd id="street-address">-</dd>
+              </div>
+              <div>
+                <dt data-i18n="fieldCity">City</dt>
+                <dd id="city">-</dd>
+              </div>
+              <div>
+                <dt data-i18n="fieldState">State</dt>
+                <dd id="state">-</dd>
+              </div>
+              <div>
+                <dt data-i18n="fieldZipCode">ZIP Code</dt>
+                <dd id="zip-code">-</dd>
+              </div>
+              <div>
+                <dt data-i18n="fieldPhoneNumber">Phone Number</dt>
+                <dd id="phone-number">-</dd>
+              </div>
+            </dl>
+
+            <div class="button-row">
+              <button
+                id="copy-button"
+                class="button button-secondary"
+                type="button"
+                data-i18n="copyButton"
+              >
+                Copy full address
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <section class="content-section" aria-labelledby="usage-title">
+          <h2 id="usage-title" data-i18n="usageTitle">Built for clean test data</h2>
+          <div class="copy-columns">
+            <p data-i18n="usageBodyOne">
+              This tool intentionally focuses on the five US states with no statewide sales tax
+              instead of supporting every country or region. A smaller dataset keeps the static site
+              fast, easy to audit, and simple to deploy on Cloudflare Pages.
+            </p>
+            <p data-i18n="usageBodyTwo">
+              The generator creates synthetic street lines and pairs them with real city, state,
+              ZIP Code, and area code combinations. It does not verify deliverability and should not
+              be used to misrepresent identity, evade rules, or submit fraudulent information.
+            </p>
+          </div>
+        </section>
+
+        <section class="faq-section" aria-labelledby="faq-title">
+          <h2 id="faq-title" data-i18n="faqTitle">FAQ</h2>
+          <div class="faq-list">
+            <details open>
+              <summary data-i18n="faqOneQuestion">What is a tax-free state?</summary>
+              <p data-i18n="faqOneAnswer">
+                In this context, a tax-free state means a US state with no statewide sales tax. Other
+                taxes or local rules can still apply, so this page is only an address-format testing
+                utility and not tax advice.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faqTwoQuestion">Which US states have no sales tax?</summary>
+              <p data-i18n="faqTwoAnswer">
+                The five states commonly listed as having no statewide sales tax are Alaska,
+                Delaware, Montana, New Hampshire, and Oregon. Alaska can have local sales taxes in
+                some jurisdictions.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faqThreeQuestion">What can this address generator be used for?</summary>
+              <p data-i18n="faqThreeAnswer">
+                Use it for legal testing workflows such as form validation, checkout UI demos, QA
+                scripts, mock customer records, design prototypes, documentation screenshots, and
+                temporary placeholder data.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faqFourQuestion">Is the generated address real?</summary>
+              <p data-i18n="faqFourAnswer">
+                No. The output is realistic-format synthetic data. City, state, ZIP Code, and phone
+                area codes are matched, but the full street address is not guaranteed to exist or be
+                deliverable.
+              </p>
+            </details>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p data-i18n="footer">
+          For development, testing, demo, and placeholder use only. Not for fraud, account abuse, or
+          legal identity claims.
+        </p>
+      </footer>
+
+      <div id="toast" class="toast" role="status" aria-live="polite" data-i18n="copiedToast">
+        Copied full address
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
