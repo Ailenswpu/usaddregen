@@ -1,10 +1,9 @@
-# US Tax-Free State Address Generator
+# Random Address Generator for US Tax-Free States and International Test Data
 
-> A free, browser-based tool that generates realistic-format random US
-> addresses from the five states with no statewide sales tax: Delaware,
-> Montana, New Hampshire, Oregon, and Alaska. Built for software testing,
-> QA, form-validation demos, and seed/placeholder data — not for fraud,
-> identity claims, or rule evasion.
+> A free, browser-based tool that generates realistic-format random
+> addresses for US no-sales-tax states plus Nigeria, Egypt, Turkey, and
+> Pakistan. Built for software testing, QA, form-validation demos, and
+> seed/placeholder data — not for fraud, identity claims, or rule evasion.
 
 ## Key facts
 
@@ -12,8 +11,8 @@
 - **License**: Free to use in the browser. No account required.
 - **Languages**: English (default), Simplified Chinese (zh-CN), Traditional Chinese (zh-TW).
 - **No first-party tracking.** Third-party ad / analytics scripts (e.g. Google AdSense) may set cookies as disclosed in the site privacy policy.
-- **Output fields**: Full name, street address, city, state, ZIP code,
-  phone number (with state-correct area code).
+- **Output fields**: Full name, street address, city, state/region,
+  postal or ZIP code, phone number.
 - **No backend / API**: Generation runs entirely client-side in JavaScript.
 
 ## The five US states with no statewide sales tax
@@ -30,6 +29,23 @@ Caveat: Alaska has no statewide sales tax but allows local sales taxes
 in some boroughs and municipalities. This tool is an address-format
 utility and does not provide tax advice.
 
+## International address generators
+
+The homepage also includes country tabs for synthetic international
+test-address records:
+
+| Country  | Coverage examples                                      | Phone format |
+| -------- | ------------------------------------------------------ | ------------ |
+| Nigeria  | Lagos, Ikeja, Abuja, Kano, Port Harcourt, Ibadan       | +234 mobile  |
+| Egypt    | Cairo, Giza, Alexandria, Luxor, Mansoura               | +20 mobile   |
+| Turkey   | Istanbul, Ankara, Izmir, Antalya, Bursa                | +90 mobile   |
+| Pakistan | Karachi, Lahore, Islamabad, Rawalpindi, Peshawar       | +92 mobile   |
+
+These international records are realistic-format placeholders. City,
+region/province/governorate, postal code, and phone format are matched
+inside the tool dataset, but the output is not verified against postal,
+banking, telecom, government, or shipping databases.
+
 ## Why this tool exists (vs generic US address generators)
 
 - **State-matched output**: city, ZIP code, and phone area code are
@@ -37,8 +53,8 @@ utility and does not provide tax advice.
   form-validation flow.
 - **Browser-only generation**: no backend, no signup; address creation
   runs client-side over a small JSON dataset.
-- **Focused dataset**: only the 5 NOMAD states (New Hampshire, Oregon,
-  Montana, Alaska, Delaware) — predictable test fixtures, easy to audit.
+- **Focused dataset**: the 5 NOMAD states plus Nigeria, Egypt, Turkey,
+  and Pakistan — predictable test fixtures, easy to audit.
 - **Multilingual UI**: English, Simplified Chinese, Traditional Chinese,
   with language preference syncing via `?lang=` URL parameter and
   localStorage.
@@ -93,6 +109,15 @@ Generic generators sample all 50 states. This tool ships a tiny,
 audit-friendly dataset limited to the five no-sales-tax states, runs
 entirely in the browser with no signup, and matches the phone area
 code to the state — making it predictable test fixture data.
+
+**Q: Does the tool generate Nigeria, Egypt, Turkey, and Pakistan addresses?**
+Yes. The country tabs generate synthetic address records for Nigeria,
+Egypt, Turkey, and Pakistan with country-matched city, region, postal
+code, and phone-number formats.
+
+**Q: Can these international addresses pass real verification?**
+No. They are realistic-format placeholders and are not verified against
+postal, banking, telecom, government, or shipping databases.
 
 ## Contact
 

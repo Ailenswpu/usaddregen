@@ -63,6 +63,80 @@ const TAX_FREE_STATES = [
   }
 ];
 
+const INTERNATIONAL_COUNTRIES = {
+  NG: {
+    name: "Nigeria",
+    short: "NG",
+    phoneCode: "+234",
+    phonePrefixes: ["701", "803", "805", "806", "809", "812", "813", "905"],
+    firstNames: ["Amina", "Chinedu", "Tunde", "Ngozi", "Musa", "Kemi", "Ifeanyi", "Zainab"],
+    lastNames: ["Adeyemi", "Okafor", "Ibrahim", "Eze", "Balogun", "Nwosu", "Mohammed", "Adebayo"],
+    streetNames: ["Adeniyi Jones", "Ahmadu Bello", "Bourdillon", "Allen", "Gimbiya", "Aminu Kano", "Murtala Mohammed", "Sani Abacha"],
+    streetSuffixes: ["Street", "Road", "Avenue", "Close", "Crescent"],
+    cities: [
+      { name: "Lagos", region: "Lagos State", zips: ["100001", "100211", "101233"] },
+      { name: "Ikeja", region: "Lagos State", zips: ["100271", "100282"] },
+      { name: "Abuja", region: "Federal Capital Territory", zips: ["900211", "900271"] },
+      { name: "Kano", region: "Kano State", zips: ["700231", "700282"] },
+      { name: "Port Harcourt", region: "Rivers State", zips: ["500101", "500272"] },
+      { name: "Ibadan", region: "Oyo State", zips: ["200221", "200284"] }
+    ]
+  },
+  EG: {
+    name: "Egypt",
+    short: "EG",
+    phoneCode: "+20",
+    phonePrefixes: ["10", "11", "12", "15"],
+    firstNames: ["Ahmed", "Mariam", "Omar", "Nour", "Hassan", "Youssef", "Farida", "Salma"],
+    lastNames: ["El-Sayed", "Hassan", "Mahmoud", "Ibrahim", "Mostafa", "Ali", "Fathy", "Gamal"],
+    streetNames: ["Tahrir", "Gamal Abdel Nasser", "El Geish", "Corniche El Nil", "Salah Salem", "26 July", "Ahmed Orabi"],
+    streetSuffixes: ["Street", "Road", "Avenue"],
+    cities: [
+      { name: "Cairo", region: "Cairo Governorate", zips: ["11511", "11765", "11835"] },
+      { name: "Giza", region: "Giza Governorate", zips: ["12511", "12611"] },
+      { name: "Alexandria", region: "Alexandria Governorate", zips: ["21532", "21615"] },
+      { name: "Luxor", region: "Luxor Governorate", zips: ["85951", "85952"] },
+      { name: "Mansoura", region: "Dakahlia Governorate", zips: ["35511", "35516"] }
+    ]
+  },
+  TR: {
+    name: "Turkey",
+    short: "TR",
+    phoneCode: "+90",
+    phonePrefixes: ["501", "532", "533", "542", "555"],
+    firstNames: ["Ahmet", "Elif", "Mehmet", "Zeynep", "Emre", "Ayse", "Can", "Deniz"],
+    lastNames: ["Yilmaz", "Kaya", "Demir", "Sahin", "Celik", "Yildiz", "Aydin", "Arslan"],
+    streetNames: ["Ataturk", "Cumhuriyet", "Istiklal", "Bagdat", "Barbaros", "Inonu", "Mithatpasa"],
+    streetSuffixes: ["Caddesi", "Sokak", "Bulvari"],
+    cities: [
+      { name: "Istanbul", region: "Istanbul", zips: ["34010", "34330", "34710"] },
+      { name: "Ankara", region: "Ankara", zips: ["06010", "06420", "06520"] },
+      { name: "Izmir", region: "Izmir", zips: ["35030", "35220"] },
+      { name: "Antalya", region: "Antalya", zips: ["07070", "07100"] },
+      { name: "Bursa", region: "Bursa", zips: ["16010", "16120"] }
+    ]
+  },
+  PK: {
+    name: "Pakistan",
+    short: "PK",
+    phoneCode: "+92",
+    phonePrefixes: ["300", "301", "311", "321", "333", "345"],
+    firstNames: ["Ayesha", "Ali", "Fatima", "Hassan", "Zain", "Mariam", "Bilal", "Sana"],
+    lastNames: ["Khan", "Ahmed", "Malik", "Hussain", "Raza", "Sheikh", "Qureshi", "Siddiqui"],
+    streetNames: ["Jinnah", "Shahrah-e-Faisal", "Mall", "Gulberg", "University", "Khayaban-e-Iqbal", "Blue Area"],
+    streetSuffixes: ["Road", "Street", "Avenue", "Block"],
+    cities: [
+      { name: "Karachi", region: "Sindh", zips: ["74000", "75300", "75500"] },
+      { name: "Lahore", region: "Punjab", zips: ["54000", "54660", "54770"] },
+      { name: "Islamabad", region: "Islamabad Capital Territory", zips: ["44000", "44220"] },
+      { name: "Rawalpindi", region: "Punjab", zips: ["46000", "46300"] },
+      { name: "Peshawar", region: "Khyber Pakhtunkhwa", zips: ["25000", "25120"] }
+    ]
+  }
+};
+
+const COUNTRY_CODES = ["US", "NG", "EG", "TR", "PK"];
+
 const FIRST_NAMES = [
   "Avery",
   "Jordan",
@@ -137,29 +211,38 @@ const LANGUAGES = ["en", "zh-CN", "zh-TW"];
 
 const TRANSLATIONS = {
   en: {
-    pageTitle: "US Tax-Free State Address Generator | Random No Sales Tax Address",
+    pageTitle: "Random Address Generator | US Tax-Free, Nigeria, Egypt, Turkey, Pakistan",
     metaDescription:
-      "Generate random US tax-free state address data for testing, form development, demos, QA, and placeholder records. Supports Delaware, Montana, New Hampshire, Oregon, and Alaska.",
+      "Generate random address data for US no-sales-tax states plus Nigeria, Egypt, Turkey, and Pakistan. Built for testing, form development, demos, QA, and placeholder records.",
     brand: "Tax-Free Address Generator",
     headerNote: "Testing data for no-sales-tax states",
     languageLabel: "Language",
     eyebrow: "US Tax-Free State Address Generator",
-    h1: "Random US address generator for no-sales-tax states",
+    h1: "Random address generator for tax-free US and global test data",
     lede:
-      "Generate realistic-format US address data for Delaware, Montana, New Hampshire, Oregon, and Alaska. Use it for QA, form development, demos, seed data, and safe placeholder records.",
+      "Generate realistic-format address data for US no-sales-tax states plus Nigeria, Egypt, Turkey, and Pakistan. Use it for QA, form development, demos, seed data, and safe placeholder records.",
+    tabUs: "Tax-free US",
+    tabNigeria: "Nigeria",
+    tabEgypt: "Egypt",
+    tabTurkey: "Turkey",
+    tabPakistan: "Pakistan",
     stateLabel: "Tax-free state",
+    regionLabel: "Region",
     randomStateOption: "Random tax-free state",
+    randomRegionOption: "Random region",
     generateButton: "Generate",
     stateHelp:
       "City, state, ZIP Code, and phone area code are generated from the same state dataset.",
+    regionHelp:
+      "City, region, postal code, and phone number are generated from a country-specific test dataset.",
     generatedOnLoad: "Generated on load",
     generatedAt: "Generated",
     fieldFullAddress: "Full Address",
     fieldFullName: "Full Name",
     fieldStreetAddress: "Street Address",
     fieldCity: "City",
-    fieldState: "State",
-    fieldZipCode: "ZIP Code",
+    fieldState: "State / Region",
+    fieldZipCode: "Postal / ZIP Code",
     fieldPhoneNumber: "Phone Number",
     copyButton: "Copy full address",
     copiedButton: "Copied",
@@ -167,9 +250,25 @@ const TRANSLATIONS = {
     copyFailedToast: "Copy failed. Select the address manually.",
     usageTitle: "Built for clean test data",
     usageBodyOne:
-      "This tool intentionally focuses on the five US states with no statewide sales tax instead of supporting every country or region. A smaller dataset keeps the static site fast, easy to audit, and simple to deploy on Cloudflare Pages.",
+      "This tool keeps a focused dataset: five US states with no statewide sales tax plus Nigeria, Egypt, Turkey, and Pakistan for international form testing. The smaller dataset keeps the static site fast, easy to audit, and simple to deploy on Cloudflare Pages.",
     usageBodyTwo:
       "The generator creates synthetic street lines and pairs them with real city, state, ZIP Code, and area code combinations. It does not verify deliverability and should not be used to misrepresent identity, evade rules, or submit fraudulent information.",
+    internationalEyebrow: "International generators",
+    internationalTitle: "Nigeria, Egypt, Turkey, and Pakistan address generators",
+    internationalIntro:
+      "These country tabs generate synthetic but realistic-format address records for international form testing. Each output keeps city, region, postal code, and phone format aligned to the selected country.",
+    seoNigeriaTitle: "Nigeria address generator",
+    seoNigeriaBody:
+      "Generate Nigerian test addresses for Lagos, Abuja, Kano, Port Harcourt, Ibadan, and related states with six-digit postal codes and +234 mobile phone formatting.",
+    seoEgyptTitle: "Egypt address generator",
+    seoEgyptBody:
+      "Generate Egyptian test addresses using Cairo, Giza, Alexandria, Luxor, and Mansoura governorates with Egyptian postal codes and +20 phone formatting.",
+    seoTurkeyTitle: "Turkey address generator",
+    seoTurkeyBody:
+      "Generate Turkey test addresses for Istanbul, Ankara, Izmir, Antalya, and Bursa with five-digit postal codes and +90 mobile phone formatting.",
+    seoPakistanTitle: "Pakistan address generator",
+    seoPakistanBody:
+      "Generate Pakistan test addresses for Karachi, Lahore, Islamabad, Rawalpindi, and Peshawar with province names, postal codes, and +92 mobile phone formatting.",
     faqTitle: "FAQ",
     faqOneQuestion: "What is a tax-free state?",
     faqOneAnswer:
@@ -189,16 +288,22 @@ const TRANSLATIONS = {
     faqSixQuestion: "How is this different from a generic US address generator?",
     faqSixAnswer:
       "Generic generators sample all 50 states, which is overkill if you only need addresses for sales-tax-free testing scenarios. This tool ships a tiny, audit-friendly dataset limited to the five no-sales-tax states (Delaware, Montana, New Hampshire, Oregon, Alaska), runs entirely in the browser with no signup, and matches the phone area code to the state — making it predictable test fixture data.",
-    featuresTitle: "Why use this no-sales-tax address generator?",
+    faqSevenQuestion: "Does this generate Nigeria, Egypt, Turkey, and Pakistan addresses?",
+    faqSevenAnswer:
+      "Yes. The country tabs generate synthetic address records for Nigeria, Egypt, Turkey, and Pakistan with country-matched city, region, postal code, and phone-number formats. The output is intended for testing and demos, not for identity claims or deliverable mail.",
+    faqEightQuestion: "Can these international addresses pass real verification?",
+    faqEightAnswer:
+      "No. They are realistic-format placeholders. They may look internally consistent, but they are not verified against postal, banking, telecom, government, or shipping databases.",
+    featuresTitle: "Why use this address generator?",
     featureOneTitle: "State-matched output",
     featureOneBody:
       "City, ZIP code, and phone area code always come from the same state record, so the address looks internally consistent in any form-validation flow.",
     featureTwoTitle: "Runs entirely in your browser",
     featureTwoBody:
       "No backend and no signup required. Address generation happens client-side over a small JSON dataset hosted as a static site on Cloudflare.",
-    featureThreeTitle: "Focused on the 5 NOMAD states",
+    featureThreeTitle: "Focused, audit-friendly dataset",
     featureThreeBody:
-      "A deliberately small dataset for the five US states with no statewide sales tax — Delaware, Montana, New Hampshire, Oregon, and Alaska — keeps the tool fast, predictable, and easy to audit.",
+      "A deliberately small dataset for US no-sales-tax states plus Nigeria, Egypt, Turkey, and Pakistan keeps the tool fast, predictable, and easy to audit.",
     featureFourTitle: "Multilingual UI",
     featureFourBody:
       "Switch between English, Simplified Chinese, and Traditional Chinese with a single dropdown. Language preference syncs via URL parameter and local storage.",
@@ -231,28 +336,36 @@ const TRANSLATIONS = {
     compareAkIncome: "No state income tax"
   },
   "zh-CN": {
-    pageTitle: "美国免税州随机地址生成器 | 无销售税州地址工具",
+    pageTitle: "随机地址生成器 | 美国免税州、尼日利亚、埃及、土耳其、巴基斯坦",
     metaDescription:
-      "生成美国免税州随机地址数据，适用于测试、表单开发、演示、QA 和占位数据。支持特拉华、蒙大拿、新罕布什尔、俄勒冈和阿拉斯加。",
+      "生成美国无销售税州，以及尼日利亚、埃及、土耳其、巴基斯坦随机地址测试数据，适用于表单开发、QA、演示和占位记录。",
     brand: "免税州地址生成器",
     headerNote: "面向无销售税州的测试地址数据",
     languageLabel: "语言",
     eyebrow: "美国免税州地址生成器",
-    h1: "美国无销售税州随机地址生成器",
+    h1: "美国免税州与国际测试地址生成器",
     lede:
-      "生成符合美国地址习惯的免税州地址数据，覆盖特拉华、蒙大拿、新罕布什尔、俄勒冈和阿拉斯加。适用于 QA、表单开发、演示、种子数据和安全占位记录。",
+      "生成符合格式习惯的测试地址数据，覆盖美国无销售税州，以及尼日利亚、埃及、土耳其和巴基斯坦。适用于 QA、表单开发、演示、种子数据和安全占位记录。",
+    tabUs: "美国免税州",
+    tabNigeria: "尼日利亚",
+    tabEgypt: "埃及",
+    tabTurkey: "土耳其",
+    tabPakistan: "巴基斯坦",
     stateLabel: "免税州",
+    regionLabel: "地区",
     randomStateOption: "随机免税州",
+    randomRegionOption: "随机地区",
     generateButton: "生成地址",
     stateHelp: "城市、州、ZIP Code 和电话区号都来自同一州的数据集，避免明显不匹配。",
+    regionHelp: "城市、地区、邮政编码和电话号码都来自对应国家的测试数据集。",
     generatedOnLoad: "加载后已生成",
     generatedAt: "生成时间",
     fieldFullAddress: "完整地址",
     fieldFullName: "姓名",
     fieldStreetAddress: "街道地址",
     fieldCity: "城市",
-    fieldState: "州",
-    fieldZipCode: "ZIP Code",
+    fieldState: "州 / 地区",
+    fieldZipCode: "邮政编码 / ZIP Code",
     fieldPhoneNumber: "电话号码",
     copyButton: "复制完整地址",
     copiedButton: "已复制",
@@ -260,9 +373,25 @@ const TRANSLATIONS = {
     copyFailedToast: "复制失败，请手动选择地址。",
     usageTitle: "为干净的测试数据而设计",
     usageBodyOne:
-      "这个工具只聚焦美国五个没有州级销售税的州，而不是支持所有国家或地区。更小的数据集让静态站更快、更容易审核，也更适合部署到 Cloudflare Pages。",
+      "这个工具保持聚焦的数据集：五个没有州级销售税的美国州，以及用于国际表单测试的尼日利亚、埃及、土耳其和巴基斯坦。更小的数据集让静态站更快、更容易审核，也更适合部署到 Cloudflare Pages。",
     usageBodyTwo:
       "生成器会合成街道地址，并匹配真实的城市、州、ZIP Code 和电话区号组合。它不会验证地址是否可投递，也不应用于冒充身份、规避规则或提交欺诈信息。",
+    internationalEyebrow: "国际地址生成器",
+    internationalTitle: "尼日利亚、埃及、土耳其、巴基斯坦地址生成器",
+    internationalIntro:
+      "这些国家 Tab 用于生成符合格式习惯的国际测试地址。每条输出都会让城市、地区、邮政编码和电话号码格式与所选国家保持一致。",
+    seoNigeriaTitle: "尼日利亚地址生成器",
+    seoNigeriaBody:
+      "生成尼日利亚测试地址，覆盖 Lagos、Abuja、Kano、Port Harcourt、Ibadan 等城市，包含六位邮政编码和 +234 手机号码格式。",
+    seoEgyptTitle: "埃及地址生成器",
+    seoEgyptBody:
+      "生成埃及测试地址，覆盖 Cairo、Giza、Alexandria、Luxor、Mansoura 等省/市，包含埃及邮政编码和 +20 电话格式。",
+    seoTurkeyTitle: "土耳其地址生成器",
+    seoTurkeyBody:
+      "生成土耳其测试地址，覆盖 Istanbul、Ankara、Izmir、Antalya、Bursa，包含五位邮政编码和 +90 手机号码格式。",
+    seoPakistanTitle: "巴基斯坦地址生成器",
+    seoPakistanBody:
+      "生成巴基斯坦测试地址，覆盖 Karachi、Lahore、Islamabad、Rawalpindi、Peshawar，包含省份、邮政编码和 +92 手机号码格式。",
     faqTitle: "常见问题",
     faqOneQuestion: "什么是免税州？",
     faqOneAnswer:
@@ -282,16 +411,22 @@ const TRANSLATIONS = {
     faqSixQuestion: "和通用美国地址生成器有什么区别？",
     faqSixAnswer:
       "通用生成器覆盖全部 50 州，对只需要免税州测试场景的使用者来说过于庞杂。本工具数据集只包含 5 个无州级销售税的州（特拉华、蒙大拿、新罕布什尔、俄勒冈、阿拉斯加），完全在浏览器中运行，无需注册，并且电话区号会匹配对应州，更适合做可预测的测试夹具数据。",
-    featuresTitle: "为什么选择这个免税州地址生成器？",
+    faqSevenQuestion: "是否支持尼日利亚、埃及、土耳其和巴基斯坦地址？",
+    faqSevenAnswer:
+      "支持。国家 Tab 可以生成尼日利亚、埃及、土耳其和巴基斯坦的合成地址记录，并匹配对应国家的城市、地区、邮政编码和电话号码格式。输出仅用于测试和演示，不用于身份声明或真实投递。",
+    faqEightQuestion: "这些国际地址能通过真实验证吗？",
+    faqEightAnswer:
+      "不能。它们只是符合格式习惯的占位数据，可能在字段内部保持一致，但没有经过邮政、银行、电信、政府或物流数据库验证。",
+    featuresTitle: "为什么选择这个地址生成器？",
     featureOneTitle: "字段同州匹配",
     featureOneBody:
       "城市、ZIP Code 和电话区号始终取自同一个州的记录，地址在任何表单校验流程中都保持内部一致。",
     featureTwoTitle: "完全在浏览器中运行",
     featureTwoBody:
       "无后端、无需注册。地址生成过程完全在客户端基于一个轻量 JSON 数据集完成，作为静态站托管在 Cloudflare。",
-    featureThreeTitle: "专注 NOMAD 五个免税州",
+    featureThreeTitle: "聚焦且易审计的数据集",
     featureThreeBody:
-      "数据集刻意只包含 5 个无州级销售税的美国州 —— 特拉华、蒙大拿、新罕布什尔、俄勒冈、阿拉斯加，确保工具更快、更稳、更易审计。",
+      "数据集刻意聚焦美国无销售税州，以及尼日利亚、埃及、土耳其、巴基斯坦，确保工具更快、更稳、更易审计。",
     featureFourTitle: "多语言界面",
     featureFourBody:
       "下拉框切换英文、简体中文、繁体中文，语言偏好通过 URL 参数和本地存储同步。",
@@ -323,28 +458,36 @@ const TRANSLATIONS = {
     compareAkIncome: "无州所得税"
   },
   "zh-TW": {
-    pageTitle: "美國免稅州隨機地址產生器 | 無銷售稅州地址工具",
+    pageTitle: "隨機地址產生器 | 美國免稅州、奈及利亞、埃及、土耳其、巴基斯坦",
     metaDescription:
-      "產生美國免稅州隨機地址資料，適用於測試、表單開發、展示、QA 和佔位資料。支援德拉瓦、蒙大拿、新罕布夏、奧勒岡和阿拉斯加。",
+      "產生美國無銷售稅州，以及奈及利亞、埃及、土耳其、巴基斯坦隨機地址測試資料，適用於表單開發、QA、展示和佔位記錄。",
     brand: "免稅州地址產生器",
     headerNote: "面向無銷售稅州的測試地址資料",
     languageLabel: "語言",
     eyebrow: "美國免稅州地址產生器",
-    h1: "美國無銷售稅州隨機地址產生器",
+    h1: "美國免稅州與國際測試地址產生器",
     lede:
-      "產生符合美國地址習慣的免稅州地址資料，涵蓋德拉瓦、蒙大拿、新罕布夏、奧勒岡和阿拉斯加。適用於 QA、表單開發、展示、種子資料和安全佔位記錄。",
+      "產生符合格式習慣的測試地址資料，涵蓋美國無銷售稅州，以及奈及利亞、埃及、土耳其和巴基斯坦。適用於 QA、表單開發、展示、種子資料和安全佔位記錄。",
+    tabUs: "美國免稅州",
+    tabNigeria: "奈及利亞",
+    tabEgypt: "埃及",
+    tabTurkey: "土耳其",
+    tabPakistan: "巴基斯坦",
     stateLabel: "免稅州",
+    regionLabel: "地區",
     randomStateOption: "隨機免稅州",
+    randomRegionOption: "隨機地區",
     generateButton: "產生地址",
     stateHelp: "城市、州、ZIP Code 和電話區碼都來自同一州的資料集，避免明顯不匹配。",
+    regionHelp: "城市、地區、郵遞區號和電話號碼都來自對應國家的測試資料集。",
     generatedOnLoad: "載入後已產生",
     generatedAt: "產生時間",
     fieldFullAddress: "完整地址",
     fieldFullName: "姓名",
     fieldStreetAddress: "街道地址",
     fieldCity: "城市",
-    fieldState: "州",
-    fieldZipCode: "ZIP Code",
+    fieldState: "州 / 地區",
+    fieldZipCode: "郵遞區號 / ZIP Code",
     fieldPhoneNumber: "電話號碼",
     copyButton: "複製完整地址",
     copiedButton: "已複製",
@@ -352,9 +495,25 @@ const TRANSLATIONS = {
     copyFailedToast: "複製失敗，請手動選取地址。",
     usageTitle: "為乾淨的測試資料而設計",
     usageBodyOne:
-      "這個工具只聚焦美國五個沒有州級銷售稅的州，而不是支援所有國家或地區。更小的資料集讓靜態站更快、更容易審核，也更適合部署到 Cloudflare Pages。",
+      "這個工具保持聚焦的資料集：五個沒有州級銷售稅的美國州，以及用於國際表單測試的奈及利亞、埃及、土耳其和巴基斯坦。更小的資料集讓靜態站更快、更容易審核，也更適合部署到 Cloudflare Pages。",
     usageBodyTwo:
       "產生器會合成街道地址，並匹配真實的城市、州、ZIP Code 和電話區碼組合。它不會驗證地址是否可投遞，也不應用於冒充身分、規避規則或提交詐欺資訊。",
+    internationalEyebrow: "國際地址產生器",
+    internationalTitle: "奈及利亞、埃及、土耳其、巴基斯坦地址產生器",
+    internationalIntro:
+      "這些國家 Tab 用於產生符合格式習慣的國際測試地址。每筆輸出都會讓城市、地區、郵遞區號和電話號碼格式與所選國家保持一致。",
+    seoNigeriaTitle: "奈及利亞地址產生器",
+    seoNigeriaBody:
+      "產生奈及利亞測試地址，涵蓋 Lagos、Abuja、Kano、Port Harcourt、Ibadan 等城市，包含六位郵遞區號和 +234 手機號碼格式。",
+    seoEgyptTitle: "埃及地址產生器",
+    seoEgyptBody:
+      "產生埃及測試地址，涵蓋 Cairo、Giza、Alexandria、Luxor、Mansoura 等省/市，包含埃及郵遞區號和 +20 電話格式。",
+    seoTurkeyTitle: "土耳其地址產生器",
+    seoTurkeyBody:
+      "產生土耳其測試地址，涵蓋 Istanbul、Ankara、Izmir、Antalya、Bursa，包含五位郵遞區號和 +90 手機號碼格式。",
+    seoPakistanTitle: "巴基斯坦地址產生器",
+    seoPakistanBody:
+      "產生巴基斯坦測試地址，涵蓋 Karachi、Lahore、Islamabad、Rawalpindi、Peshawar，包含省份、郵遞區號和 +92 手機號碼格式。",
     faqTitle: "常見問題",
     faqOneQuestion: "什麼是免稅州？",
     faqOneAnswer:
@@ -374,16 +533,22 @@ const TRANSLATIONS = {
     faqSixQuestion: "與通用美國地址產生器有什麼差別？",
     faqSixAnswer:
       "通用產生器涵蓋全部 50 州，對只需要免稅州測試情境的使用者來說過於龐雜。本工具資料集僅包含 5 個無州級銷售稅的州（德拉瓦、蒙大拿、新罕布夏、奧勒岡、阿拉斯加），完全在瀏覽器中執行，無需註冊，並且電話區碼會配對對應州，更適合可預測的測試夾具資料。",
-    featuresTitle: "為什麼選擇這個免稅州地址產生器？",
+    faqSevenQuestion: "是否支援奈及利亞、埃及、土耳其和巴基斯坦地址？",
+    faqSevenAnswer:
+      "支援。國家 Tab 可以產生奈及利亞、埃及、土耳其和巴基斯坦的合成地址記錄，並配對對應國家的城市、地區、郵遞區號和電話號碼格式。輸出僅用於測試和展示，不用於身分聲明或真實投遞。",
+    faqEightQuestion: "這些國際地址能通過真實驗證嗎？",
+    faqEightAnswer:
+      "不能。它們只是符合格式習慣的佔位資料，可能在欄位內部保持一致，但沒有經過郵政、銀行、電信、政府或物流資料庫驗證。",
+    featuresTitle: "為什麼選擇這個地址產生器？",
     featureOneTitle: "欄位同州配對",
     featureOneBody:
       "城市、ZIP Code 與電話區碼一律取自同一州的記錄，地址在任何表單驗證流程中都保持內部一致。",
     featureTwoTitle: "完全在瀏覽器中執行",
     featureTwoBody:
       "無後端、無需註冊。地址產生過程完全在客戶端基於輕量 JSON 資料集完成，作為靜態站託管於 Cloudflare。",
-    featureThreeTitle: "專注 NOMAD 五個免稅州",
+    featureThreeTitle: "聚焦且易稽核的資料集",
     featureThreeBody:
-      "資料集刻意僅含 5 個無州級銷售稅的美國州 —— 德拉瓦、蒙大拿、新罕布夏、奧勒岡、阿拉斯加，使工具更快、更穩、更易稽核。",
+      "資料集刻意聚焦美國無銷售稅州，以及奈及利亞、埃及、土耳其、巴基斯坦，使工具更快、更穩、更易稽核。",
     featureFourTitle: "多語介面",
     featureFourBody:
       "下拉選單切換英文、簡體中文、繁體中文，語言偏好透過 URL 參數與本機儲存同步。",
@@ -421,6 +586,9 @@ const languageSelect = document.querySelector("#language-select");
 const generateButton = document.querySelector("#generate-button");
 const copyButton = document.querySelector("#copy-button");
 const toast = document.querySelector("#toast");
+const countryTabs = Array.from(document.querySelectorAll(".country-tab"));
+const locationSelectLabel = document.querySelector("#location-select-label");
+const stateHelp = document.querySelector("#state-help");
 
 const fields = {
   fullName: document.querySelector("#full-name"),
@@ -436,6 +604,7 @@ const fields = {
 
 let currentAddress = null;
 let currentLanguage = getInitialLanguage();
+let activeCountry = "US";
 
 function getInitialLanguage() {
   const urlLanguage = new URLSearchParams(window.location.search).get("lang");
@@ -472,12 +641,24 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function getCountryDataset() {
+  return INTERNATIONAL_COUNTRIES[activeCountry] || null;
+}
+
 function getSelectedState() {
   if (stateSelect.value === "RANDOM") {
     return randomItem(TAX_FREE_STATES);
   }
 
   return TAX_FREE_STATES.find((state) => state.abbr === stateSelect.value) || TAX_FREE_STATES[0];
+}
+
+function getSelectedInternationalCity(country) {
+  if (stateSelect.value === "RANDOM") {
+    return randomItem(country.cities);
+  }
+
+  return country.cities.find((city) => city.name === stateSelect.value) || country.cities[0];
 }
 
 function formatPhone(areaCodes) {
@@ -487,7 +668,18 @@ function formatPhone(areaCodes) {
   return `(${areaCode}) ${exchange}-${line}`;
 }
 
+function formatInternationalPhone(country) {
+  const prefix = randomItem(country.phonePrefixes);
+  const first = randomNumber(100, 999);
+  const second = String(randomNumber(0, 9999)).padStart(4, "0");
+  return `${country.phoneCode} ${prefix} ${first} ${second}`;
+}
+
 function generateAddress() {
+  if (activeCountry !== "US") {
+    return generateInternationalAddress(getCountryDataset());
+  }
+
   const state = getSelectedState();
   const city = randomItem(state.cities);
   const zip = randomItem(city.zips);
@@ -503,6 +695,28 @@ function generateAddress() {
     city: city.name,
     state: `${state.name} (${state.abbr})`,
     stateAbbr: state.abbr,
+    zipCode: zip,
+    phoneNumber,
+    fullAddress,
+    copyText: `${fullAddress}\nPhone: ${phoneNumber}`
+  };
+}
+
+function generateInternationalAddress(country) {
+  const city = getSelectedInternationalCity(country);
+  const zip = randomItem(city.zips);
+  const streetNumber = randomNumber(4, 188);
+  const street = `${streetNumber} ${randomItem(country.streetNames)} ${randomItem(country.streetSuffixes)}`;
+  const fullName = `${randomItem(country.firstNames)} ${randomItem(country.lastNames)}`;
+  const phoneNumber = formatInternationalPhone(country);
+  const fullAddress = `${fullName}\n${street}\n${city.name}, ${city.region} ${zip}\n${country.name}`;
+
+  return {
+    fullName,
+    streetAddress: street,
+    city: city.name,
+    state: city.region,
+    stateAbbr: country.short,
     zipCode: zip,
     phoneNumber,
     fullAddress,
@@ -561,7 +775,7 @@ function applyLanguage(language) {
     languageSelect.value = currentLanguage;
   }
 
-  populateStateSelect();
+  populateLocationSelect();
 
   if (currentAddress) {
     renderAddress(currentAddress);
@@ -569,6 +783,22 @@ function applyLanguage(language) {
     fields.stateBadge.textContent = "Ready";
     fields.updatedAt.textContent = t("generatedOnLoad");
   }
+}
+
+function setActiveCountry(countryCode) {
+  activeCountry = COUNTRY_CODES.includes(countryCode) ? countryCode : "US";
+
+  countryTabs.forEach((tab) => {
+    const isActive = tab.dataset.country === activeCountry;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+  });
+
+  const activeTab = countryTabs.find((tab) => tab.dataset.country === activeCountry);
+  activeTab?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+
+  populateLocationSelect();
+  renderAddress(generateAddress());
 }
 
 function showToast(message) {
@@ -605,24 +835,36 @@ async function copyCurrentAddress() {
   }
 }
 
-function populateStateSelect() {
+function populateLocationSelect() {
   const selectedValue = stateSelect.value || "RANDOM";
   stateSelect.textContent = "";
 
   const randomOption = document.createElement("option");
   randomOption.value = "RANDOM";
-  randomOption.textContent = t("randomStateOption");
+  randomOption.textContent = activeCountry === "US" ? t("randomStateOption") : t("randomRegionOption");
   stateSelect.append(randomOption);
 
-  TAX_FREE_STATES.forEach((state) => {
-    const option = document.createElement("option");
-    option.value = state.abbr;
-    option.textContent = `${state.name} (${state.abbr})`;
-    stateSelect.append(option);
-  });
+  if (activeCountry === "US") {
+    TAX_FREE_STATES.forEach((state) => {
+      const option = document.createElement("option");
+      option.value = state.abbr;
+      option.textContent = `${state.name} (${state.abbr})`;
+      stateSelect.append(option);
+    });
+  } else {
+    getCountryDataset().cities.forEach((city) => {
+      const option = document.createElement("option");
+      option.value = city.name;
+      option.textContent = `${city.name}, ${city.region}`;
+      stateSelect.append(option);
+    });
+  }
 
   stateSelect.value = selectedValue;
   if (!stateSelect.value) stateSelect.value = "RANDOM";
+
+  locationSelectLabel.textContent = activeCountry === "US" ? t("stateLabel") : t("regionLabel");
+  stateHelp.textContent = activeCountry === "US" ? t("stateHelp") : t("regionHelp");
 }
 
 function bindEvents() {
@@ -630,6 +872,9 @@ function bindEvents() {
   stateSelect.addEventListener("change", () => renderAddress(generateAddress()));
   languageSelect.addEventListener("change", (event) => applyLanguage(event.target.value));
   copyButton.addEventListener("click", copyCurrentAddress);
+  countryTabs.forEach((tab) => {
+    tab.addEventListener("click", () => setActiveCountry(tab.dataset.country));
+  });
 }
 
 bindEvents();
