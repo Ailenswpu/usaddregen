@@ -541,6 +541,11 @@ function applyLanguage(language) {
   if (canonicalLink) canonicalLink.href = selfUrl;
   if (ogUrl) ogUrl.content = selfUrl;
 
+  const blogPath = currentLanguage === "en" ? "/blog/" : `/blog/${currentLanguage}/`;
+  document.querySelectorAll("[data-blog-link]").forEach((link) => {
+    link.href = blogPath;
+  });
+
   const metaDescription = document.querySelector('meta[name="description"]');
   const ogDescription = document.querySelector('meta[property="og:description"]');
   const twitterDescription = document.querySelector('meta[name="twitter:description"]');
