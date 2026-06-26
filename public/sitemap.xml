@@ -79,18 +79,90 @@
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/zh-CN/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/zh-TW/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/" />
   </url>
   <url>
     <loc>https://usaddregen.com/blog/nomad-states-explained.html</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/nomad-states-explained.html" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/zh-CN/nomad-states-explained.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/nomad-states-explained.html" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/zh-TW/nomad-states-explained.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/nomad-states-explained.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/nomad-states-explained.html" />
   </url>
   <url>
     <loc>https://usaddregen.com/blog/avs-and-zip-validation.html</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/zh-CN/avs-and-zip-validation.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
   </url>
   <url>
     <loc>https://usaddregen.com/privacy.html</loc>

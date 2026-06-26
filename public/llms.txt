@@ -109,7 +109,9 @@ code to the state — making it predictable test fixture data.
 - [New Hampshire (NH) address generator](https://usaddregen.com/state/new-hampshire/)
 - [Oregon (OR) address generator](https://usaddregen.com/state/oregon/)
 - [Alaska (AK) address generator](https://usaddregen.com/state/alaska/) — note: borough-level local sales tax applies in many cities.
-- [Blog index](https://usaddregen.com/blog/) — list of all articles.
+- [Blog index (English)](https://usaddregen.com/blog/) — list of all articles.
+- [Blog index (简体中文)](https://usaddregen.com/blog/zh-CN/) — full Simplified Chinese translation.
+- [Blog index (繁體中文)](https://usaddregen.com/blog/zh-TW/) — full Traditional Chinese translation.
 - [NOMAD States Explained](https://usaddregen.com/blog/nomad-states-explained.html) — 8-min read on the 5 US no-sales-tax states, with history and local-tax caveats.
 - [Why Test Addresses Fail AVS and ZIP Validation](https://usaddregen.com/blog/avs-and-zip-validation.html) — 9-min read covering USPS ZIP-city-state matching and the AVS payment check.
 - [Privacy Policy](https://usaddregen.com/privacy.html)

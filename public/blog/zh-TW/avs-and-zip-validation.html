@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>為什麼測試地址過不了 AVS 和 ZIP+城市+州 驗證 | 美國免稅州地址產生器</title>
+    <meta
+      name="description"
+      content="一篇關於 AVS（地址驗證系統）、USPS 郵遞區號-城市-州 比對的實用指南，解釋為什麼合成測試地址過不了真實驗證 —— 含 AVS 回應碼表與 Stripe 沙盒範例，面向 QA、結帳測試與表單開發。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html" />
+    <link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/avs-and-zip-validation.html" />
+    <link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html" />
+    <link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/page.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="為什麼測試地址過不了 AVS 和 ZIP+城市+州 驗證" />
+    <meta property="og:description" content="兩層會拒絕你測試資料的驗證 —— USPS 郵遞區號-城市-州比對，與支付網路的 AVS。含回應碼表。" />
+    <meta property="og:url" content="https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html" />
+    <meta property="og:site_name" content="美國免稅州地址產生器" />
+    <meta property="og:image" content="https://usaddregen.com/og-image.png" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="article:published_time" content="2026-06-26" />
+    <meta property="article:modified_time" content="2026-06-26" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ailenswpu" />
+    <meta name="twitter:title" content="AVS 與郵遞區號驗證詳解" />
+    <meta name="twitter:description" content="拒絕合成地址的兩層驗證，含 AVS 回應碼表。" />
+    <meta name="twitter:image" content="https://usaddregen.com/og-image.png" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2718770784621191"
+         crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://usaddregen.com/?lang=zh-TW"},
+          {"@type": "ListItem", "position": 2, "name": "部落格", "item": "https://usaddregen.com/blog/zh-TW/"},
+          {"@type": "ListItem", "position": 3, "name": "AVS 與郵遞區號驗證"}
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "為什麼測試地址過不了 AVS 和 ZIP+城市+州 驗證",
+        "description": "AVS 與 USPS 郵遞區號比對的實用指南，解釋為什麼合成地址過不了真實驗證。",
+        "datePublished": "2026-06-26",
+        "dateModified": "2026-06-26",
+        "inLanguage": "zh-TW",
+        "author": {"@type": "Organization", "name": "US Tax-Free Address Generator"},
+        "publisher": {"@type": "Organization", "name": "US Tax-Free Address Generator", "url": "https://usaddregen.com/"},
+        "image": "https://usaddregen.com/og-image.png",
+        "mainEntityOfPage": "https://usaddregen.com/blog/zh-TW/avs-and-zip-validation.html"
+      }
+    </script>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="lang-switcher" aria-label="語言切換">
+        <a href="/blog/avs-and-zip-validation.html">English</a>
+        <a href="/blog/zh-CN/avs-and-zip-validation.html">简体中文</a>
+        <a class="active" aria-current="page">繁體中文</a>
+      </nav>
+
+      <nav class="page-header" aria-label="麵包屑">
+        <a href="/?lang=zh-TW">← 首頁</a>
+        <span>/</span>
+        <a href="/blog/zh-TW/">部落格</a>
+        <span>/</span>
+        <span>AVS 與郵遞區號驗證</span>
+      </nav>
+
+      <h1>為什麼測試地址過不了 AVS 和 ZIP+城市+州 驗證</h1>
+      <p class="meta">發佈於 2026-06-26 &middot; 閱讀約 9 分鐘</p>
+
+      <p>
+        你為 QA 夾具產生了一個看起來很乾淨的美國地址 &mdash; 街道名合理、城市真實、郵遞區號
+        開頭數字也對得上、電話區碼也匹配。你把它貼到 staging 的結帳頁，結果表單拒絕它：
+        <em>「您輸入的郵遞區號與城市/州不匹配。」</em>更糟的是支付閘道回傳了 <code>AVS_MISMATCH
+        </code>，扣款失敗。
+      </p>
+      <p>
+        這兩種失敗其實都在正常工作。本文解釋背後的兩套系統 &mdash; USPS 驅動的「郵遞區號·城市·
+        州」驗證，與「地址驗證系統」(AVS) &mdash; 讓你能圍繞它們的規則設計測試資料，而不是和
+        它們對著幹。
+      </p>
+
+      <h2>兩層驗證，先簡短概覽</h2>
+      <p>
+        美國寄送表單通常會讓地址通過兩層獨立驗證：
+      </p>
+      <ol>
+        <li>
+          <strong>USPS 可投遞性驗證</strong>。確認城市、州、郵遞區號指向同一個 USPS 認可的郵
+          區，可選地確認街道號和街道名出現在真實的 USPS 投遞路線上。這就是「郵遞區號與城市
+          /州不匹配」這條錯誤的來源。
+        </li>
+        <li>
+          <strong>AVS &mdash; Address Verification System</strong>。卡組織（Visa、Mastercard、
+          Amex、Discover）的驗證：把帳單街道地址的數字部分和帳單郵遞區號與持卡人開戶行的
+          記錄做比對。這就是支付閘道回應裡 <code>AVS_MISMATCH</code>、
+          <code>AVS_ZIP_ONLY_MATCH</code> 等碼的來源。
+        </li>
+      </ol>
+      <p>
+        注意這是<em>兩套針對不同資料來源的不同驗證</em>。一個合成地址可以通過第 1 層，但仍然
+        過不了第 2 層，因為銀行從來沒記錄過持卡人住在那裡。
+      </p>
+
+      <h2>USPS 郵遞區號比對怎麼運作</h2>
+      <p>
+        USPS 維護著一個資料庫，每個郵遞區號都關聯一個或多個「首選」城市名以及一個州。比如
+        裸郵遞區號 <code>19801</code> 唯一歸屬於<strong>德拉瓦州 Wilmington</strong>。如果你把
+        <code>19801</code> 配上 <em>Dover, DE</em>，驗證就會失敗，因為 Dover 的郵遞區號是
+        <code>19901</code> 和 <code>19904</code> &mdash; 那是另一個郵區。
+      </p>
+      <p>
+        USPS 資料庫處理的幾個邊界情況，自己寫比對的常常踩坑：
+      </p>
+      <ul>
+        <li>
+          <strong>可接受的備用城市名</strong>。<code>19711</code> 官方對應 Newark, DE，但
+          USPS 也接受 <em>University of Delaware</em> 作為投遞地址中的備用名。大多數第三方
+          驗證器會拒絕備用名，即便 USPS 實際上會投。
+        </li>
+        <li>
+          <strong>跨社區的郵遞區號邊界</strong>。一個郵遞區號可能橫跨多個城市名甚至多個
+          county。結帳表單常常接受任一被認可的名稱；CRM 有時會用「首選」名覆蓋使用者輸入。
+        </li>
+        <li>
+          <strong>ZIP+4 精確度</strong>。4 位後綴把一個郵遞區號再細分到街區甚至單棟建築。
+          多數結帳表單接受但忽略它；一些物流 API 要求填它以拿到商業折扣價。
+        </li>
+      </ul>
+      <p>
+        對測試夾具的現實結論是：<strong>城市、州、郵遞區號要從同一個州的記錄中取樣</strong>。
+        <a href="/?lang=zh-TW">美國免稅州地址產生器</a>就是這麼做的 &mdash; 如果它挑了德拉瓦，
+        城市就是德拉瓦的城市，郵遞區號也是那個城市真實的郵遞區號。第 1 層永遠過。
+      </p>
+
+      <h2>AVS 怎麼運作</h2>
+      <p>
+        AVS 工作在支付網路層。商戶向卡組織發起授權時，帳單地址裡的兩段會被發卡行與自己記錄
+        比對：
+      </p>
+      <ul>
+        <li>
+          <strong>街道地址中的數字部分</strong>。<code>123 Main St</code> 和
+          <code>123 Maple Ave</code> 在 AVS 看來都是同一個 token <code>123</code>。
+          一些發卡行會忽略數字之後的所有字元。
+        </li>
+        <li>
+          <strong>5 位郵遞區號</strong>。
+        </li>
+      </ul>
+      <p>
+        回應是一個字母碼，隨授權回傳。常見值：
+      </p>
+      <table>
+        <thead>
+          <tr><th>碼</th><th>含義</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Y</code></td><td>街道和郵遞區號都匹配。</td></tr>
+          <tr><td><code>A</code></td><td>街道匹配，郵遞區號不匹配。</td></tr>
+          <tr><td><code>Z</code></td><td>5 位郵遞區號匹配，街道不匹配。</td></tr>
+          <tr><td><code>N</code></td><td>都不匹配。</td></tr>
+          <tr><td><code>U</code></td><td>發卡行未回應 / 資訊不可得。</td></tr>
+          <tr><td><code>G</code></td><td>非美國發卡行，不支援 AVS。</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Stripe、Adyen、Braintree、Authorize.Net 等支付閘道都會暴露這個碼，由商戶決定每個值
+        如何處理 &mdash; <code>N</code> 自動拒、<code>A</code> 或 <code>Z</code> 軟拒，依此
+        類推。
+      </p>
+      <p>
+        因為 AVS 比對的是銀行裡真實持卡人的記錄，<strong>任何合成地址都不可能通過真實的 AVS
+        驗證</strong>。隨機產生的街道和郵遞區號只可能在恰好真有持卡人住那的情況下匹配
+        &mdash; 而這恰恰是 AVS 要識別的情況。
+      </p>
+
+      <h2>針對每種環境設計能用的測試夾具</h2>
+      <p>一個實戰指南：在不和驗證對著幹的情況下使用合成地址。</p>
+
+      <h3>1. 單元測試和 UI 演示用「州一致」產生器</h3>
+      <p>
+        表單驗證、版面測試、截圖夾具、種子資料這些場景，你要的是看起來一致的地址，並不需要
+        通過任何外部 API。本站這樣的小型產生器提供的地址，城市、州、郵遞區號永遠內部匹配。
+      </p>
+
+      <h3>2. 在支付沙盒裡用官方測試卡 + AVS 測試郵遞區號</h3>
+      <p>
+        Stripe、Braintree、Adyen 都發佈了測試卡與「魔法地址」，在<em>沙盒</em>環境下能穩定
+        觸發指定的 AVS 回應。比如 Stripe 測試模式下，帳單郵遞區號 <code>42424</code> 一定
+        回傳 <code>N</code>（不匹配），其他任何 5 位郵遞區號都回傳 <code>Y</code>。AVS 相關
+        情境用這些有文件的魔法值，而不是泛用合成地址。
+      </p>
+      <pre><code>// Stripe 測試模式 —— 確定性 AVS 結果
+const billing = {
+  line1:      '1 Test Lane',
+  postal_code: '42424',  // 強制回傳 AVS code N
+};
+const intent = await stripe.paymentIntents.create({ ... });</code></pre>
+
+      <h3>3. 單元測試裡 mock 掉地址驗證呼叫</h3>
+      <p>
+        如果程式碼會呼叫 USPS Address Information API、Smarty（前 SmartyStreets）、Lob、
+        Google Address Validation 之類，單元測試裡把這些 client stub 掉。合成地址不需要真的
+        通過 &mdash; 它們只是用來跑通你的程式碼路徑。要驗證的是你處理每種文件化回應（包括
+        <em>partial-match</em> 和 <em>not-found</em>）的程式碼是否正確。
+      </p>
+
+      <h3>4. 生產端到端測試用真實銀行地址</h3>
+      <p>
+        如果一定要在生產環境用真卡跑端到端測試，請用持卡人真實的帳單地址。繞不過銀行的記
+        錄。生產環境用合成地址做測試是出名的踩雷點 &mdash; 商戶帳戶可能被風控標記。
+      </p>
+
+      <h2>結帳還提示「郵遞區號不匹配」時怎麼排查</h2>
+      <p>
+        如果你的地址來自<a href="/?lang=zh-TW">免稅州地址產生器</a>但結帳仍報「不匹配」，
+        十有八九是下面三種之一：
+      </p>
+      <ul>
+        <li>
+          結帳接了<em>商用</em>地址驗證 API（Smarty、Lob、USPS Web Tools），它們比郵遞區號
+          -城市-州走得更深，會要求<strong>街道號必須出現在 USPS 該郵遞區號的真實投遞清單
+          </strong>。合成街道號過不了。
+        </li>
+        <li>
+          結帳在「送出訂單」步驟跑 AVS，把 AVS 回應解碼成了表單錯誤。修法要麼沙盒裡關 AVS，
+          要麼把「預期失敗」寫進測試團隊的文件。
+        </li>
+        <li>
+          表單的郵遞區號資料過時，識別不了最近新增或重命名的郵遞區號。該升級資料集，而不是
+          改測試地址。
+        </li>
+      </ul>
+
+      <h2>小結</h2>
+      <p>
+        兩層驗證、兩套資料來源、兩種失敗模式。USPS 郵遞區號-城市-州 驗證關心<em>內部一致性
+        </em> &mdash; 一個州一致的合成地址就能滿足。AVS 關心<em>匹配銀行裡真實持卡人的真實
+        記錄</em> &mdash; 任何合成地址都過不了。按照這兩個原則去設計測試夾具，一大批莫名其
+        妙的測試失敗工單就不會再出現了。
+      </p>
+
+      <h2>資料來源與延伸閱讀</h2>
+      <p>
+        本文引用的 AVS 回應碼、USPS 資料庫欄位、支付閘道文件來自以下官方資料。AVS 碼語義因
+        閘道而異，請以你實際接的閘道為準：
+      </p>
+      <ul>
+        <li>
+          <a href="https://docs.stripe.com/declines/codes" rel="noopener" target="_blank">
+            Stripe &mdash; 拒付碼與 AVS 結果</a> &mdash; 發卡行 AVS 回應的閘道側參考。
+        </li>
+        <li>
+          <a href="https://developer.paypal.com/braintree/docs/reference/general/avs-and-cvv-rules" rel="noopener" target="_blank">
+            Braintree &mdash; AVS 與 CVV 規則</a> &mdash; AVS 回應的可程式化規則。
+        </li>
+        <li>
+          <a href="https://developer.authorize.net/api/reference/responseCodes.html" rel="noopener" target="_blank">
+            Authorize.Net &mdash; 回應碼參考</a> &mdash; 經典 AVS 字母碼表（Y, A, Z, N, U,
+          R, S, E, G）。
+        </li>
+        <li>
+          <a href="https://www.usps.com/business/web-tools-apis/" rel="noopener" target="_blank">
+            USPS Web Tools APIs</a> &mdash; ZIP+4、地址標準化、city/state 查詢。
+        </li>
+        <li>
+          <a href="https://postalpro.usps.com/" rel="noopener" target="_blank">
+            USPS PostalPro</a> &mdash; 可投遞性與 CASS 認證文件。
+        </li>
+        <li>
+          <a href="https://www.smarty.com/docs/cloud/us-street-api" rel="noopener" target="_blank">
+            Smarty &mdash; US Street Address API</a> &mdash; 文中提到的商用 CASS 認證驗證
+          服務參考。
+        </li>
+      </ul>
+
+      <h2>相關閱讀</h2>
+      <ul>
+        <li><a href="/blog/zh-TW/nomad-states-explained.html">NOMAD 五州詳解：美國沒有銷售稅
+            的 5 個州</a></li>
+        <li><a href="/state/">按州瀏覽產生器</a></li>
+        <li><a href="/?lang=zh-TW">使用地址產生器</a></li>
+      </ul>
+
+      <footer class="page-footer">
+        <p>
+          <a href="/?lang=zh-TW">首頁</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/privacy.html">隱私政策</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/blog/zh-TW/nomad-states-explained.html">NOMAD 五州詳解</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

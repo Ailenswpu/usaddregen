@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>博客 | 美国免税州地址生成器</title>
+    <meta
+      name="description"
+      content="关于美国免税州、USPS 邮编校验、AVS 地址验证，以及在测试中使用合成地址最佳实践的文章。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://usaddregen.com/blog/zh-CN/" />
+    <link rel="alternate" hreflang="en" href="https://usaddregen.com/blog/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/blog/zh-CN/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/blog/zh-TW/" />
+    <link rel="alternate" hreflang="x-default" href="https://usaddregen.com/blog/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/page.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="博客 | 美国免税州地址生成器" />
+    <meta property="og:description" content="关于美国免税州、邮编校验、AVS 地址验证以及合成地址测试实践的文章。" />
+    <meta property="og:url" content="https://usaddregen.com/blog/zh-CN/" />
+    <meta property="og:site_name" content="美国免税州地址生成器" />
+    <meta property="og:image" content="https://usaddregen.com/og-image.png" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ailenswpu" />
+    <meta name="twitter:title" content="博客 | 美国免税州地址生成器" />
+    <meta name="twitter:description" content="美国免税州、邮编校验、AVS 与合成地址测试实践。" />
+    <meta name="twitter:image" content="https://usaddregen.com/og-image.png" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2718770784621191"
+         crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "美国免税州地址生成器 - 博客",
+        "url": "https://usaddregen.com/blog/zh-CN/",
+        "inLanguage": "zh-CN",
+        "publisher": {"@type": "Organization", "name": "US Tax-Free Address Generator", "url": "https://usaddregen.com/"},
+        "blogPost": [
+          {"@type": "BlogPosting", "headline": "NOMAD 五州详解：美国没有销售税的 5 个州", "url": "https://usaddregen.com/blog/zh-CN/nomad-states-explained.html", "datePublished": "2026-06-26", "inLanguage": "zh-CN"},
+          {"@type": "BlogPosting", "headline": "为什么测试地址过不了 AVS 和 ZIP+城市+州 校验", "url": "https://usaddregen.com/blog/zh-CN/avs-and-zip-validation.html", "datePublished": "2026-06-26", "inLanguage": "zh-CN"}
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://usaddregen.com/?lang=zh-CN"},
+          {"@type": "ListItem", "position": 2, "name": "博客"}
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="lang-switcher" aria-label="语言切换">
+        <a href="/blog/">English</a>
+        <a class="active" aria-current="page">简体中文</a>
+        <a href="/blog/zh-TW/">繁體中文</a>
+      </nav>
+
+      <nav class="page-header" aria-label="面包屑">
+        <a href="/?lang=zh-CN">← 首页</a>
+        <span>/</span>
+        <span>博客</span>
+      </nav>
+
+      <h1>博客</h1>
+      <p class="meta">
+        面向开发者和 QA 工程师的实用文章 &mdash; 涵盖美国销售税、地址校验、测试数据使用，配合
+        <a href="/?lang=zh-CN">免税州地址生成器</a> 一起阅读效果最好。
+      </p>
+
+      <article style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #dce4ee;">
+        <h2 style="margin-top: 0;">
+          <a href="/blog/zh-CN/nomad-states-explained.html">NOMAD 五州详解：美国没有销售税的 5 个州</a>
+        </h2>
+        <p class="meta">2026-06-26 &middot; 阅读约 8 分钟</p>
+        <p>
+          深入解读 NOMAD 缩写 —— New Hampshire、Oregon、Montana、Alaska、Delaware。每个州为什么
+          会走向免税路径，本地的例外（特别是阿拉斯加）会怎样让人意外，以及为什么这些细节对电商
+          结账测试至关重要。
+        </p>
+      </article>
+
+      <article style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #dce4ee;">
+        <h2 style="margin-top: 0;">
+          <a href="/blog/zh-CN/avs-and-zip-validation.html">为什么测试地址过不了 AVS 和 ZIP+城市+州 校验</a>
+        </h2>
+        <p class="meta">2026-06-26 &middot; 阅读约 9 分钟</p>
+        <p>
+          两层会拒绝你的测试数据的校验：USPS 的邮编-城市-州匹配，以及支付网络的地址验证系统
+          (AVS)。配合 AVS 响应码表与 Stripe 沙箱示例，一篇就讲清楚两套规则、它们的数据来源
+          差异，以及如何针对每种场景设计合适的测试数据。
+        </p>
+      </article>
+
+      <footer class="page-footer">
+        <p>
+          <a href="/?lang=zh-CN">首页</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/privacy.html">隐私政策</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
