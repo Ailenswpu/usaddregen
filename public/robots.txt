@@ -1,6 +1,25 @@
 User-agent: *
 Allow: /
 
+# Explicitly welcome Bing and Bing-family crawlers — no crawl-delay so Bing
+# is free to index as fast as it wants. Bing respects crawl-delay (Google
+# ignores it); leaving it unset is faster than the conservative default.
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: AdIdxBot
+Allow: /
+
+# Yandex — also supports IndexNow alongside Bing.
+User-agent: Yandex
+Allow: /
+
 # Explicitly welcome AI / LLM crawlers used by generative search engines.
 # Listing them by name signals intent and overrides any future blanket bans.
 

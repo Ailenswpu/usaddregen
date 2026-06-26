@@ -1,0 +1,90 @@
+name: Deploy & ping IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'public/**'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'wrangler.toml'
+      - 'vite.config.*'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build, deploy, then ping IndexNow
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Wait for edge cache to settle
+        run: sleep 20
+
+      - name: Ping IndexNow
+        env:
+          INDEXNOW_KEY: a343b28882f24f221e394ce22e77fd96
+        run: |
+          set -euo pipefail
+          payload=$(cat <<EOF
+          {
+            "host": "usaddregen.com",
+            "key": "${INDEXNOW_KEY}",
+            "keyLocation": "https://usaddregen.com/${INDEXNOW_KEY}.txt",
+            "urlList": [
+              "https://usaddregen.com/",
+              "https://usaddregen.com/about/",
+              "https://usaddregen.com/blog/",
+              "https://usaddregen.com/blog/nomad-states-explained.html",
+              "https://usaddregen.com/blog/avs-and-zip-validation.html",
+              "https://usaddregen.com/state/",
+              "https://usaddregen.com/state/delaware/",
+              "https://usaddregen.com/state/montana/",
+              "https://usaddregen.com/state/new-hampshire/",
+              "https://usaddregen.com/state/oregon/",
+              "https://usaddregen.com/state/alaska/",
+              "https://usaddregen.com/privacy.html"
+            ]
+          }
+          EOF
+          )
+          status=$(curl -sS -o /tmp/indexnow.out -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$payload")
+          echo "HTTP $status"
+          cat /tmp/indexnow.out || true
+          echo
+          # IndexNow returns 200 = accepted immediately, 202 = queued.
+          # Anything else (400/403/422) means our key or payload was rejected.
+          case "$status" in
+            200|202) echo "IndexNow ping succeeded." ;;
+            *) echo "IndexNow ping failed with status $status" >&2; exit 1 ;;
+          esac

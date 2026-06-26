@@ -97,6 +97,7 @@ code to the state — making it predictable test fixture data.
 ## Contact
 
 - X / Twitter: [@ailenswpu](https://x.com/ailenswpu) — primary contact channel for the site.
+- GitHub: [Ailenswpu/usaddregen](https://github.com/Ailenswpu/usaddregen) — source code, issues, and pull requests.
 
 ## Related resources
 

@@ -13,6 +13,10 @@
       content="US tax-free state address generator, random US address generator, no sales tax state address, Delaware address generator, Montana address generator, New Hampshire address generator, Oregon address generator, Alaska address generator, fake US address for testing, ZIP code generator"
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="indexnow" content="a343b28882f24f221e394ce22e77fd96" />
+    <!-- Bing Webmaster Tools verification — replace content when you finish verification.
+    <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN" /> -->
     <meta name="author" content="US Tax-Free Address Generator" />
     <meta name="application-name" content="US Tax-Free Address Generator" />
     <meta name="theme-color" content="#0f172a" />
@@ -148,14 +152,14 @@
             "url": "https://usaddregen.com/",
             "name": "US Tax-Free Address Generator",
             "inLanguage": "en",
-            "sameAs": ["https://x.com/ailenswpu"]
+            "sameAs": ["https://x.com/ailenswpu", "https://github.com/Ailenswpu/usaddregen"]
           },
           {
             "@type": "Organization",
             "@id": "https://usaddregen.com/#organization",
             "name": "US Tax-Free Address Generator",
             "url": "https://usaddregen.com/",
-            "sameAs": ["https://x.com/ailenswpu"]
+            "sameAs": ["https://x.com/ailenswpu", "https://github.com/Ailenswpu/usaddregen"]
           }
         ]
       }
@@ -341,31 +345,31 @@
                   <td>Delaware</td><td>DE</td><td>19xxx</td><td>302</td>
                   <td data-i18n="compareDeTax">None. Gross Receipts Tax on businesses.</td>
                   <td data-i18n="compareDeIncome">Yes (graduated, up to ~6.6%)</td>
-                  <td><a href="/state/delaware/">/state/delaware/</a></td>
+                  <td><a class="open-link" href="/state/delaware/" aria-label="Open Delaware address generator"><span data-i18n="compareOpenLink">View</span><span class="open-link-icon" aria-hidden="true">↗</span></a></td>
                 </tr>
                 <tr>
                   <td>Montana</td><td>MT</td><td>59xxx</td><td>406</td>
                   <td data-i18n="compareMtTax">Resort-area local taxes in a few towns (Big Sky, Whitefish, etc.)</td>
                   <td data-i18n="compareMtIncome">Yes (graduated)</td>
-                  <td><a href="/state/montana/">/state/montana/</a></td>
+                  <td><a class="open-link" href="/state/montana/" aria-label="Open Montana address generator"><span data-i18n="compareOpenLink">View</span><span class="open-link-icon" aria-hidden="true">↗</span></a></td>
                 </tr>
                 <tr>
                   <td>New Hampshire</td><td>NH</td><td>03xxx</td><td>603</td>
                   <td data-i18n="compareNhTax">Meals &amp; Rooms tax (~8.5%) on prepared food and lodging only</td>
                   <td data-i18n="compareNhIncome">No wage income tax</td>
-                  <td><a href="/state/new-hampshire/">/state/new-hampshire/</a></td>
+                  <td><a class="open-link" href="/state/new-hampshire/" aria-label="Open New Hampshire address generator"><span data-i18n="compareOpenLink">View</span><span class="open-link-icon" aria-hidden="true">↗</span></a></td>
                 </tr>
                 <tr>
                   <td>Oregon</td><td>OR</td><td>97xxx</td><td>503 / 541 / 458 / 971</td>
                   <td data-i18n="compareOrTax">None. Corporate Activity Tax on businesses.</td>
                   <td data-i18n="compareOrIncome">Yes (graduated, up to ~9.9%)</td>
-                  <td><a href="/state/oregon/">/state/oregon/</a></td>
+                  <td><a class="open-link" href="/state/oregon/" aria-label="Open Oregon address generator"><span data-i18n="compareOpenLink">View</span><span class="open-link-icon" aria-hidden="true">↗</span></a></td>
                 </tr>
                 <tr>
                   <td>Alaska</td><td>AK</td><td>99xxx</td><td>907</td>
                   <td data-i18n="compareAkTax">Borough-level local sales tax in many cities (0&ndash;7.5%)</td>
                   <td data-i18n="compareAkIncome">No state income tax</td>
-                  <td><a href="/state/alaska/">/state/alaska/</a></td>
+                  <td><a class="open-link" href="/state/alaska/" aria-label="Open Alaska address generator"><span data-i18n="compareOpenLink">View</span><span class="open-link-icon" aria-hidden="true">↗</span></a></td>
                 </tr>
               </tbody>
             </table>
@@ -439,25 +443,48 @@
               For development, testing, demo, and placeholder use only. Not for fraud, account
               abuse, or legal identity claims.
             </p>
-            <a
-              class="footer-icon"
-              href="https://x.com/ailenswpu"
-              rel="me noopener"
-              target="_blank"
-              aria-label="X (Twitter) @ailenswpu"
-              title="@ailenswpu on X"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="currentColor"
-                aria-hidden="true"
+            <div class="footer-icons">
+              <a
+                class="footer-icon footer-icon-x"
+                href="https://x.com/ailenswpu"
+                rel="me noopener"
+                target="_blank"
+                aria-label="X (Twitter) @ailenswpu"
+                title="@ailenswpu on X"
               >
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                <span>X</span>
+              </a>
+              <a
+                class="footer-icon footer-icon-github"
+                href="https://github.com/Ailenswpu/usaddregen"
+                rel="me noopener"
+                target="_blank"
+                aria-label="GitHub repository for usaddregen"
+                title="Source on GitHub"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 .5C5.73.5.5 5.73.5 12.04c0 5.1 3.29 9.41 7.86 10.94.58.1.79-.25.79-.55v-2.02c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.78 2.7 1.27 3.36.97.1-.75.4-1.27.73-1.56-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.15 11.15 0 015.83 0c2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55 4.57-1.53 7.85-5.84 7.85-10.94C23.5 5.73 18.27.5 12 .5z" />
+                </svg>
+                <span>GitHub</span>
+              </a>
+            </div>
           </div>
           <div class="footer-col">
             <h4 class="footer-heading" data-i18n="footerColStates">Tax-Free States</h4>
