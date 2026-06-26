@@ -183,8 +183,51 @@ const TRANSLATIONS = {
     faqFourQuestion: "Is the generated address real?",
     faqFourAnswer:
       "No. The output is realistic-format synthetic data. City, state, ZIP Code, and phone area codes are matched, but the full street address is not guaranteed to exist or be deliverable.",
+    faqFiveQuestion: "Why does a checkout form say my ZIP, city, or state doesn't match?",
+    faqFiveAnswer:
+      "Most checkout and shipping forms cross-check the ZIP code against the city and state via USPS data. A mismatch happens when the ZIP belongs to a different city in the real USPS database, or when the street address fails an AVS (Address Verification System) lookup. This generator picks city, state, and ZIP from the same state dataset so those three fields stay internally consistent, but it is still synthetic data — it will fail any real address-verification step.",
+    faqSixQuestion: "How is this different from a generic US address generator?",
+    faqSixAnswer:
+      "Generic generators sample all 50 states, which is overkill if you only need addresses for sales-tax-free testing scenarios. This tool ships a tiny, audit-friendly dataset limited to the five no-sales-tax states (Delaware, Montana, New Hampshire, Oregon, Alaska), runs entirely in the browser with no signup, and matches the phone area code to the state — making it predictable test fixture data.",
+    featuresTitle: "Why use this no-sales-tax address generator?",
+    featureOneTitle: "State-matched output",
+    featureOneBody:
+      "City, ZIP code, and phone area code always come from the same state record, so the address looks internally consistent in any form-validation flow.",
+    featureTwoTitle: "Runs entirely in your browser",
+    featureTwoBody:
+      "No backend and no signup required. Address generation happens client-side over a small JSON dataset hosted as a static site on Cloudflare.",
+    featureThreeTitle: "Focused on the 5 NOMAD states",
+    featureThreeBody:
+      "A deliberately small dataset for the five US states with no statewide sales tax — Delaware, Montana, New Hampshire, Oregon, and Alaska — keeps the tool fast, predictable, and easy to audit.",
+    featureFourTitle: "Multilingual UI",
+    featureFourBody:
+      "Switch between English, Simplified Chinese, and Traditional Chinese with a single dropdown. Language preference syncs via URL parameter and local storage.",
     footer:
-      "For development, testing, demo, and placeholder use only. Not for fraud, account abuse, or legal identity claims."
+      "For development, testing, demo, and placeholder use only. Not for fraud, account abuse, or legal identity claims.",
+    footerPrivacy: "Privacy Policy",
+    footerBlog: "Blog",
+    footerAbout: "About",
+    footerColStates: "Tax-Free States",
+    footerColResources: "Resources",
+    compareTitle: "The 5 no-sales-tax states at a glance",
+    compareIntro: "A quick reference for the five US states with no statewide sales tax — commonly remembered as the NOMAD states (New Hampshire, Oregon, Montana, Alaska, Delaware). Use this when you need to pick a state for a checkout-testing fixture or want to verify which area code goes with which state.",
+    compareColState: "State",
+    compareColAbbr: "Abbr",
+    compareColZip: "ZIP prefix",
+    compareColArea: "Area code",
+    compareColTax: "Local sales tax",
+    compareColIncome: "State income tax",
+    compareColPage: "Generator",
+    compareDeTax: "None. Gross Receipts Tax on businesses.",
+    compareDeIncome: "Yes (graduated, up to ~6.6%)",
+    compareMtTax: "Resort-area local taxes in a few towns (Big Sky, Whitefish, etc.)",
+    compareMtIncome: "Yes (graduated)",
+    compareNhTax: "Meals & Rooms tax (~8.5%) on prepared food and lodging only",
+    compareNhIncome: "No wage income tax",
+    compareOrTax: "None. Corporate Activity Tax on businesses.",
+    compareOrIncome: "Yes (graduated, up to ~9.9%)",
+    compareAkTax: "Borough-level local sales tax in many cities (0–7.5%)",
+    compareAkIncome: "No state income tax"
   },
   "zh-CN": {
     pageTitle: "美国免税州随机地址生成器 | 无销售税州地址工具",
@@ -232,7 +275,50 @@ const TRANSLATIONS = {
     faqFourQuestion: "生成的地址是真实地址吗？",
     faqFourAnswer:
       "不是。输出是符合格式的合成数据。城市、州、ZIP Code 和电话区号会相互匹配，但完整街道地址不保证真实存在或可投递。",
-    footer: "仅用于开发、测试、演示和占位数据。不得用于欺诈、账号滥用或法律身份声明。"
+    faqFiveQuestion: "为什么填写美国地址时会提示 ZIP Code、城市或州不匹配？",
+    faqFiveAnswer:
+      "大多数结账或寄送表单会用 USPS 数据交叉校验 ZIP Code 与城市、州的对应关系。当 ZIP 在真实 USPS 数据库中属于另一个城市，或者街道地址未通过 AVS（地址验证系统）查询时，就会出现不匹配提示。这个生成器从同一个州的数据集中挑选城市、州和 ZIP，所以这三项内部一致，但仍然是合成数据，无法通过任何真实的地址校验。",
+    faqSixQuestion: "和通用美国地址生成器有什么区别？",
+    faqSixAnswer:
+      "通用生成器覆盖全部 50 州，对只需要免税州测试场景的使用者来说过于庞杂。本工具数据集只包含 5 个无州级销售税的州（特拉华、蒙大拿、新罕布什尔、俄勒冈、阿拉斯加），完全在浏览器中运行，无需注册，并且电话区号会匹配对应州，更适合做可预测的测试夹具数据。",
+    featuresTitle: "为什么选择这个免税州地址生成器？",
+    featureOneTitle: "字段同州匹配",
+    featureOneBody:
+      "城市、ZIP Code 和电话区号始终取自同一个州的记录，地址在任何表单校验流程中都保持内部一致。",
+    featureTwoTitle: "完全在浏览器中运行",
+    featureTwoBody:
+      "无后端、无需注册。地址生成过程完全在客户端基于一个轻量 JSON 数据集完成，作为静态站托管在 Cloudflare。",
+    featureThreeTitle: "专注 NOMAD 五个免税州",
+    featureThreeBody:
+      "数据集刻意只包含 5 个无州级销售税的美国州 —— 特拉华、蒙大拿、新罕布什尔、俄勒冈、阿拉斯加，确保工具更快、更稳、更易审计。",
+    featureFourTitle: "多语言界面",
+    featureFourBody:
+      "下拉框切换英文、简体中文、繁体中文，语言偏好通过 URL 参数和本地存储同步。",
+    footer: "仅用于开发、测试、演示和占位数据。不得用于欺诈、账号滥用或法律身份声明。",
+    footerPrivacy: "隐私政策",
+    footerBlog: "博客",
+    footerAbout: "关于",
+    footerColStates: "免税州",
+    footerColResources: "资源",
+    compareTitle: "五个无销售税州一览",
+    compareIntro: "覆盖五个没有州级销售税的美国州 —— 也就是常说的 NOMAD 州（New Hampshire、Oregon、Montana、Alaska、Delaware）。需要为结账测试场景选州，或者要查哪个州对应哪个区号时，看这张表就够了。",
+    compareColState: "州",
+    compareColAbbr: "缩写",
+    compareColZip: "ZIP 前缀",
+    compareColArea: "电话区号",
+    compareColTax: "地方销售税",
+    compareColIncome: "州个人所得税",
+    compareColPage: "生成器",
+    compareDeTax: "无。对企业征收 Gross Receipts Tax。",
+    compareDeIncome: "有（累进，最高约 6.6%）",
+    compareMtTax: "Big Sky、Whitefish 等少数度假城镇有地方税",
+    compareMtIncome: "有（累进）",
+    compareNhTax: "餐饮与住宿税（约 8.5%）只对餐厅和酒店生效",
+    compareNhIncome: "工资收入无州税",
+    compareOrTax: "无。对企业征收 Corporate Activity Tax。",
+    compareOrIncome: "有（累进，最高约 9.9%）",
+    compareAkTax: "多数城市有 borough 级地方销售税（0–7.5%）",
+    compareAkIncome: "无州所得税"
   },
   "zh-TW": {
     pageTitle: "美國免稅州隨機地址產生器 | 無銷售稅州地址工具",
@@ -280,7 +366,50 @@ const TRANSLATIONS = {
     faqFourQuestion: "產生的地址是真實地址嗎？",
     faqFourAnswer:
       "不是。輸出是符合格式的合成資料。城市、州、ZIP Code 和電話區碼會相互匹配，但完整街道地址不保證真實存在或可投遞。",
-    footer: "僅用於開發、測試、展示和佔位資料。不得用於詐欺、帳號濫用或法律身分聲明。"
+    faqFiveQuestion: "為什麼填寫美國地址時會提示 ZIP Code、城市或州不匹配？",
+    faqFiveAnswer:
+      "大多數結帳或寄送表單會使用 USPS 資料交叉驗證 ZIP Code 與城市、州的對應關係。當 ZIP 在真實 USPS 資料庫中屬於另一個城市，或街道地址未通過 AVS（地址驗證系統）查詢時，就會出現不匹配提示。本產生器從同一州的資料集中挑選城市、州與 ZIP，所以這三項內部一致，但仍是合成資料，無法通過任何真實的地址驗證。",
+    faqSixQuestion: "與通用美國地址產生器有什麼差別？",
+    faqSixAnswer:
+      "通用產生器涵蓋全部 50 州，對只需要免稅州測試情境的使用者來說過於龐雜。本工具資料集僅包含 5 個無州級銷售稅的州（德拉瓦、蒙大拿、新罕布夏、奧勒岡、阿拉斯加），完全在瀏覽器中執行，無需註冊，並且電話區碼會配對對應州，更適合可預測的測試夾具資料。",
+    featuresTitle: "為什麼選擇這個免稅州地址產生器？",
+    featureOneTitle: "欄位同州配對",
+    featureOneBody:
+      "城市、ZIP Code 與電話區碼一律取自同一州的記錄，地址在任何表單驗證流程中都保持內部一致。",
+    featureTwoTitle: "完全在瀏覽器中執行",
+    featureTwoBody:
+      "無後端、無需註冊。地址產生過程完全在客戶端基於輕量 JSON 資料集完成，作為靜態站託管於 Cloudflare。",
+    featureThreeTitle: "專注 NOMAD 五個免稅州",
+    featureThreeBody:
+      "資料集刻意僅含 5 個無州級銷售稅的美國州 —— 德拉瓦、蒙大拿、新罕布夏、奧勒岡、阿拉斯加，使工具更快、更穩、更易稽核。",
+    featureFourTitle: "多語介面",
+    featureFourBody:
+      "下拉選單切換英文、簡體中文、繁體中文，語言偏好透過 URL 參數與本機儲存同步。",
+    footer: "僅用於開發、測試、展示和佔位資料。不得用於詐欺、帳號濫用或法律身分聲明。",
+    footerPrivacy: "隱私政策",
+    footerBlog: "部落格",
+    footerAbout: "關於",
+    footerColStates: "免稅州",
+    footerColResources: "資源",
+    compareTitle: "五個無銷售稅州一覽",
+    compareIntro: "涵蓋五個沒有州級銷售稅的美國州 —— 也就是常說的 NOMAD 州（New Hampshire、Oregon、Montana、Alaska、Delaware）。需要為結帳測試情境挑州，或者要查哪個州對應哪個區碼時，看這張表就夠了。",
+    compareColState: "州",
+    compareColAbbr: "縮寫",
+    compareColZip: "ZIP 前綴",
+    compareColArea: "電話區碼",
+    compareColTax: "地方銷售稅",
+    compareColIncome: "州個人所得稅",
+    compareColPage: "產生器",
+    compareDeTax: "無。對企業課徵 Gross Receipts Tax。",
+    compareDeIncome: "有（累進，最高約 6.6%）",
+    compareMtTax: "Big Sky、Whitefish 等少數度假城鎮有地方稅",
+    compareMtIncome: "有（累進）",
+    compareNhTax: "餐飲與住宿稅（約 8.5%）只對餐廳和飯店生效",
+    compareNhIncome: "工資收入無州稅",
+    compareOrTax: "無。對企業課徵 Corporate Activity Tax。",
+    compareOrIncome: "有（累進，最高約 9.9%）",
+    compareAkTax: "多數城市有 borough 級地方銷售稅（0–7.5%）",
+    compareAkIncome: "無州所得稅"
   }
 };
 
@@ -306,6 +435,9 @@ let currentAddress = null;
 let currentLanguage = getInitialLanguage();
 
 function getInitialLanguage() {
+  const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+  if (LANGUAGES.includes(urlLanguage)) return urlLanguage;
+
   const savedLanguage = window.localStorage.getItem("addressGeneratorLanguage");
   if (LANGUAGES.includes(savedLanguage)) return savedLanguage;
 
@@ -397,6 +529,15 @@ function applyLanguage(language) {
   document.documentElement.lang = currentLanguage;
   document.title = t("pageTitle");
 
+  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  const selfUrl =
+    currentLanguage === "en"
+      ? "https://usaddregen.com/"
+      : `https://usaddregen.com/?lang=${currentLanguage}`;
+  if (canonicalLink) canonicalLink.href = selfUrl;
+  if (ogUrl) ogUrl.content = selfUrl;
+
   const metaDescription = document.querySelector('meta[name="description"]');
   const ogDescription = document.querySelector('meta[property="og:description"]');
   const twitterDescription = document.querySelector('meta[name="twitter:description"]');
@@ -485,4 +626,10 @@ function bindEvents() {
 
 bindEvents();
 applyLanguage(currentLanguage);
+
+const urlState = new URLSearchParams(window.location.search).get("state");
+if (urlState && TAX_FREE_STATES.some((s) => s.abbr === urlState.toUpperCase())) {
+  stateSelect.value = urlState.toUpperCase();
+}
+
 renderAddress(generateAddress());

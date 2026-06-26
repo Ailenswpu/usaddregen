@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Test Addresses Fail AVS and ZIP+City+State Validation | US Tax-Free Address Generator</title>
+    <meta
+      name="description"
+      content="A practical guide to AVS (Address Verification System), USPS ZIP-city-state matching, and why synthetic test addresses fail real validation — with tips for QA, checkout testing, and form development."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/page.css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Why Test Addresses Fail AVS and ZIP+City+State Validation" />
+    <meta property="og:description" content="The two validation layers that reject your test fixtures — USPS ZIP-city-state matching and the payment network's Address Verification System (AVS). With the AVS response-code table." />
+    <meta property="og:url" content="https://usaddregen.com/blog/avs-and-zip-validation.html" />
+    <meta property="og:site_name" content="US Tax-Free Address Generator" />
+    <meta property="og:image" content="https://usaddregen.com/og-image.png" />
+    <meta property="article:published_time" content="2026-06-26" />
+    <meta property="article:modified_time" content="2026-06-26" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ailenswpu" />
+    <meta name="twitter:title" content="AVS &amp; ZIP Validation Explained" />
+    <meta name="twitter:description" content="The two validation layers that reject synthetic addresses, plus the AVS response-code table." />
+    <meta name="twitter:image" content="https://usaddregen.com/og-image.png" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2718770784621191"
+         crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://usaddregen.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://usaddregen.com/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "AVS & ZIP Validation"}
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Why Test Addresses Fail AVS and ZIP+City+State Validation",
+        "description": "A practical guide to AVS, USPS ZIP matching, and why synthetic addresses fail real validation in checkout and shipping flows.",
+        "datePublished": "2026-06-26",
+        "dateModified": "2026-06-26",
+        "author": {
+          "@type": "Organization",
+          "name": "US Tax-Free Address Generator"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "US Tax-Free Address Generator",
+          "url": "https://usaddregen.com/"
+        },
+        "mainEntityOfPage": "https://usaddregen.com/blog/avs-and-zip-validation.html"
+      }
+    </script>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="page-header" aria-label="Breadcrumb">
+        <a href="/">← Home</a>
+        <span>/</span>
+        <span>Blog</span>
+        <span>/</span>
+        <span>AVS &amp; ZIP Validation</span>
+      </nav>
+
+      <h1>Why Test Addresses Fail AVS and ZIP+City+State Validation</h1>
+      <p class="meta">Published June 26, 2026 &middot; 9 min read</p>
+
+      <p>
+        You generated a clean-looking US address for a QA fixture. The street looks plausible, the
+        city is real, the ZIP code starts with the right digits, and the phone area code lines up.
+        You paste it into a staging checkout, and the form rejects it: <em>&ldquo;The ZIP code you
+        entered does not match the city and state.&rdquo;</em> Or worse, the payment gateway returns
+        an <code>AVS_MISMATCH</code> response and the charge fails.
+      </p>
+      <p>
+        Both of these failures are doing their job. This article explains the two systems that
+        produce them &mdash; USPS-driven ZIP&middot;city&middot;state validation and Address
+        Verification System (AVS) checks &mdash; so you can design your test fixtures around their
+        rules instead of fighting them.
+      </p>
+
+      <h2>The two validation layers, briefly</h2>
+      <p>
+        A US shipping form typically runs an address through two independent layers:
+      </p>
+      <ol>
+        <li>
+          <strong>USPS deliverability validation</strong>. Confirms that the city, state, and ZIP
+          code refer to the same USPS-recognized post office area, and optionally that the street
+          number and street name exist on a real USPS delivery route. This is the layer that fires
+          the &ldquo;ZIP doesn&rsquo;t match city/state&rdquo; error.
+        </li>
+        <li>
+          <strong>AVS &mdash; Address Verification System</strong>. A check by the card network
+          (Visa, Mastercard, Amex, Discover) that compares the numeric portion of the billing
+          street address and the billing ZIP code against what the cardholder&rsquo;s bank has on
+          file. This is the layer that fires <code>AVS_MISMATCH</code>,
+          <code>AVS_ZIP_ONLY_MATCH</code>, and friends in payment gateway responses.
+        </li>
+      </ol>
+      <p>
+        Note that these are <em>different validations against different data sources</em>. A
+        synthetic address can satisfy layer 1 and still fail layer 2, because the bank has never
+        heard of the cardholder living there.
+      </p>
+
+      <h2>How USPS ZIP matching works</h2>
+      <p>
+        USPS maintains a database where every ZIP code is associated with one or more
+        <em>preferred</em> city names and a state. A bare ZIP code like <code>19801</code>
+        unambiguously belongs to <strong>Wilmington, DE</strong>. If you submit
+        <code>19801</code> paired with <em>Dover, DE</em>, validation fails because Dover&rsquo;s
+        ZIP codes are <code>19901</code> and <code>19904</code> &mdash; a different post office.
+      </p>
+      <p>
+        Edge cases the USPS database handles that catch out home-grown matchers:
+      </p>
+      <ul>
+        <li>
+          <strong>Acceptable alternate city names</strong>. <code>19711</code> is officially
+          Newark, DE, but USPS accepts <em>University of Delaware</em> as an alternate name for
+          mail addressed there. Most third-party validators reject the alternate even though USPS
+          would deliver it.
+        </li>
+        <li>
+          <strong>ZIP boundaries that cross neighborhoods</strong>. A single ZIP code can span more
+          than one city name and even more than one county. Checkout forms commonly accept any of
+          the recognized names; CRMs sometimes overwrite the user&rsquo;s entry with the
+          &ldquo;preferred&rdquo; one.
+        </li>
+        <li>
+          <strong>ZIP+4 specificity</strong>. The 4-digit suffix narrows a ZIP down to a block face
+          or building. Most checkout forms accept and ignore it; some shipping APIs require it for
+          discounted commercial rates.
+        </li>
+      </ul>
+      <p>
+        For test fixtures, the practical takeaway is: <strong>sample your city, state, and ZIP
+        from the same state record</strong>. The
+        <a href="/">US Tax-Free State Address Generator</a> does exactly this &mdash; if it picks
+        Delaware, it picks a Delaware city and one of that city&rsquo;s real ZIPs. Layer 1 will
+        always pass.
+      </p>
+
+      <h2>How AVS works</h2>
+      <p>
+        AVS lives at the payment network level. When a merchant authorizes a card transaction with
+        a billing address, the issuer compares two specific tokens to its records:
+      </p>
+      <ul>
+        <li>
+          The <strong>numeric portion of the street address</strong>. <code>123 Main St</code> and
+          <code>123 Maple Ave</code> both reduce to the same AVS token, <code>123</code>. Some
+          issuers ignore everything past the digits.
+        </li>
+        <li>
+          The <strong>5-digit ZIP code</strong>.
+        </li>
+      </ul>
+      <p>
+        The response is a single letter code returned with the authorization. Common values:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Code</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Y</code></td><td>Street and ZIP both match.</td></tr>
+          <tr><td><code>A</code></td><td>Street matches, ZIP does not.</td></tr>
+          <tr><td><code>Z</code></td><td>5-digit ZIP matches, street does not.</td></tr>
+          <tr><td><code>N</code></td><td>Neither matches.</td></tr>
+          <tr><td><code>U</code></td><td>Issuer did not respond / address unavailable.</td></tr>
+          <tr><td><code>G</code></td><td>Non-US issuer, AVS not supported.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Merchant gateways such as Stripe, Adyen, Braintree, and Authorize.Net surface this code
+        and let the merchant decide what to do with each value &mdash; auto-decline on
+        <code>N</code>, soft-decline on <code>A</code> or <code>Z</code>, and so on.
+      </p>
+      <p>
+        Because AVS reads from the bank&rsquo;s records of the actual cardholder, <strong>no
+        synthetic address can ever pass real AVS</strong>. A randomly generated street and ZIP
+        only match if a real cardholder happens to live there &mdash; which is exactly the
+        situation AVS is designed to detect.
+      </p>
+
+      <h2>Designing test fixtures that work in each environment</h2>
+      <p>Here is a practical playbook for using synthetic addresses without fighting validation:</p>
+
+      <h3>1. Use a state-consistent generator for unit tests and UI demos</h3>
+      <p>
+        For form validation, layout testing, screenshot fixtures, and seed data, you want
+        consistent-looking addresses but you do not need to pass any external API. A small
+        generator like the one on this site provides addresses whose city, state, and ZIP always
+        match.
+      </p>
+
+      <h3>2. Use the official test cards plus the AVS test ZIPs in payment-gateway sandboxes</h3>
+      <p>
+        Stripe, Braintree, and Adyen all publish test cards plus magic addresses that force a
+        chosen AVS response in their <em>sandbox</em> environments. For example, in Stripe&rsquo;s
+        test mode, a billing ZIP of <code>42424</code> deterministically returns
+        <code>N</code> (no match), and any other 5-digit ZIP returns <code>Y</code>. Use those
+        documented magic values instead of generic synthetic addresses for AVS-specific scenarios.
+      </p>
+      <pre><code>// Stripe test mode — deterministic AVS outcomes
+const billing = {
+  line1:      '1 Test Lane',
+  postal_code: '42424',  // forces AVS code N
+};
+const intent = await stripe.paymentIntents.create({ ... });</code></pre>
+
+      <h3>3. Mock the address-verification call in unit tests</h3>
+      <p>
+        If your code talks to USPS Address Information API, Smarty (formerly SmartyStreets),
+        Lob, or Google Address Validation, stub those clients in unit tests. The synthetic
+        addresses do not need to pass &mdash; they only need to flow through your code path. Verify
+        that your code handles each documented response shape, including the
+        <em>partial-match</em> and <em>not-found</em> cases.
+      </p>
+
+      <h3>4. Use real bank addresses for end-to-end production tests</h3>
+      <p>
+        If you must run an end-to-end test in production with a real card, use the cardholder&rsquo;s
+        real billing address. There is no shortcut around the bank&rsquo;s records. Production tests
+        with synthetic addresses are a known footgun for getting your merchant account flagged.
+      </p>
+
+      <h2>When a checkout still complains about &ldquo;ZIP doesn&rsquo;t match&rdquo;</h2>
+      <p>
+        If your address came from the
+        <a href="/">tax-free state generator</a> and the checkout still complains, one of the
+        following is usually true:
+      </p>
+      <ul>
+        <li>
+          The checkout is calling a <em>commercial</em> address-validation API (Smarty, Lob,
+          USPS Web Tools) that goes further than ZIP/city/state and requires the specific
+          <strong>street number to exist on USPS&rsquo; delivery list</strong> for that ZIP.
+          Synthetic street numbers won&rsquo;t pass that.
+        </li>
+        <li>
+          The checkout is doing AVS at the &ldquo;place order&rdquo; step and decoding the AVS
+          response as a form error. The fix is to either disable AVS in your sandbox or document
+          the expected failure for the testing team.
+        </li>
+        <li>
+          The form&rsquo;s ZIP database is out of date and does not recognize a recently added or
+          renamed ZIP code. Updating the dataset is the right fix, not changing the test address.
+        </li>
+      </ul>
+
+      <h2>Summary</h2>
+      <p>
+        Two validation layers, two different data sources, two different failure modes. USPS
+        ZIP-city-state checks are about <em>internal consistency</em> &mdash; you can satisfy them
+        with a state-matched synthetic address. AVS is about <em>matching the bank&rsquo;s real
+        records on a real cardholder</em> &mdash; no synthetic address can ever pass it. Design
+        your fixtures and tests accordingly, and a lot of mysterious test-failure tickets will
+        stop appearing.
+      </p>
+
+      <h2>Sources &amp; further reading</h2>
+      <p>
+        Specific AVS response codes, USPS database fields, and gateway documentation cited above
+        come from the following authoritative sources. AVS code semantics are gateway-specific,
+        so always check the gateway you actually use:
+      </p>
+      <ul>
+        <li>
+          <a href="https://docs.stripe.com/declines/codes" rel="noopener" target="_blank">
+            Stripe &mdash; Decline codes &amp; AVS results</a> &mdash; gateway-side reference for
+          card-issuer AVS responses.
+        </li>
+        <li>
+          <a href="https://developer.paypal.com/braintree/docs/reference/general/avs-and-cvv-rules" rel="noopener" target="_blank">
+            Braintree &mdash; AVS and CVV rules</a> &mdash; programmable rules around AVS responses.
+        </li>
+        <li>
+          <a href="https://developer.authorize.net/api/reference/responseCodes.html" rel="noopener" target="_blank">
+            Authorize.Net &mdash; Response code reference</a> &mdash; the canonical AVS letter-code
+          table (Y, A, Z, N, U, R, S, E, G).
+        </li>
+        <li>
+          <a href="https://www.usps.com/business/web-tools-apis/" rel="noopener" target="_blank">
+            USPS Web Tools APIs</a> &mdash; ZIP+4, address standardization, and city/state lookup.
+        </li>
+        <li>
+          <a href="https://postalpro.usps.com/" rel="noopener" target="_blank">
+            USPS PostalPro</a> &mdash; deliverability and CASS certification documentation.
+        </li>
+        <li>
+          <a href="https://www.smarty.com/docs/cloud/us-street-api" rel="noopener" target="_blank">
+            Smarty &mdash; US Street Address API</a> &mdash; commercial CASS-certified verification
+          provider used as a reference for the validation layers described above.
+        </li>
+      </ul>
+
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/blog/nomad-states-explained.html">NOMAD States Explained: the 5 US states
+            with no sales tax</a></li>
+        <li><a href="/state/">Browse generators by state</a></li>
+        <li><a href="/">Try the address generator</a></li>
+      </ul>
+
+      <footer class="page-footer">
+        <p>
+          <a href="/">Home</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/privacy.html">Privacy Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/blog/nomad-states-explained.html">NOMAD States Explained</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

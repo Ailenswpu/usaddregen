@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | US Tax-Free State Address Generator</title>
+    <meta
+      name="description"
+      content="About usaddregen.com — a focused, browser-only generator for US no-sales-tax state addresses (Delaware, Montana, New Hampshire, Oregon, Alaska), built for QA engineers, developers, and designers who need clean test fixtures."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://usaddregen.com/about/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/page.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About | US Tax-Free State Address Generator" />
+    <meta property="og:description" content="A focused, browser-only generator for US no-sales-tax state addresses — built for QA engineers, developers, and designers who need clean test fixtures." />
+    <meta property="og:url" content="https://usaddregen.com/about/" />
+    <meta property="og:site_name" content="US Tax-Free Address Generator" />
+    <meta property="og:image" content="https://usaddregen.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ailenswpu" />
+    <meta name="twitter:title" content="About | US Tax-Free State Address Generator" />
+    <meta name="twitter:description" content="The story behind usaddregen.com and why it focuses on the 5 no-sales-tax US states." />
+    <meta name="twitter:image" content="https://usaddregen.com/og-image.png" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2718770784621191"
+         crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://usaddregen.com/"},
+          {"@type": "ListItem", "position": 2, "name": "About"}
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About US Tax-Free State Address Generator",
+        "url": "https://usaddregen.com/about/",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "US Tax-Free Address Generator",
+          "url": "https://usaddregen.com/",
+          "sameAs": ["https://x.com/ailenswpu"]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="page-header" aria-label="Breadcrumb">
+        <a href="/">← Home</a>
+        <span>/</span>
+        <span>About</span>
+      </nav>
+
+      <h1>About</h1>
+      <p class="meta">
+        A small, focused web tool for generating US no-sales-tax state addresses &mdash; for
+        testing, QA, and design work.
+      </p>
+
+      <h2>What this site is</h2>
+      <p>
+        <strong>US Tax-Free State Address Generator</strong> (usaddregen.com) is a free,
+        browser-based tool that produces realistic-format random US addresses limited to the five
+        states with <em>no statewide sales tax</em>:
+      </p>
+      <ul>
+        <li><a href="/state/delaware/">Delaware</a> &mdash; no sales tax since statehood; Gross
+          Receipts Tax instead.</li>
+        <li><a href="/state/montana/">Montana</a> &mdash; no general sales tax; targeted resort
+          taxes in a few towns.</li>
+        <li><a href="/state/new-hampshire/">New Hampshire</a> &mdash; no general sales tax, no
+          wage income tax.</li>
+        <li><a href="/state/oregon/">Oregon</a> &mdash; nine ballot rejections of a sales tax;
+          Corporate Activity Tax on businesses.</li>
+        <li><a href="/state/alaska/">Alaska</a> &mdash; no statewide sales tax, but
+          borough-level local sales taxes apply.</li>
+      </ul>
+      <p>
+        Each generated address combines a real US city, a real ZIP code that belongs to that city
+        in the USPS database, a synthetic street, a synthetic full name, and a phone number using
+        an area code that genuinely covers the chosen state.
+      </p>
+
+      <h2>Why this niche, instead of a generic 50-state generator</h2>
+      <p>
+        A lot of online address generators sample addresses across all 50 US states. That is
+        useful when you genuinely need a random US address, but it makes a specific kind of test
+        fixture harder: the case where the destination should produce a <strong>$0.00 sales-tax
+        line</strong>.
+      </p>
+      <p>
+        Modern e-commerce checkout code goes through a lot of paths to get sales tax right. The
+        tax engine is queried, the cart math adjusts, the invoice template renders, and the order
+        confirmation email shows the breakdown. Each of these steps has its own bug surface for
+        the zero-tax case &mdash; missing line items, hidden rows, wrong subtotals,
+        misformatted localization. A dedicated tax-free state generator is the cleanest way to
+        produce that test fixture quickly.
+      </p>
+      <p>
+        Limiting the dataset to five states also has practical engineering benefits:
+      </p>
+      <ul>
+        <li>The whole JSON dataset fits in the static HTML/JS bundle; no API call required.</li>
+        <li>The output is deterministic enough to audit by hand if you suspect a bug.</li>
+        <li>The site loads quickly on Cloudflare&rsquo;s global edge with no backend.</li>
+      </ul>
+
+      <h2>How it&rsquo;s built</h2>
+      <p>
+        The site is a small Vite static project hosted on Cloudflare Workers Static Assets. There
+        is no database, no user account system, and no backend address-generation API. Everything
+        runs in your browser:
+      </p>
+      <ul>
+        <li>A small in-memory dataset of 5 states &times; 5 cities, with ZIP codes and area codes.</li>
+        <li>Random street numbers and names assembled from a fixed wordlist.</li>
+        <li>A multilingual UI (English, Simplified Chinese, Traditional Chinese) controlled by a
+          single dropdown, with the language preference syncing via URL parameter and
+          localStorage.</li>
+      </ul>
+      <p>
+        Source-level signals (Schema.org JSON-LD, hreflang, an llms.txt for LLM crawlers, an
+        ads.txt for the advertising network) are all in place because we wanted the site to be
+        as legible as possible to both traditional search engines and the newer generative
+        search engines.
+      </p>
+
+      <h2>What this site is not</h2>
+      <p>
+        We want to be honest about the boundaries of the tool.
+      </p>
+      <ul>
+        <li>
+          <strong>Not a real-address service</strong>. The output looks realistic, but the street
+          line is synthetic; it will not pass any real address-verification check (USPS, Smarty,
+          Lob, AVS).
+        </li>
+        <li>
+          <strong>Not tax advice</strong>. &ldquo;Tax-free state&rdquo; here just means &ldquo;no
+          statewide sales tax.&rdquo; Other taxes, local sales taxes (most notably in Alaska), and
+          business-level taxes still exist. For tax decisions, talk to a professional.
+        </li>
+        <li>
+          <strong>Not for fraud or identity claims</strong>. The Terms of Use, and the visible
+          footer note on every page, make clear that the generator is for legitimate testing,
+          design, and demo work. Anything else is on the user, not the tool.
+        </li>
+      </ul>
+
+      <h2>Privacy &amp; ads</h2>
+      <p>
+        The site does not collect personal information from visitors. Your selected interface
+        language is stored in your browser&rsquo;s <code>localStorage</code> so the site can
+        remember it; nothing is sent to us. The site does serve <strong>Google AdSense</strong>
+        advertising; AdSense uses cookies for ad serving and measurement. The full
+        <a href="/privacy.html">Privacy Policy</a> explains everything in detail, including how
+        to opt out of personalized advertising.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        The fastest way to reach the maintainer is on X (Twitter):
+        <a href="https://x.com/ailenswpu" rel="me noopener" target="_blank">@ailenswpu</a>.
+        DMs are open for feedback, bug reports, and feature requests. We particularly like:
+      </p>
+      <ul>
+        <li>Pointing out a city/ZIP combination that the generator gets wrong.</li>
+        <li>Suggesting a new test scenario the tool could support without breaking its
+          deliberately small scope.</li>
+        <li>Translation polish for the Simplified or Traditional Chinese UI.</li>
+      </ul>
+
+      <h2>Related reading</h2>
+      <ul>
+        <li><a href="/blog/nomad-states-explained.html">NOMAD States Explained: The 5 US States
+            With No Sales Tax</a></li>
+        <li><a href="/blog/avs-and-zip-validation.html">Why Test Addresses Fail AVS and
+            ZIP+City+State Validation</a></li>
+        <li><a href="/">Try the generator</a></li>
+      </ul>
+
+      <footer class="page-footer">
+        <p>
+          <a href="/">Home</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/blog/">Blog</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/privacy.html">Privacy Policy</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

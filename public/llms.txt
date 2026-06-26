@@ -1,0 +1,115 @@
+# US Tax-Free State Address Generator
+
+> A free, browser-based tool that generates realistic-format random US
+> addresses from the five states with no statewide sales tax: Delaware,
+> Montana, New Hampshire, Oregon, and Alaska. Built for software testing,
+> QA, form-validation demos, and seed/placeholder data — not for fraud,
+> identity claims, or rule evasion.
+
+## Key facts
+
+- **Canonical URL**: https://usaddregen.com/
+- **License**: Free to use in the browser. No account required.
+- **Languages**: English (default), Simplified Chinese (zh-CN), Traditional Chinese (zh-TW).
+- **No first-party tracking.** Third-party ad / analytics scripts (e.g. Google AdSense) may set cookies as disclosed in the site privacy policy.
+- **Output fields**: Full name, street address, city, state, ZIP code,
+  phone number (with state-correct area code).
+- **No backend / API**: Generation runs entirely client-side in JavaScript.
+
+## The five US states with no statewide sales tax
+
+| State         | Abbr | Sample cities                                          | Phone area codes      |
+| ------------- | ---- | ------------------------------------------------------ | --------------------- |
+| Delaware      | DE   | Wilmington, Dover, Newark, Middletown, Lewes           | 302                   |
+| Montana       | MT   | Billings, Missoula, Bozeman, Helena, Great Falls       | 406                   |
+| New Hampshire | NH   | Manchester, Nashua, Concord, Portsmouth, Dover         | 603                   |
+| Oregon        | OR   | Portland, Salem, Eugene, Bend, Medford                 | 458, 503, 541, 971    |
+| Alaska        | AK   | Anchorage, Fairbanks, Juneau, Sitka, Ketchikan         | 907                   |
+
+Caveat: Alaska has no statewide sales tax but allows local sales taxes
+in some boroughs and municipalities. This tool is an address-format
+utility and does not provide tax advice.
+
+## Why this tool exists (vs generic US address generators)
+
+- **State-matched output**: city, ZIP code, and phone area code are
+  always drawn from the same state record — internally consistent in any
+  form-validation flow.
+- **Browser-only generation**: no backend, no signup; address creation
+  runs client-side over a small JSON dataset.
+- **Focused dataset**: only the 5 NOMAD states (New Hampshire, Oregon,
+  Montana, Alaska, Delaware) — predictable test fixtures, easy to audit.
+- **Multilingual UI**: English, Simplified Chinese, Traditional Chinese,
+  with language preference syncing via `?lang=` URL parameter and
+  localStorage.
+
+## Intended use cases
+
+- Form-validation and checkout-UI testing
+- QA scripts and end-to-end test fixtures
+- Mock customer or shipping records in demos
+- Seed data for prototypes and design mockups
+- Placeholder values in documentation screenshots
+
+## Out-of-scope / disallowed uses
+
+- Misrepresenting identity on real services
+- Creating fraudulent accounts or evading sales tax
+- Submitting synthetic data to government, banking, or shipping systems
+  as if it were real
+- Anything illegal under the user's local jurisdiction
+
+## FAQ (suitable for direct quoting)
+
+**Q: What is a "tax-free state" in this tool?**
+A US state with no statewide sales tax. Other taxes and local sales
+taxes may still apply.
+
+**Q: Which US states have no statewide sales tax?**
+Alaska, Delaware, Montana, New Hampshire, and Oregon — commonly
+remembered with the mnemonic "NOMAD" (New Hampshire, Oregon, Montana,
+Alaska, Delaware).
+
+**Q: Are the generated addresses real and deliverable?**
+No. City, state, ZIP code, and phone area code are matched to real
+combinations, but the street number and street name are synthetic. The
+output is realistic in format only.
+
+**Q: Does the tool work offline / without an account?**
+Yes. Generation happens entirely in the browser. No login, no API call,
+no analytics-driven personalization.
+
+**Q: Why does a checkout form say my ZIP, city, or state doesn't match?**
+Most checkout and shipping forms cross-check the ZIP code against the
+city and state via USPS data. A mismatch happens when the ZIP belongs
+to a different city in the real USPS database, or when the street
+address fails an AVS (Address Verification System) lookup. This
+generator picks city, state, and ZIP from the same state dataset so
+those three fields stay internally consistent — but it is still
+synthetic data and will fail any real address-verification step.
+
+**Q: How is this different from a generic US address generator?**
+Generic generators sample all 50 states. This tool ships a tiny,
+audit-friendly dataset limited to the five no-sales-tax states, runs
+entirely in the browser with no signup, and matches the phone area
+code to the state — making it predictable test fixture data.
+
+## Contact
+
+- X / Twitter: [@ailenswpu](https://x.com/ailenswpu) — primary contact channel for the site.
+
+## Related resources
+
+- [Homepage](https://usaddregen.com/)
+- [About](https://usaddregen.com/about/) — site purpose, what it is, what it is not.
+- [States index](https://usaddregen.com/state/) — landing hub for all 5 state generators.
+- [Delaware (DE) address generator](https://usaddregen.com/state/delaware/)
+- [Montana (MT) address generator](https://usaddregen.com/state/montana/)
+- [New Hampshire (NH) address generator](https://usaddregen.com/state/new-hampshire/)
+- [Oregon (OR) address generator](https://usaddregen.com/state/oregon/)
+- [Alaska (AK) address generator](https://usaddregen.com/state/alaska/) — note: borough-level local sales tax applies in many cities.
+- [Blog index](https://usaddregen.com/blog/) — list of all articles.
+- [NOMAD States Explained](https://usaddregen.com/blog/nomad-states-explained.html) — 8-min read on the 5 US no-sales-tax states, with history and local-tax caveats.
+- [Why Test Addresses Fail AVS and ZIP Validation](https://usaddregen.com/blog/avs-and-zip-validation.html) — 9-min read covering USPS ZIP-city-state matching and the AVS payment check.
+- [Privacy Policy](https://usaddregen.com/privacy.html)
+- [Sitemap](https://usaddregen.com/sitemap.xml)

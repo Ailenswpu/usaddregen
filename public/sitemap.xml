@@ -1,9 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://usaddregen.com/</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/?lang=zh-TW" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/?lang=zh-CN</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/?lang=zh-TW" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/?lang=zh-TW</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usaddregen.com/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/?lang=zh-TW" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usaddregen.com/" />
+  </url>
+  <url>
+    <loc>https://usaddregen.com/state/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/state/delaware/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/state/montana/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/state/new-hampshire/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/state/oregon/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/state/alaska/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/about/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/nomad-states-explained.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/blog/avs-and-zip-validation.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://usaddregen.com/privacy.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
