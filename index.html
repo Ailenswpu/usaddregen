@@ -197,7 +197,12 @@
     <div id="app">
       <header class="site-header">
         <a class="brand" href="/" aria-label="US Tax-Free Address Generator home">
-          <span class="brand-mark">US</span>
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" focusable="false">
+              <path d="M32 3.5C18.8 3.5 8.6 13.8 8.6 26.8C8.6 43.7 32 61 32 61s23.4-17.3 23.4-34.2C55.4 13.8 45.2 3.5 32 3.5Z" />
+              <circle cx="32" cy="26.2" r="10.6" />
+            </svg>
+          </span>
           <span data-i18n="brand">Tax-Free Address Generator</span>
         </a>
         <div class="header-actions">
