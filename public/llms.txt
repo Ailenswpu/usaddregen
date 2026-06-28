@@ -121,7 +121,8 @@ postal, banking, telecom, government, or shipping databases.
 
 ## Contact
 
-- X / Twitter: [@ailenswpu](https://x.com/ailenswpu) — primary contact channel for the site.
+- Email: support@usaddregen.com — fastest for general inquiries, partnerships, and AdSense-related questions.
+- X / Twitter: [@ailenswpu](https://x.com/ailenswpu) — public contact channel.
 - GitHub: [Ailenswpu/usaddregen](https://github.com/Ailenswpu/usaddregen) — source code, issues, and pull requests.
 
 ## Related resources
