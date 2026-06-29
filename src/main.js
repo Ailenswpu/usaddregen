@@ -1,67 +1,5 @@
 import "./styles.css";
-
-const TAX_FREE_STATES = [
-  {
-    abbr: "DE",
-    name: "Delaware",
-    areaCodes: ["302"],
-    cities: [
-      { name: "Wilmington", zips: ["19801", "19802", "19805", "19806"] },
-      { name: "Dover", zips: ["19901", "19904"] },
-      { name: "Newark", zips: ["19711", "19713"] },
-      { name: "Middletown", zips: ["19709"] },
-      { name: "Lewes", zips: ["19958"] }
-    ]
-  },
-  {
-    abbr: "MT",
-    name: "Montana",
-    areaCodes: ["406"],
-    cities: [
-      { name: "Billings", zips: ["59101", "59102", "59105"] },
-      { name: "Missoula", zips: ["59801", "59802"] },
-      { name: "Bozeman", zips: ["59715", "59718"] },
-      { name: "Helena", zips: ["59601", "59602"] },
-      { name: "Great Falls", zips: ["59401", "59405"] }
-    ]
-  },
-  {
-    abbr: "NH",
-    name: "New Hampshire",
-    areaCodes: ["603"],
-    cities: [
-      { name: "Manchester", zips: ["03101", "03102", "03104"] },
-      { name: "Nashua", zips: ["03060", "03062"] },
-      { name: "Concord", zips: ["03301", "03303"] },
-      { name: "Portsmouth", zips: ["03801"] },
-      { name: "Dover", zips: ["03820"] }
-    ]
-  },
-  {
-    abbr: "OR",
-    name: "Oregon",
-    areaCodes: ["458", "503", "541", "971"],
-    cities: [
-      { name: "Portland", zips: ["97201", "97202", "97205", "97209"] },
-      { name: "Salem", zips: ["97301", "97302"] },
-      { name: "Eugene", zips: ["97401", "97402", "97405"] },
-      { name: "Bend", zips: ["97701", "97702"] },
-      { name: "Medford", zips: ["97501", "97504"] }
-    ]
-  },
-  {
-    abbr: "AK",
-    name: "Alaska",
-    areaCodes: ["907"],
-    cities: [
-      { name: "Anchorage", zips: ["99501", "99503", "99507"] },
-      { name: "Fairbanks", zips: ["99701", "99709"] },
-      { name: "Juneau", zips: ["99801"] },
-      { name: "Sitka", zips: ["99835"] },
-      { name: "Ketchikan", zips: ["99901"] }
-    ]
-  }
-];
+import { STATES } from "./data/states.js";
 
 const INTERNATIONAL_COUNTRIES = {
   NG: {
@@ -226,13 +164,13 @@ const TRANSLATIONS = {
     tabEgypt: "Egypt",
     tabTurkey: "Turkey",
     tabPakistan: "Pakistan",
-    stateLabel: "Tax-free state",
+    stateLabel: "US state",
     regionLabel: "Region",
-    randomStateOption: "Random tax-free state",
+    randomStateOption: "Random US state",
     randomRegionOption: "Random region",
     generateButton: "Generate",
     stateHelp:
-      "City, state, ZIP Code, and phone area code are generated from the same state dataset.",
+      "City, state, ZIP Code, and phone area code are generated from the same US state dataset.",
     regionHelp:
       "City, region, postal code, and phone number are generated from a country-specific test dataset.",
     generatedOnLoad: "Generated on load",
@@ -250,7 +188,7 @@ const TRANSLATIONS = {
     copyFailedToast: "Copy failed. Select the address manually.",
     usageTitle: "Built for clean test data",
     usageBodyOne:
-      "This tool keeps a focused dataset: five US states with no statewide sales tax plus Nigeria, Egypt, Turkey, and Pakistan for international form testing. The smaller dataset keeps the static site fast, easy to audit, and simple to deploy on Cloudflare Pages.",
+      "This tool keeps a focused static dataset: all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan for form testing. The dataset stays lightweight, easy to audit, and simple to deploy on Cloudflare Pages.",
     usageBodyTwo:
       "The generator creates synthetic street lines and pairs them with real city, state, ZIP Code, and area code combinations. It does not verify deliverability and should not be used to misrepresent identity, evade rules, or submit fraudulent information.",
     internationalEyebrow: "International generators",
@@ -287,7 +225,7 @@ const TRANSLATIONS = {
       "Most checkout and shipping forms cross-check the ZIP code against the city and state via USPS data. A mismatch happens when the ZIP belongs to a different city in the real USPS database, or when the street address fails an AVS (Address Verification System) lookup. This generator picks city, state, and ZIP from the same state dataset so those three fields stay internally consistent, but it is still synthetic data — it will fail any real address-verification step.",
     faqSixQuestion: "How is this different from a generic US address generator?",
     faqSixAnswer:
-      "Generic generators sample all 50 states, which is overkill if you only need addresses for sales-tax-free testing scenarios. This tool ships a tiny, audit-friendly dataset limited to the five no-sales-tax states (Delaware, Montana, New Hampshire, Oregon, Alaska), runs entirely in the browser with no signup, and matches the phone area code to the state — making it predictable test fixture data.",
+      "Generic generators often mix city, ZIP, and phone data without explaining the source. This tool keeps an audit-friendly static dataset, runs entirely in the browser with no signup, and matches the phone area code to the selected state — making it predictable test fixture data.",
     faqSevenQuestion: "Does this generate Nigeria, Egypt, Turkey, and Pakistan addresses?",
     faqSevenAnswer:
       "Yes. The country tabs generate synthetic address records for Nigeria, Egypt, Turkey, and Pakistan with country-matched city, region, postal code, and phone-number formats. The output is intended for testing and demos, not for identity claims or deliverable mail.",
@@ -303,7 +241,7 @@ const TRANSLATIONS = {
       "No backend and no signup required. Address generation happens client-side over a small JSON dataset hosted as a static site on Cloudflare.",
     featureThreeTitle: "Focused, audit-friendly dataset",
     featureThreeBody:
-      "A deliberately small dataset for US no-sales-tax states plus Nigeria, Egypt, Turkey, and Pakistan keeps the tool fast, predictable, and easy to audit.",
+      "A deliberately small static dataset for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan keeps the tool fast, predictable, and easy to audit.",
     featureFourTitle: "Multilingual UI",
     featureFourBody:
       "Switch between English, Simplified Chinese, and Traditional Chinese with a single dropdown. Language preference syncs via URL parameter and local storage.",
@@ -352,12 +290,12 @@ const TRANSLATIONS = {
     tabEgypt: "埃及",
     tabTurkey: "土耳其",
     tabPakistan: "巴基斯坦",
-    stateLabel: "免税州",
+    stateLabel: "美国州",
     regionLabel: "地区",
-    randomStateOption: "随机免税州",
+    randomStateOption: "随机美国州",
     randomRegionOption: "随机地区",
     generateButton: "生成地址",
-    stateHelp: "城市、州、ZIP Code 和电话区号都来自同一州的数据集，避免明显不匹配。",
+    stateHelp: "城市、州、ZIP Code 和电话区号都来自同一个美国州数据集，避免明显不匹配。",
     regionHelp: "城市、地区、邮政编码和电话号码都来自对应国家的测试数据集。",
     generatedOnLoad: "加载后已生成",
     generatedAt: "生成时间",
@@ -374,7 +312,7 @@ const TRANSLATIONS = {
     copyFailedToast: "复制失败，请手动选择地址。",
     usageTitle: "为干净的测试数据而设计",
     usageBodyOne:
-      "这个工具保持聚焦的数据集：五个没有州级销售税的美国州，以及用于国际表单测试的尼日利亚、埃及、土耳其和巴基斯坦。更小的数据集让静态站更快、更容易审核，也更适合部署到 Cloudflare Pages。",
+      "这个工具保持轻量的静态数据集：覆盖美国 50 个州，以及用于国际表单测试的尼日利亚、埃及、土耳其和巴基斯坦。数据集便于审核，也适合部署到 Cloudflare Pages。",
     usageBodyTwo:
       "生成器会合成街道地址，并匹配真实的城市、州、ZIP Code 和电话区号组合。它不会验证地址是否可投递，也不应用于冒充身份、规避规则或提交欺诈信息。",
     internationalEyebrow: "国际地址生成器",
@@ -411,7 +349,7 @@ const TRANSLATIONS = {
       "大多数结账或寄送表单会用 USPS 数据交叉校验 ZIP Code 与城市、州的对应关系。当 ZIP 在真实 USPS 数据库中属于另一个城市，或者街道地址未通过 AVS（地址验证系统）查询时，就会出现不匹配提示。这个生成器从同一个州的数据集中挑选城市、州和 ZIP，所以这三项内部一致，但仍然是合成数据，无法通过任何真实的地址校验。",
     faqSixQuestion: "和通用美国地址生成器有什么区别？",
     faqSixAnswer:
-      "通用生成器覆盖全部 50 州，对只需要免税州测试场景的使用者来说过于庞杂。本工具数据集只包含 5 个无州级销售税的州（特拉华、蒙大拿、新罕布什尔、俄勒冈、阿拉斯加），完全在浏览器中运行，无需注册，并且电话区号会匹配对应州，更适合做可预测的测试夹具数据。",
+      "很多通用生成器不会说明城市、ZIP Code 和电话区号的数据来源。本工具使用易审核的静态数据集，完全在浏览器中运行，无需注册，并且电话区号会匹配所选州，更适合做可预测的测试夹具数据。",
     faqSevenQuestion: "是否支持尼日利亚、埃及、土耳其和巴基斯坦地址？",
     faqSevenAnswer:
       "支持。国家 Tab 可以生成尼日利亚、埃及、土耳其和巴基斯坦的合成地址记录，并匹配对应国家的城市、地区、邮政编码和电话号码格式。输出仅用于测试和演示，不用于身份声明或真实投递。",
@@ -427,7 +365,7 @@ const TRANSLATIONS = {
       "无后端、无需注册。地址生成过程完全在客户端基于一个轻量 JSON 数据集完成，作为静态站托管在 Cloudflare。",
     featureThreeTitle: "聚焦且易审计的数据集",
     featureThreeBody:
-      "数据集刻意聚焦美国无销售税州，以及尼日利亚、埃及、土耳其、巴基斯坦，确保工具更快、更稳、更易审计。",
+      "数据集刻意保持轻量，覆盖美国 50 个州，以及尼日利亚、埃及、土耳其、巴基斯坦，确保工具更快、更稳、更易审计。",
     featureFourTitle: "多语言界面",
     featureFourBody:
       "下拉框切换英文、简体中文、繁体中文，语言偏好通过 URL 参数和本地存储同步。",
@@ -475,12 +413,12 @@ const TRANSLATIONS = {
     tabEgypt: "埃及",
     tabTurkey: "土耳其",
     tabPakistan: "巴基斯坦",
-    stateLabel: "免稅州",
+    stateLabel: "美國州",
     regionLabel: "地區",
-    randomStateOption: "隨機免稅州",
+    randomStateOption: "隨機美國州",
     randomRegionOption: "隨機地區",
     generateButton: "產生地址",
-    stateHelp: "城市、州、ZIP Code 和電話區碼都來自同一州的資料集，避免明顯不匹配。",
+    stateHelp: "城市、州、ZIP Code 和電話區碼都來自同一個美國州資料集，避免明顯不匹配。",
     regionHelp: "城市、地區、郵遞區號和電話號碼都來自對應國家的測試資料集。",
     generatedOnLoad: "載入後已產生",
     generatedAt: "產生時間",
@@ -497,7 +435,7 @@ const TRANSLATIONS = {
     copyFailedToast: "複製失敗，請手動選取地址。",
     usageTitle: "為乾淨的測試資料而設計",
     usageBodyOne:
-      "這個工具保持聚焦的資料集：五個沒有州級銷售稅的美國州，以及用於國際表單測試的奈及利亞、埃及、土耳其和巴基斯坦。更小的資料集讓靜態站更快、更容易審核，也更適合部署到 Cloudflare Pages。",
+      "這個工具保持輕量的靜態資料集：涵蓋美國 50 個州，以及用於國際表單測試的奈及利亞、埃及、土耳其和巴基斯坦。資料集便於稽核，也適合部署到 Cloudflare Pages。",
     usageBodyTwo:
       "產生器會合成街道地址，並匹配真實的城市、州、ZIP Code 和電話區碼組合。它不會驗證地址是否可投遞，也不應用於冒充身分、規避規則或提交詐欺資訊。",
     internationalEyebrow: "國際地址產生器",
@@ -534,7 +472,7 @@ const TRANSLATIONS = {
       "大多數結帳或寄送表單會使用 USPS 資料交叉驗證 ZIP Code 與城市、州的對應關係。當 ZIP 在真實 USPS 資料庫中屬於另一個城市，或街道地址未通過 AVS（地址驗證系統）查詢時，就會出現不匹配提示。本產生器從同一州的資料集中挑選城市、州與 ZIP，所以這三項內部一致，但仍是合成資料，無法通過任何真實的地址驗證。",
     faqSixQuestion: "與通用美國地址產生器有什麼差別？",
     faqSixAnswer:
-      "通用產生器涵蓋全部 50 州，對只需要免稅州測試情境的使用者來說過於龐雜。本工具資料集僅包含 5 個無州級銷售稅的州（德拉瓦、蒙大拿、新罕布夏、奧勒岡、阿拉斯加），完全在瀏覽器中執行，無需註冊，並且電話區碼會配對對應州，更適合可預測的測試夾具資料。",
+      "很多通用產生器不會說明城市、ZIP Code 和電話區碼的資料來源。本工具使用易稽核的靜態資料集，完全在瀏覽器中執行，無需註冊，並且電話區碼會配對所選州，更適合可預測的測試夾具資料。",
     faqSevenQuestion: "是否支援奈及利亞、埃及、土耳其和巴基斯坦地址？",
     faqSevenAnswer:
       "支援。國家 Tab 可以產生奈及利亞、埃及、土耳其和巴基斯坦的合成地址記錄，並配對對應國家的城市、地區、郵遞區號和電話號碼格式。輸出僅用於測試和展示，不用於身分聲明或真實投遞。",
@@ -550,7 +488,7 @@ const TRANSLATIONS = {
       "無後端、無需註冊。地址產生過程完全在客戶端基於輕量 JSON 資料集完成，作為靜態站託管於 Cloudflare。",
     featureThreeTitle: "聚焦且易稽核的資料集",
     featureThreeBody:
-      "資料集刻意聚焦美國無銷售稅州，以及奈及利亞、埃及、土耳其、巴基斯坦，使工具更快、更穩、更易稽核。",
+      "資料集刻意保持輕量，涵蓋美國 50 個州，以及奈及利亞、埃及、土耳其、巴基斯坦，使工具更快、更穩、更易稽核。",
     featureFourTitle: "多語介面",
     featureFourBody:
       "下拉選單切換英文、簡體中文、繁體中文，語言偏好透過 URL 參數與本機儲存同步。",
@@ -650,10 +588,10 @@ function getCountryDataset() {
 
 function getSelectedState() {
   if (stateSelect.value === "RANDOM") {
-    return randomItem(TAX_FREE_STATES);
+    return randomItem(STATES);
   }
 
-  return TAX_FREE_STATES.find((state) => state.abbr === stateSelect.value) || TAX_FREE_STATES[0];
+  return STATES.find((state) => state.abbr === stateSelect.value) || STATES[0];
 }
 
 function getSelectedInternationalCity(country) {
@@ -848,7 +786,7 @@ function populateLocationSelect() {
   stateSelect.append(randomOption);
 
   if (activeCountry === "US") {
-    TAX_FREE_STATES.forEach((state) => {
+    STATES.forEach((state) => {
       const option = document.createElement("option");
       option.value = state.abbr;
       option.textContent = `${state.name} (${state.abbr})`;
@@ -884,7 +822,7 @@ bindEvents();
 applyLanguage(currentLanguage);
 
 const urlState = new URLSearchParams(window.location.search).get("state");
-if (urlState && TAX_FREE_STATES.some((s) => s.abbr === urlState.toUpperCase())) {
+if (urlState && STATES.some((s) => s.abbr === urlState.toUpperCase())) {
   stateSelect.value = urlState.toUpperCase();
 }
 

@@ -21,6 +21,10 @@ body {
   padding: 32px 24px 80px;
 }
 
+.page-wide {
+  max-width: 1120px;
+}
+
 .page-header {
   display: flex;
   align-items: center;
@@ -180,4 +184,70 @@ th {
 
 .page-footer a:hover {
   text-decoration: underline;
+}
+
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 18px 0 34px;
+}
+
+.compact-state-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.state-card {
+  display: block;
+  min-height: 100%;
+  padding: 20px;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.state-card:hover {
+  border-color: #1f7a63;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.state-card h2 {
+  margin: 0 0 6px;
+  font-size: 1.08rem;
+}
+
+.state-card .state-meta {
+  margin: 0 0 10px;
+  color: #5b6a82;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.state-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.notice {
+  margin-top: 38px;
+  padding: 18px 20px;
+  border: 1px solid #b8d7ca;
+  border-radius: 8px;
+  background: #eef8f3;
+}
+
+.notice h2 {
+  margin-top: 0;
+}
+
+.notice p {
+  margin-bottom: 0;
 }

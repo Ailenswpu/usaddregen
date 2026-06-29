@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "generate": "node scripts/generate-static-pages.mjs",
+    "build": "npm run generate && vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "devDependencies": {

@@ -153,7 +153,7 @@
                 "name": "How is this different from a generic US address generator?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Generic generators sample all 50 states, which is overkill if you only need addresses for sales-tax-free testing scenarios. This tool ships a tiny, audit-friendly dataset limited to the five no-sales-tax states (Delaware, Montana, New Hampshire, Oregon, Alaska), runs entirely in the browser with no signup, and matches the phone area code to the state — making it predictable test fixture data."
+                  "text": "Generic generators often mix city, ZIP, and phone data without explaining the source. This tool keeps an audit-friendly static dataset, runs entirely in the browser with no signup, and matches the phone area code to the selected state — making it predictable test fixture data."
                 }
               },
               {
@@ -255,10 +255,10 @@
             </button>
           </div>
           <div class="controls-panel">
-            <label id="location-select-label" for="state-select" data-i18n="stateLabel">Tax-free state</label>
+            <label id="location-select-label" for="state-select" data-i18n="stateLabel">US state</label>
             <div class="control-row">
               <select id="state-select" aria-describedby="state-help">
-                <option value="RANDOM" data-i18n="randomStateOption">Random tax-free state</option>
+                <option value="RANDOM" data-i18n="randomStateOption">Random US state</option>
               </select>
               <button
                 id="generate-button"
@@ -532,11 +532,10 @@
             <details>
               <summary data-i18n="faqSixQuestion">How is this different from a generic US address generator?</summary>
               <p data-i18n="faqSixAnswer">
-                Generic generators sample all 50 states, which is overkill if you only need addresses
-                for sales-tax-free testing scenarios. This tool ships a tiny, audit-friendly dataset
-                limited to the five no-sales-tax states (Delaware, Montana, New Hampshire, Oregon,
-                Alaska), runs entirely in the browser with no signup, and matches the phone area code
-                to the state — making it predictable test fixture data.
+                Generic generators often mix city, ZIP, and phone data without explaining the source.
+                This tool keeps an audit-friendly static dataset, runs entirely in the browser with
+                no signup, and matches the phone area code to the selected state — making it
+                predictable test fixture data.
               </p>
             </details>
             <details>
