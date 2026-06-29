@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>US Address Generator</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <header>
+        <span class="mark" aria-hidden="true"></span>
+        <div>
+          <h1>Address Generator</h1>
+          <p>QA and demo data only</p>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="Address options">
+        <label for="country">Country</label>
+        <select id="country">
+          <option value="US">United States</option>
+          <option value="NG">Nigeria</option>
+          <option value="EG">Egypt</option>
+          <option value="TR">Turkey</option>
+          <option value="PK">Pakistan</option>
+        </select>
+
+        <label for="location">State / Region</label>
+        <select id="location"></select>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <strong id="full-name"></strong>
+        <pre id="full-address"></pre>
+        <dl>
+          <div>
+            <dt>Street</dt>
+            <dd id="street-address"></dd>
+          </div>
+          <div>
+            <dt>City</dt>
+            <dd id="city"></dd>
+          </div>
+          <div>
+            <dt>State / Region</dt>
+            <dd id="state"></dd>
+          </div>
+          <div>
+            <dt>Postal code</dt>
+            <dd id="zip-code"></dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd id="phone-number"></dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="actions">
+        <button id="generate" type="button">Generate</button>
+        <button id="copy" type="button">Copy</button>
+        <button id="fill" type="button">Fill form</button>
+      </div>
+
+      <p class="notice">
+        Synthetic, realistic-format only. Not deliverable. Not for fraud, identity claims, or real verification.
+      </p>
+      <p id="status" class="status" role="status"></p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
