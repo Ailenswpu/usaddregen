@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | US Tax-Free State Address Generator</title>
+    <title>About | US Address Generator</title>
     <meta
       name="description"
-      content="About usaddregen.com — a focused, browser-only generator for US no-sales-tax state addresses (Delaware, Montana, New Hampshire, Oregon, Alaska), built for QA engineers, developers, and designers who need clean test fixtures."
+      content="About usaddregen.com — a browser-only random address generator for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan, built for QA engineers, developers, and designers who need clean test fixtures."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://usaddregen.com/about/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/page.css" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="About | US Tax-Free State Address Generator" />
-    <meta property="og:description" content="A focused, browser-only generator for US no-sales-tax state addresses — built for QA engineers, developers, and designers who need clean test fixtures." />
+    <meta property="og:title" content="About | US Address Generator" />
+    <meta property="og:description" content="A browser-only random address generator for US state and international test addresses — built for QA engineers, developers, and designers." />
     <meta property="og:url" content="https://usaddregen.com/about/" />
-    <meta property="og:site_name" content="US Tax-Free Address Generator" />
+    <meta property="og:site_name" content="US Address Generator" />
     <meta property="og:image" content="https://usaddregen.com/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ailenswpu" />
-    <meta name="twitter:title" content="About | US Tax-Free State Address Generator" />
-    <meta name="twitter:description" content="The story behind usaddregen.com and why it focuses on the 5 no-sales-tax US states." />
+    <meta name="twitter:title" content="About | US Address Generator" />
+    <meta name="twitter:description" content="The story behind usaddregen.com and its static datasets for US state and international test addresses." />
     <meta name="twitter:image" content="https://usaddregen.com/og-image.png" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4423552696854564"
          crossorigin="anonymous"></script>
@@ -39,11 +39,11 @@
       {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "name": "About US Tax-Free State Address Generator",
+        "name": "About US Address Generator",
         "url": "https://usaddregen.com/about/",
         "mainEntity": {
           "@type": "Organization",
-          "name": "US Tax-Free Address Generator",
+          "name": "US Address Generator",
           "url": "https://usaddregen.com/",
           "email": "support@usaddregen.com",
           "sameAs": ["https://x.com/ailenswpu", "https://github.com/Ailenswpu/usaddregen"]
@@ -61,66 +61,63 @@
 
       <h1>About</h1>
       <p class="meta">
-        A small, focused web tool for generating US no-sales-tax state addresses &mdash; for
-        testing, QA, and design work.
+        A small, focused web tool for generating US state and international test addresses &mdash;
+        for testing, QA, and design work.
       </p>
 
       <h2>What this site is</h2>
       <p>
-        <strong>US Tax-Free State Address Generator</strong> (usaddregen.com) is a free,
-        browser-based tool that produces realistic-format random US addresses limited to the five
-        states with <em>no statewide sales tax</em>:
+        <strong>US Address Generator</strong> (usaddregen.com) is a free, browser-based tool that
+        produces realistic-format random addresses for all 50 US states plus four international
+        datasets:
       </p>
       <ul>
-        <li><a href="/state/delaware/">Delaware</a> &mdash; no sales tax since statehood; Gross
-          Receipts Tax instead.</li>
-        <li><a href="/state/montana/">Montana</a> &mdash; no general sales tax; targeted resort
-          taxes in a few towns.</li>
-        <li><a href="/state/new-hampshire/">New Hampshire</a> &mdash; no general sales tax, no
-          wage income tax.</li>
-        <li><a href="/state/oregon/">Oregon</a> &mdash; nine ballot rejections of a sales tax;
-          Corporate Activity Tax on businesses.</li>
-        <li><a href="/state/alaska/">Alaska</a> &mdash; no statewide sales tax, but
-          borough-level local sales taxes apply.</li>
+        <li><a href="/state/">US state generators</a> &mdash; all 50 states with city, ZIP code,
+          area-code, and statewide sales-tax notes.</li>
+        <li><a href="/country/nigeria/">Nigeria</a>, <a href="/country/egypt/">Egypt</a>,
+          <a href="/country/turkey/">Turkey</a>, and <a href="/country/pakistan/">Pakistan</a>
+          &mdash; country-specific city, region, postal-code, and phone-number formats.</li>
+        <li><a href="/blog/nomad-states-explained.html">No-sales-tax state reference</a> &mdash;
+          Delaware, Montana, New Hampshire, Oregon, and Alaska remain highlighted for checkout and
+          tax-engine testing.</li>
       </ul>
       <p>
-        Each generated address combines a real US city, a real ZIP code that belongs to that city
-        in the USPS database, a synthetic street, a synthetic full name, and a phone number using
-        an area code that genuinely covers the chosen state.
+        Each generated address combines a real city/region/postal-code combination from the static
+        dataset, a synthetic street, a synthetic full name, and a phone number formatted for the
+        selected state or country.
       </p>
 
-      <h2>Why this niche, instead of a generic 50-state generator</h2>
+      <h2>Why this dataset exists</h2>
       <p>
-        A lot of online address generators sample addresses across all 50 US states. That is
-        useful when you genuinely need a random US address, but it makes a specific kind of test
-        fixture harder: the case where the destination should produce a <strong>$0.00 sales-tax
-        line</strong>.
+        A lot of address generators return plausible-looking records without explaining what fields
+        are paired together. This project keeps the dataset static and audit-friendly so a developer
+        can inspect the exact city, ZIP/postal code, area code, and sales-tax notes behind the
+        generated fixture.
       </p>
       <p>
-        Modern e-commerce checkout code goes through a lot of paths to get sales tax right. The
-        tax engine is queried, the cart math adjusts, the invoice template renders, and the order
-        confirmation email shows the breakdown. Each of these steps has its own bug surface for
-        the zero-tax case &mdash; missing line items, hidden rows, wrong subtotals,
-        misformatted localization. A dedicated tax-free state generator is the cleanest way to
-        produce that test fixture quickly.
+        The no-sales-tax states still matter for e-commerce checkout testing because the zero-tax
+        case can expose missing line items, hidden rows, wrong subtotals, or misformatted
+        localization. The broader 50-state and international coverage makes the same tool useful
+        for signup forms, CRM demos, localization checks, and seed records.
       </p>
       <p>
-        Limiting the dataset to five states also has practical engineering benefits:
+        Keeping the dataset static has practical engineering benefits:
       </p>
       <ul>
-        <li>The whole JSON dataset fits in the static HTML/JS bundle; no API call required.</li>
+        <li>The dataset fits in the static HTML/JS bundle; no API call required.</li>
         <li>The output is deterministic enough to audit by hand if you suspect a bug.</li>
         <li>The site loads quickly on Cloudflare&rsquo;s global edge with no backend.</li>
       </ul>
 
       <h2>How it&rsquo;s built</h2>
       <p>
-        The site is a small Vite static project hosted on Cloudflare Workers Static Assets. There
+        The site is a small Vite static project hosted on Cloudflare Pages / Cloudflare static assets. There
         is no database, no user account system, and no backend address-generation API. Everything
         runs in your browser:
       </p>
       <ul>
-        <li>A small in-memory dataset of 5 states &times; 5 cities, with ZIP codes and area codes.</li>
+        <li>A small in-memory dataset of 50 US states with ZIP codes, area codes, and sales-tax notes.</li>
+        <li>Four international datasets for Nigeria, Egypt, Turkey, and Pakistan.</li>
         <li>Random street numbers and names assembled from a fixed wordlist.</li>
         <li>A multilingual UI (English, Simplified Chinese, Traditional Chinese) controlled by a
           single dropdown, with the language preference syncing via URL parameter and
@@ -181,6 +178,8 @@
         <li>Pointing out a city/ZIP combination that the generator gets wrong.</li>
         <li>Suggesting a new test scenario the tool could support without breaking its
           deliberately small scope.</li>
+        <li>Suggesting an international city/postal-code pair that should be added to a country
+          dataset.</li>
         <li>Translation polish for the Simplified or Traditional Chinese UI.</li>
       </ul>
 
@@ -190,6 +189,8 @@
             With No Sales Tax</a></li>
         <li><a href="/blog/avs-and-zip-validation.html">Why Test Addresses Fail AVS and
             ZIP+City+State Validation</a></li>
+        <li><a href="/country/">International address generators</a></li>
+        <li><a href="/state/">US state address generators</a></li>
         <li><a href="/">Try the generator</a></li>
       </ul>
 

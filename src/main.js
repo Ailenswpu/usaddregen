@@ -7,17 +7,17 @@ const LANGUAGES = ["en", "zh-CN", "zh-TW"];
 
 const TRANSLATIONS = {
   en: {
-    pageTitle: "Random Address Generator | US Tax-Free, Nigeria, Egypt, Turkey, Pakistan",
+    pageTitle: "Random Address Generator | US States, Nigeria, Egypt, Turkey, Pakistan",
     metaDescription:
-      "Generate random address data for US no-sales-tax states plus Nigeria, Egypt, Turkey, and Pakistan. Built for testing, form development, demos, QA, and placeholder records.",
-    brand: "Tax-Free Address Generator",
-    headerNote: "Testing data for no-sales-tax states",
+      "Generate random address data for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan. Built for testing, form development, demos, QA, and placeholder records.",
+    brand: "US Address Generator",
+    headerNote: "Testing data for US states and global forms",
     languageLabel: "Language",
-    eyebrow: "US Tax-Free State Address Generator",
-    h1: "Random address generator for tax-free US and global test data",
+    eyebrow: "US and International Address Generator",
+    h1: "Random address generator for US and global test data",
     lede:
-      "Generate realistic-format address data for US no-sales-tax states plus Nigeria, Egypt, Turkey, and Pakistan. Use it for QA, form development, demos, seed data, and safe placeholder records.",
-    tabUs: "Tax-free US",
+      "Generate realistic-format address data for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan. Use it for QA, form development, demos, seed data, and safe placeholder records.",
+    tabUs: "US states",
     tabNigeria: "Nigeria",
     tabEgypt: "Egypt",
     tabTurkey: "Turkey",
@@ -109,6 +109,7 @@ const TRANSLATIONS = {
     footerBlog: "Blog",
     footerAbout: "About",
     footerColStates: "Tax-Free States",
+    footerColCountries: "Countries",
     footerColResources: "Resources",
     footerContactLabel: "Contact:",
     compareTitle: "The 5 no-sales-tax states at a glance",
@@ -133,17 +134,17 @@ const TRANSLATIONS = {
     compareAkIncome: "No state income tax"
   },
   "zh-CN": {
-    pageTitle: "随机地址生成器 | 美国免税州、尼日利亚、埃及、土耳其、巴基斯坦",
+    pageTitle: "随机地址生成器 | 美国 50 州、尼日利亚、埃及、土耳其、巴基斯坦",
     metaDescription:
-      "生成美国无销售税州，以及尼日利亚、埃及、土耳其、巴基斯坦随机地址测试数据，适用于表单开发、QA、演示和占位记录。",
-    brand: "免税州地址生成器",
-    headerNote: "面向无销售税州的测试地址数据",
+      "生成美国 50 个州，以及尼日利亚、埃及、土耳其、巴基斯坦随机地址测试数据，适用于表单开发、QA、演示和占位记录。",
+    brand: "美国地址生成器",
+    headerNote: "面向美国州和国际表单的测试地址数据",
     languageLabel: "语言",
-    eyebrow: "美国免税州地址生成器",
-    h1: "美国免税州与国际测试地址生成器",
+    eyebrow: "美国与国际地址生成器",
+    h1: "美国与国际测试地址生成器",
     lede:
-      "生成符合格式习惯的测试地址数据，覆盖美国无销售税州，以及尼日利亚、埃及、土耳其和巴基斯坦。适用于 QA、表单开发、演示、种子数据和安全占位记录。",
-    tabUs: "美国免税州",
+      "生成符合格式习惯的测试地址数据，覆盖美国 50 个州，以及尼日利亚、埃及、土耳其和巴基斯坦。适用于 QA、表单开发、演示、种子数据和安全占位记录。",
+    tabUs: "美国州",
     tabNigeria: "尼日利亚",
     tabEgypt: "埃及",
     tabTurkey: "土耳其",
@@ -232,6 +233,7 @@ const TRANSLATIONS = {
     footerBlog: "博客",
     footerAbout: "关于",
     footerColStates: "免税州",
+    footerColCountries: "国家",
     footerColResources: "资源",
     footerContactLabel: "联系：",
     compareTitle: "五个无销售税州一览",
@@ -256,17 +258,17 @@ const TRANSLATIONS = {
     compareAkIncome: "无州所得税"
   },
   "zh-TW": {
-    pageTitle: "隨機地址產生器 | 美國免稅州、奈及利亞、埃及、土耳其、巴基斯坦",
+    pageTitle: "隨機地址產生器 | 美國 50 州、奈及利亞、埃及、土耳其、巴基斯坦",
     metaDescription:
-      "產生美國無銷售稅州，以及奈及利亞、埃及、土耳其、巴基斯坦隨機地址測試資料，適用於表單開發、QA、展示和佔位記錄。",
-    brand: "免稅州地址產生器",
-    headerNote: "面向無銷售稅州的測試地址資料",
+      "產生美國 50 個州，以及奈及利亞、埃及、土耳其、巴基斯坦隨機地址測試資料，適用於表單開發、QA、展示和佔位記錄。",
+    brand: "美國地址產生器",
+    headerNote: "面向美國州與國際表單的測試地址資料",
     languageLabel: "語言",
-    eyebrow: "美國免稅州地址產生器",
-    h1: "美國免稅州與國際測試地址產生器",
+    eyebrow: "美國與國際地址產生器",
+    h1: "美國與國際測試地址產生器",
     lede:
-      "產生符合格式習慣的測試地址資料，涵蓋美國無銷售稅州，以及奈及利亞、埃及、土耳其和巴基斯坦。適用於 QA、表單開發、展示、種子資料和安全佔位記錄。",
-    tabUs: "美國免稅州",
+      "產生符合格式習慣的測試地址資料，涵蓋美國 50 個州，以及奈及利亞、埃及、土耳其和巴基斯坦。適用於 QA、表單開發、展示、種子資料和安全佔位記錄。",
+    tabUs: "美國州",
     tabNigeria: "奈及利亞",
     tabEgypt: "埃及",
     tabTurkey: "土耳其",
@@ -355,6 +357,7 @@ const TRANSLATIONS = {
     footerBlog: "部落格",
     footerAbout: "關於",
     footerColStates: "免稅州",
+    footerColCountries: "國家",
     footerColResources: "資源",
     footerContactLabel: "聯絡：",
     compareTitle: "五個無銷售稅州一覽",
@@ -564,7 +567,8 @@ function populateLocationSelect() {
       stateSelect.append(option);
     });
   } else {
-    getCountryDataset().cities.forEach((city) => {
+    const countryDataset = INTERNATIONAL_COUNTRIES[activeCountry];
+    countryDataset.cities.forEach((city) => {
       const option = document.createElement("option");
       option.value = city.name;
       option.textContent = `${city.name}, ${city.region}`;
@@ -592,7 +596,13 @@ function bindEvents() {
 bindEvents();
 applyLanguage(currentLanguage);
 
-const urlState = new URLSearchParams(window.location.search).get("state");
+const urlParams = new URLSearchParams(window.location.search);
+const urlCountry = urlParams.get("country");
+if (urlCountry && COUNTRY_CODES.includes(urlCountry.toUpperCase())) {
+  setActiveCountry(urlCountry.toUpperCase());
+}
+
+const urlState = urlParams.get("state");
 if (urlState && STATES.some((s) => s.abbr === urlState.toUpperCase())) {
   stateSelect.value = urlState.toUpperCase();
 }

@@ -40,6 +40,13 @@
     
   </url>
   <url>
+    <loc>https://usaddregen.com/country/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
     <loc>https://usaddregen.com/about/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>yearly</changefreq>
@@ -491,6 +498,34 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    
+  </url>
+  <url>
+    <loc>https://usaddregen.com/country/nigeria/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
+    <loc>https://usaddregen.com/country/egypt/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
+    <loc>https://usaddregen.com/country/turkey/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
+    <loc>https://usaddregen.com/country/pakistan/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     
   </url>
 </urlset>

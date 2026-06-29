@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { INTERNATIONAL_COUNTRIES } from "../src/data/countries.js";
 import { SOURCE_NOTES, STATES, TAX_FREE_STATE_ABBRS } from "../src/data/states.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -15,6 +16,7 @@ const staticUrls = [
   { loc: "/?lang=zh-CN", priority: "0.9", changefreq: "monthly", alternates: true },
   { loc: "/?lang=zh-TW", priority: "0.9", changefreq: "monthly", alternates: true },
   { loc: "/state/", priority: "0.8", changefreq: "monthly" },
+  { loc: "/country/", priority: "0.8", changefreq: "monthly" },
   { loc: "/about/", priority: "0.5", changefreq: "yearly" },
   { loc: "/blog/", priority: "0.6", changefreq: "monthly", blogAlternates: true },
   { loc: "/blog/zh-CN/", priority: "0.6", changefreq: "monthly", blogAlternates: true },
@@ -163,6 +165,211 @@ function stateIndexPage() {
     jsonLd,
     body
   });
+}
+
+function countrySlug(country) {
+  return country.name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function countryEntries() {
+  return Object.entries(INTERNATIONAL_COUNTRIES).map(([code, country]) => ({
+    code,
+    country,
+    slug: countrySlug(country)
+  }));
+}
+
+function countryCard({ code, country, slug }) {
+  const cityNames = country.cities.map((city) => city.name).join(", ");
+  const postalLengths = [...new Set(country.cities.flatMap((city) => city.zips.map((zip) => zip.length)))].sort();
+  return `<a class="state-card" href="/country/${slug}/">
+          <h2>${escapeHtml(country.name)} (${code})</h2>
+          <p class="state-meta">${escapeHtml(country.phoneCode)} phone format &middot; ${escapeHtml(postalLengths.join(" or "))}-digit postal codes</p>
+          <p>${escapeHtml(cityNames)}. Synthetic street lines paired with country-specific city, region, postal-code, and phone formats.</p>
+        </a>`;
+}
+
+function countryIndexPage() {
+  const entries = countryEntries();
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${siteUrl}/country/#collection`,
+      name: "International Address Generators",
+      url: `${siteUrl}/country/`,
+      description: "Browse country-specific random address generator pages for Nigeria, Egypt, Turkey, and Pakistan with matched city, region, postal-code, and phone formats.",
+      hasPart: entries.map(({ country, slug }) => ({
+        "@type": "WebPage",
+        name: `${country.name} Address Generator`,
+        url: `${siteUrl}/country/${slug}/`
+      }))
+    },
+    breadcrumb(["Home", "Countries"])
+  ];
+
+  const cards = entries.map(countryCard).join("\n        ");
+
+  const body = `    <main class="page page-wide">
+      <nav class="page-header" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Countries</span>
+      </nav>
+
+      <h1>International Address Generators</h1>
+      <p class="meta">
+        Browse country-specific random address generators for international form testing. Each page
+        documents the city, region, postal-code, and phone-number formats used by the static
+        dataset. Street lines and names are synthetic and not deliverable.
+      </p>
+
+      <div class="state-grid">
+        ${cards}
+      </div>
+
+      <h2>How to use these generators</h2>
+      <p>
+        Use these pages when a signup form, checkout flow, CRM demo, or QA fixture needs a
+        country-matched placeholder address. The generated records are intended for software
+        testing and documentation only, not identity claims or shipping.
+      </p>
+
+      ${disclaimer()}
+      ${footer()}
+    </main>`;
+
+  return pageShell({
+    title: "International Address Generators | Nigeria, Egypt, Turkey & Pakistan",
+    description: "Browse country-specific random address generators for Nigeria, Egypt, Turkey, and Pakistan. Built for QA, form testing, demos, and placeholder records.",
+    canonical: `${siteUrl}/country/`,
+    ogType: "website",
+    jsonLd,
+    body
+  });
+}
+
+function countryPage({ code, country, slug }) {
+  const cityRows = country.cities
+    .map((city) => `<tr><td>${escapeHtml(city.name)}</td><td>${escapeHtml(city.region)}</td><td>${escapeHtml(city.zips.join(", "))}</td></tr>`)
+    .join("\n          ");
+  const cityNames = country.cities.map((city) => city.name).join(", ");
+  const description = `${country.name} random address generator with synthetic names and street lines plus country-matched city, region, postal-code, and ${country.phoneCode} phone-number formats for testing.`;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${siteUrl}/country/${slug}/#webpage`,
+      name: `${country.name} Address Generator`,
+      url: `${siteUrl}/country/${slug}/`,
+      description,
+      datePublished: "2026-06-29",
+      dateModified: lastmod,
+      inLanguage: "en",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: { "@type": "Country", name: country.name }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqForCountry(country)
+    },
+    breadcrumb(["Home", "Countries", country.name], `/country/${slug}/`)
+  ];
+
+  const body = `    <main class="page">
+      <nav class="page-header" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/country/">Countries</a>
+        <span>/</span>
+        <span>${escapeHtml(country.name)}</span>
+      </nav>
+
+      <h1>${escapeHtml(country.name)} Address Generator</h1>
+      <p class="meta">Country code: ${escapeHtml(code)} &middot; Phone code: ${escapeHtml(country.phoneCode)} &middot; Cities: ${escapeHtml(cityNames)}</p>
+
+      <p>
+        Use this ${escapeHtml(country.name)} address generator when you need realistic-format test
+        data for international signup forms, CRM records, checkout demos, QA scripts, or design
+        prototypes. The generator pairs a country-specific city, region, postal code, and phone
+        format with synthetic names and street lines.
+      </p>
+
+      <p>
+        <a class="cta" href="/?country=${escapeHtml(code)}">Generate a ${escapeHtml(country.name)} address</a>
+      </p>
+
+      <h2>Cities and postal codes in this dataset</h2>
+      <p>
+        The dataset is intentionally small so the static site remains fast and easy to audit.
+        Postal codes are format examples for testing and demos, not proof that the generated street
+        line exists.
+      </p>
+      <table>
+        <thead><tr><th>City</th><th>Region</th><th>Postal codes</th></tr></thead>
+        <tbody>
+          ${cityRows}
+        </tbody>
+      </table>
+
+      <h2>Phone-number format</h2>
+      <p>
+        Generated phone numbers use the ${escapeHtml(country.phoneCode)} country code and one of
+        these local prefixes: ${escapeHtml(country.phonePrefixes.join(", "))}. They are synthetic
+        test values and are not assigned subscriber numbers.
+      </p>
+
+      <h2>Important caveats</h2>
+      <p>
+        These records are realistic-format placeholders. They are not verified against postal,
+        telecom, banking, government, or shipping databases and should not be used to claim an
+        identity, receive mail, or bypass account rules.
+      </p>
+
+      ${disclaimer()}
+      ${footer()}
+    </main>`;
+
+  return pageShell({
+    title: `${country.name} Address Generator | Random ${code} Test Addresses`,
+    description,
+    canonical: `${siteUrl}/country/${slug}/`,
+    jsonLd,
+    body
+  });
+}
+
+function faqForCountry(country) {
+  return [
+    {
+      "@type": "Question",
+      name: `Is this ${country.name} address real?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `No. It is realistic-format synthetic data. The city, region, postal code, and phone format are matched from the ${country.name} test dataset, but the street line is not verified or deliverable.`
+      }
+    },
+    {
+      "@type": "Question",
+      name: `What can a ${country.name} test address be used for?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Use it for legal QA workflows such as form validation, checkout demos, CRM demos, mock customer records, design prototypes, documentation screenshots, and seed data."
+      }
+    },
+    {
+      "@type": "Question",
+      name: `Does this ${country.name} generator validate addresses?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. The generator formats placeholder data for testing. It does not query postal, telecom, banking, government, or shipping verification systems."
+      }
+    }
+  ];
 }
 
 function statePage(state) {
@@ -323,9 +530,11 @@ function relatedStates(state) {
 }
 
 function breadcrumb(names, currentPath = "/state/") {
+  const sectionName = names[1] || "States";
+  const sectionPath = sectionName === "Countries" ? "/country/" : "/state/";
   const items = [
     { name: "Home", item: `${siteUrl}/` },
-    { name: "States", item: `${siteUrl}/state/` }
+    { name: sectionName, item: `${siteUrl}${sectionPath}` }
   ];
   if (names.length > 2) items.push({ name: names[2], item: `${siteUrl}${currentPath}` });
   return {
@@ -419,11 +628,16 @@ function sitemap() {
     priority: TAX_FREE_STATE_ABBRS.includes(state.abbr) ? "0.8" : "0.7",
     changefreq: "monthly"
   }));
+  const countryUrls = countryEntries().map(({ slug }) => ({
+    loc: `/country/${slug}/`,
+    priority: "0.8",
+    changefreq: "monthly"
+  }));
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${[...staticUrls, ...stateUrls].map(sitemapUrl).join("\n")}
+${[...staticUrls, ...stateUrls, ...countryUrls].map(sitemapUrl).join("\n")}
 </urlset>
 `;
 }
@@ -462,15 +676,16 @@ ${stateLines}
 
 ## International generators
 
-- Nigeria address generator: Lagos, Ikeja, Abuja, Kano, Port Harcourt, Ibadan; +234 phone format.
-- Egypt address generator: Cairo, Giza, Alexandria, Luxor, Mansoura; +20 phone format.
-- Turkey address generator: Istanbul, Ankara, Izmir, Antalya, Bursa; +90 phone format.
-- Pakistan address generator: Karachi, Lahore, Islamabad, Rawalpindi, Peshawar; +92 phone format.
+${countryEntries().map(({ country, slug }) => {
+  const cities = country.cities.map((city) => city.name).join(", ");
+  return `- [${country.name} address generator](${siteUrl}/country/${slug}/): ${cities}; ${country.phoneCode} phone format.`;
+}).join("\n")}
 
 ## Related resources
 
 - [Homepage](${siteUrl}/)
 - [States index](${siteUrl}/state/)
+- [International generators](${siteUrl}/country/)
 - [Blog](${siteUrl}/blog/)
 - [AVS and ZIP validation explained](${siteUrl}/blog/avs-and-zip-validation.html)
 - [NOMAD states explained](${siteUrl}/blog/nomad-states-explained.html)
@@ -486,8 +701,10 @@ async function writePublic(relativePath, content) {
 
 await writePublic("state/index.html", stateIndexPage());
 await Promise.all(STATES.map((state) => writePublic(`state/${state.slug}/index.html`, statePage(state))));
+await writePublic("country/index.html", countryIndexPage());
+await Promise.all(countryEntries().map((entry) => writePublic(`country/${entry.slug}/index.html`, countryPage(entry))));
 await writePublic("sitemap.xml", sitemap());
 await writePublic("llms.txt", llms());
 await writePublic("llms-full.txt", llms());
 
-console.log(`Generated ${STATES.length} state pages, state index, sitemap.xml, llms.txt, and llms-full.txt.`);
+console.log(`Generated ${STATES.length} state pages, ${countryEntries().length} country pages, indexes, sitemap.xml, llms.txt, and llms-full.txt.`);

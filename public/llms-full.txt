@@ -74,15 +74,16 @@
 
 ## International generators
 
-- Nigeria address generator: Lagos, Ikeja, Abuja, Kano, Port Harcourt, Ibadan; +234 phone format.
-- Egypt address generator: Cairo, Giza, Alexandria, Luxor, Mansoura; +20 phone format.
-- Turkey address generator: Istanbul, Ankara, Izmir, Antalya, Bursa; +90 phone format.
-- Pakistan address generator: Karachi, Lahore, Islamabad, Rawalpindi, Peshawar; +92 phone format.
+- [Nigeria address generator](https://usaddregen.com/country/nigeria/): Lagos, Ikeja, Abuja, Kano, Port Harcourt, Ibadan; +234 phone format.
+- [Egypt address generator](https://usaddregen.com/country/egypt/): Cairo, Giza, Alexandria, Luxor, Mansoura; +20 phone format.
+- [Turkey address generator](https://usaddregen.com/country/turkey/): Istanbul, Ankara, Izmir, Antalya, Bursa; +90 phone format.
+- [Pakistan address generator](https://usaddregen.com/country/pakistan/): Karachi, Lahore, Islamabad, Rawalpindi, Peshawar; +92 phone format.
 
 ## Related resources
 
 - [Homepage](https://usaddregen.com/)
 - [States index](https://usaddregen.com/state/)
+- [International generators](https://usaddregen.com/country/)
 - [Blog](https://usaddregen.com/blog/)
 - [AVS and ZIP validation explained](https://usaddregen.com/blog/avs-and-zip-validation.html)
 - [NOMAD states explained](https://usaddregen.com/blog/nomad-states-explained.html)
