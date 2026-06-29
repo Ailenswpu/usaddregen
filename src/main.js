@@ -7,16 +7,16 @@ const LANGUAGES = ["en", "zh-CN", "zh-TW"];
 
 const TRANSLATIONS = {
   en: {
-    pageTitle: "Random Address Generator | US States, Nigeria, Egypt, Turkey, Pakistan",
+    pageTitle: "Random Address Generator | US States and International Test Addresses",
     metaDescription:
-      "Generate random address data for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan. Built for testing, form development, demos, QA, and placeholder records.",
+      "Generate random address data for all 50 US states plus multi-country test data. Built for testing, form development, demos, QA, and placeholder records.",
     brand: "US Address Generator",
     headerNote: "Testing data for US states and global forms",
     languageLabel: "Language",
     eyebrow: "US and International Address Generator",
     h1: "Random address generator for US and global test data",
     lede:
-      "Generate realistic-format address data for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan. Use it for QA, form development, demos, seed data, and safe placeholder records.",
+      "Generate realistic-format address data for all 50 US states plus multi-country address formats. Use it for QA, form development, demos, seed data, and safe placeholder records.",
     tabUs: "US states",
     tabNigeria: "Nigeria",
     tabEgypt: "Egypt",
@@ -46,13 +46,14 @@ const TRANSLATIONS = {
     copyFailedToast: "Copy failed. Select the address manually.",
     usageTitle: "Built for clean test data",
     usageBodyOne:
-      "This tool keeps a focused static dataset: all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan for form testing. The dataset stays lightweight, easy to audit, and simple to deploy on Cloudflare Pages.",
+      "This tool keeps a focused static dataset: all 50 US states plus country-specific address formats for form testing. The dataset stays lightweight, easy to audit, and simple to deploy on Cloudflare Pages.",
     usageBodyTwo:
       "The generator creates synthetic street lines and pairs them with real city, state, ZIP Code, and area code combinations. It does not verify deliverability and should not be used to misrepresent identity, evade rules, or submit fraudulent information.",
     internationalEyebrow: "International generators",
     internationalTitle: "Nigeria, Egypt, Turkey, and Pakistan address generators",
     internationalIntro:
       "These country tabs generate synthetic but realistic-format address records for international form testing. Each output keeps city, region, postal code, and phone format aligned to the selected country.",
+    viewAllCountries: "View all country address generators",
     seoNigeriaTitle: "Nigeria address generator",
     seoNigeriaBody:
       "Generate Nigerian test addresses for Lagos, Abuja, Kano, Port Harcourt, Ibadan, and related states with six-digit postal codes and +234 mobile phone formatting.",
@@ -99,7 +100,7 @@ const TRANSLATIONS = {
       "No backend and no signup required. Address generation happens client-side over a small JSON dataset hosted as a static site on Cloudflare.",
     featureThreeTitle: "Focused, audit-friendly dataset",
     featureThreeBody:
-      "A deliberately small static dataset for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan keeps the tool fast, predictable, and easy to audit.",
+      "A deliberately small static dataset for all 50 US states plus multi-country address formats keeps the tool fast, predictable, and easy to audit.",
     featureFourTitle: "Multilingual UI",
     featureFourBody:
       "Switch between English, Simplified Chinese, and Traditional Chinese with a single dropdown. Language preference syncs via URL parameter and local storage.",
@@ -136,14 +137,14 @@ const TRANSLATIONS = {
   "zh-CN": {
     pageTitle: "随机地址生成器 | 美国 50 州、尼日利亚、埃及、土耳其、巴基斯坦",
     metaDescription:
-      "生成美国 50 个州，以及尼日利亚、埃及、土耳其、巴基斯坦随机地址测试数据，适用于表单开发、QA、演示和占位记录。",
+      "生成美国 50 个州以及多国随机地址测试数据，适用于表单开发、QA、演示和占位记录。",
     brand: "美国地址生成器",
     headerNote: "面向美国州和国际表单的测试地址数据",
     languageLabel: "语言",
     eyebrow: "美国与国际地址生成器",
     h1: "美国与国际测试地址生成器",
     lede:
-      "生成符合格式习惯的测试地址数据，覆盖美国 50 个州，以及尼日利亚、埃及、土耳其和巴基斯坦。适用于 QA、表单开发、演示、种子数据和安全占位记录。",
+      "生成符合格式习惯的测试地址数据，覆盖美国 50 个州以及多国地址格式。适用于 QA、表单开发、演示、种子数据和安全占位记录。",
     tabUs: "美国州",
     tabNigeria: "尼日利亚",
     tabEgypt: "埃及",
@@ -171,13 +172,14 @@ const TRANSLATIONS = {
     copyFailedToast: "复制失败，请手动选择地址。",
     usageTitle: "为干净的测试数据而设计",
     usageBodyOne:
-      "这个工具保持轻量的静态数据集：覆盖美国 50 个州，以及用于国际表单测试的尼日利亚、埃及、土耳其和巴基斯坦。数据集便于审核，也适合部署到 Cloudflare Pages。",
+      "这个工具保持轻量的静态数据集：覆盖美国 50 个州，以及用于国际表单测试的多国地址格式。数据集便于审核，也适合部署到 Cloudflare Pages。",
     usageBodyTwo:
       "生成器会合成街道地址，并匹配真实的城市、州、ZIP Code 和电话区号组合。它不会验证地址是否可投递，也不应用于冒充身份、规避规则或提交欺诈信息。",
     internationalEyebrow: "国际地址生成器",
     internationalTitle: "尼日利亚、埃及、土耳其、巴基斯坦地址生成器",
     internationalIntro:
       "这些国家 Tab 用于生成符合格式习惯的国际测试地址。每条输出都会让城市、地区、邮政编码和电话号码格式与所选国家保持一致。",
+    viewAllCountries: "查看全部国家地址生成器",
     seoNigeriaTitle: "尼日利亚地址生成器",
     seoNigeriaBody:
       "生成尼日利亚测试地址，覆盖 Lagos、Abuja、Kano、Port Harcourt、Ibadan 等城市，包含六位邮政编码和 +234 手机号码格式。",
@@ -224,7 +226,7 @@ const TRANSLATIONS = {
       "无后端、无需注册。地址生成过程完全在客户端基于一个轻量 JSON 数据集完成，作为静态站托管在 Cloudflare。",
     featureThreeTitle: "聚焦且易审计的数据集",
     featureThreeBody:
-      "数据集刻意保持轻量，覆盖美国 50 个州，以及尼日利亚、埃及、土耳其、巴基斯坦，确保工具更快、更稳、更易审计。",
+      "数据集刻意保持轻量，覆盖美国 50 个州以及多国地址格式，确保工具更快、更稳、更易审计。",
     featureFourTitle: "多语言界面",
     featureFourBody:
       "下拉框切换英文、简体中文、繁体中文，语言偏好通过 URL 参数和本地存储同步。",
@@ -260,14 +262,14 @@ const TRANSLATIONS = {
   "zh-TW": {
     pageTitle: "隨機地址產生器 | 美國 50 州、奈及利亞、埃及、土耳其、巴基斯坦",
     metaDescription:
-      "產生美國 50 個州，以及奈及利亞、埃及、土耳其、巴基斯坦隨機地址測試資料，適用於表單開發、QA、展示和佔位記錄。",
+      "產生美國 50 個州與多國隨機地址測試資料，適用於表單開發、QA、展示和佔位記錄。",
     brand: "美國地址產生器",
     headerNote: "面向美國州與國際表單的測試地址資料",
     languageLabel: "語言",
     eyebrow: "美國與國際地址產生器",
     h1: "美國與國際測試地址產生器",
     lede:
-      "產生符合格式習慣的測試地址資料，涵蓋美國 50 個州，以及奈及利亞、埃及、土耳其和巴基斯坦。適用於 QA、表單開發、展示、種子資料和安全佔位記錄。",
+      "產生符合格式習慣的測試地址資料，涵蓋美國 50 個州與多國地址格式。適用於 QA、表單開發、展示、種子資料和安全佔位記錄。",
     tabUs: "美國州",
     tabNigeria: "奈及利亞",
     tabEgypt: "埃及",
@@ -295,13 +297,14 @@ const TRANSLATIONS = {
     copyFailedToast: "複製失敗，請手動選取地址。",
     usageTitle: "為乾淨的測試資料而設計",
     usageBodyOne:
-      "這個工具保持輕量的靜態資料集：涵蓋美國 50 個州，以及用於國際表單測試的奈及利亞、埃及、土耳其和巴基斯坦。資料集便於稽核，也適合部署到 Cloudflare Pages。",
+      "這個工具保持輕量的靜態資料集：涵蓋美國 50 個州，以及用於國際表單測試的多國地址格式。資料集便於稽核，也適合部署到 Cloudflare Pages。",
     usageBodyTwo:
       "產生器會合成街道地址，並匹配真實的城市、州、ZIP Code 和電話區碼組合。它不會驗證地址是否可投遞，也不應用於冒充身分、規避規則或提交詐欺資訊。",
     internationalEyebrow: "國際地址產生器",
     internationalTitle: "奈及利亞、埃及、土耳其、巴基斯坦地址產生器",
     internationalIntro:
       "這些國家 Tab 用於產生符合格式習慣的國際測試地址。每筆輸出都會讓城市、地區、郵遞區號和電話號碼格式與所選國家保持一致。",
+    viewAllCountries: "查看全部國家地址產生器",
     seoNigeriaTitle: "奈及利亞地址產生器",
     seoNigeriaBody:
       "產生奈及利亞測試地址，涵蓋 Lagos、Abuja、Kano、Port Harcourt、Ibadan 等城市，包含六位郵遞區號和 +234 手機號碼格式。",
@@ -348,7 +351,7 @@ const TRANSLATIONS = {
       "無後端、無需註冊。地址產生過程完全在客戶端基於輕量 JSON 資料集完成，作為靜態站託管於 Cloudflare。",
     featureThreeTitle: "聚焦且易稽核的資料集",
     featureThreeBody:
-      "資料集刻意保持輕量，涵蓋美國 50 個州，以及奈及利亞、埃及、土耳其、巴基斯坦，使工具更快、更穩、更易稽核。",
+      "資料集刻意保持輕量，涵蓋美國 50 個州與多國地址格式，使工具更快、更穩、更易稽核。",
     featureFourTitle: "多語介面",
     featureFourBody:
       "下拉選單切換英文、簡體中文、繁體中文，語言偏好透過 URL 參數與本機儲存同步。",
@@ -466,7 +469,7 @@ function applyLanguage(language) {
   const selfUrl =
     currentLanguage === "en"
       ? "https://usaddregen.com/"
-      : `https://usaddregen.com/?lang=${currentLanguage}`;
+      : `https://usaddregen.com/${currentLanguage}/`;
   if (canonicalLink) canonicalLink.href = selfUrl;
   if (ogUrl) ogUrl.content = selfUrl;
 

@@ -400,7 +400,7 @@ h2 {
 .country-tabs {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   gap: 8px;
   margin: 0;
   padding: 6px;
@@ -709,6 +709,21 @@ dd {
   color: #4b5a6f;
   font-size: 0.94rem;
   line-height: 1.65;
+}
+
+.section-link-row {
+  margin: 18px 0 0;
+}
+
+.section-link-row a {
+  color: #0f6b5f;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.section-link-row a:hover {
+  color: #2d5bff;
+  text-decoration: underline;
 }
 
 .features-grid {

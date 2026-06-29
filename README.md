@@ -7,7 +7,7 @@ The site is built with Vite and deploys cleanly to Cloudflare Pages. No backend,
 ## Technical approach
 
 - Static Vite app with browser-side generation.
-- Data-driven US state pages generated from `src/data/states.js`.
+- Data-driven US state and city pages generated from `src/data/states.js`.
 - Small built-in datasets of city, ZIP Code / postal code, state / region, and phone area code combinations.
 - Synthetic street addresses and names to avoid depending on real personal records.
 - One-click copy with Clipboard API and a fallback copy path.
@@ -36,7 +36,7 @@ The production output directory is:
 dist
 ```
 
-The build runs `npm run generate` first, which refreshes the 50 state pages, `sitemap.xml`, `llms.txt`, and `llms-full.txt`.
+The build runs `npm run generate` first, which refreshes the 50 state pages, 160 city pages, country pages, `sitemap.xml`, `llms.txt`, and `llms-full.txt`.
 
 ## Browser extension
 

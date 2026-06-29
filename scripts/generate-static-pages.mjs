@@ -8,13 +8,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
 const publicDir = join(root, "public");
 const siteUrl = "https://usaddregen.com";
-const lastmod = "2026-06-29";
+const lastmod = "2026-06-30";
 const adsClient = "ca-pub-4423552696854564";
 
 const staticUrls = [
   { loc: "/", priority: "1.0", changefreq: "monthly", alternates: true },
-  { loc: "/?lang=zh-CN", priority: "0.9", changefreq: "monthly", alternates: true },
-  { loc: "/?lang=zh-TW", priority: "0.9", changefreq: "monthly", alternates: true },
+  { loc: "/zh-CN/", priority: "0.9", changefreq: "monthly", alternates: true },
+  { loc: "/zh-TW/", priority: "0.9", changefreq: "monthly", alternates: true },
   { loc: "/state/", priority: "0.8", changefreq: "monthly" },
   { loc: "/country/", priority: "0.8", changefreq: "monthly" },
   { loc: "/about/", priority: "0.5", changefreq: "yearly" },
@@ -46,13 +46,13 @@ function fullUrl(path) {
   return path.startsWith("http") ? path : `${siteUrl}${path}`;
 }
 
-function pageShell({ title, description, canonical, ogType = "article", jsonLd = [], body }) {
+function pageShell({ title, description, canonical, ogType = "article", jsonLd = [], body, lang = "en" }) {
   const jsonLdScripts = jsonLd
     .map((entry) => `<script type="application/ld+json">\n${JSON.stringify(entry, null, 2)}\n</script>`)
     .join("\n    ");
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${escapeHtml(lang)}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -168,10 +168,28 @@ function stateIndexPage() {
 }
 
 function countrySlug(country) {
-  return country.name
+  return slugify(country.name);
+}
+
+function slugify(value) {
+  return value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+function citySlug(city) {
+  return slugify(city.name);
+}
+
+function cityEntries() {
+  return STATES.flatMap((state) =>
+    state.cities.map((city) => ({
+      state,
+      city,
+      slug: citySlug(city)
+    }))
+  );
 }
 
 function countryEntries() {
@@ -182,12 +200,16 @@ function countryEntries() {
   }));
 }
 
+function countryNames() {
+  return countryEntries().map(({ country }) => country.name);
+}
+
 function countryCard({ code, country, slug }) {
   const cityNames = country.cities.map((city) => city.name).join(", ");
   const postalLengths = [...new Set(country.cities.flatMap((city) => city.zips.map((zip) => zip.length)))].sort();
   return `<a class="state-card" href="/country/${slug}/">
           <h2>${escapeHtml(country.name)} (${code})</h2>
-          <p class="state-meta">${escapeHtml(country.phoneCode)} phone format &middot; ${escapeHtml(postalLengths.join(" or "))}-digit postal codes</p>
+          <p class="state-meta">${escapeHtml(country.phoneCode)} phone format &middot; ${escapeHtml(postalLengths.join(" or "))}-character postal-code examples</p>
           <p>${escapeHtml(cityNames)}. Synthetic street lines paired with country-specific city, region, postal-code, and phone formats.</p>
         </a>`;
 }
@@ -201,7 +223,7 @@ function countryIndexPage() {
       "@id": `${siteUrl}/country/#collection`,
       name: "International Address Generators",
       url: `${siteUrl}/country/`,
-      description: "Browse country-specific random address generator pages for Nigeria, Egypt, Turkey, and Pakistan with matched city, region, postal-code, and phone formats.",
+      description: `Browse country-specific random address generator pages for ${countryNames().join(", ")} with matched city, region, postal-code, and phone formats.`,
       hasPart: entries.map(({ country, slug }) => ({
         "@type": "WebPage",
         name: `${country.name} Address Generator`,
@@ -243,11 +265,84 @@ function countryIndexPage() {
     </main>`;
 
   return pageShell({
-    title: "International Address Generators | Nigeria, Egypt, Turkey & Pakistan",
-    description: "Browse country-specific random address generators for Nigeria, Egypt, Turkey, and Pakistan. Built for QA, form testing, demos, and placeholder records.",
+    title: "International Address Generators | Country-Specific Test Addresses",
+    description: `Browse country-specific random address generators for ${countryNames().join(", ")}. Built for QA, form testing, demos, and placeholder records.`,
     canonical: `${siteUrl}/country/`,
     ogType: "website",
     jsonLd,
+    body
+  });
+}
+
+function localizedHomePage(language) {
+  const isTraditional = language === "zh-TW";
+  const title = isTraditional
+    ? "隨機地址產生器 | 美國 50 州與國際測試地址"
+    : "随机地址生成器 | 美国 50 州与国际测试地址";
+  const description = isTraditional
+    ? "為 QA、表單測試、展示和佔位資料產生美國 50 州與多國格式化測試地址。包含城市、州/地區、郵遞區號和電話格式說明。"
+    : "为 QA、表单测试、演示和占位数据生成美国 50 州与多国格式化测试地址，包含城市、州/地区、邮政编码和电话格式说明。";
+  const countryList = countryNames().join(", ");
+  const body = `    <main class="page page-wide">
+      <nav class="lang-switcher" aria-label="Language">
+        <a href="/">English</a>
+        <a${language === "zh-CN" ? ' class="active" aria-current="page"' : ' href="/zh-CN/"'}>简体中文</a>
+        <a${language === "zh-TW" ? ' class="active" aria-current="page"' : ' href="/zh-TW/"'}>繁體中文</a>
+      </nav>
+
+      <nav class="page-header" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>${isTraditional ? "中文" : "中文"}</span>
+      </nav>
+
+      <h1>${isTraditional ? "美國與國際測試地址產生器" : "美国与国际测试地址生成器"}</h1>
+      <p class="meta">
+        ${isTraditional
+          ? `支援美國 50 州，以及 ${escapeHtml(countryList)}。本頁是可索引的中文入口；實際產生器會以所選中文介面開啟。`
+          : `支持美国 50 州，以及 ${escapeHtml(countryList)}。本页是可索引的中文入口；实际生成器会以所选中文界面打开。`}
+      </p>
+
+      <p>
+        <a class="cta" href="/?lang=${language}">${isTraditional ? "開啟地址產生器" : "打开地址生成器"}</a>
+      </p>
+
+      <h2>${isTraditional ? "可用入口" : "可用入口"}</h2>
+      <ul>
+        <li><a href="/state/">${isTraditional ? "美國 50 州地址產生器" : "美国 50 州地址生成器"}</a></li>
+        <li><a href="/country/">${isTraditional ? "國際地址產生器" : "国际地址生成器"}</a></li>
+        <li><a href="/blog/${language}/">${isTraditional ? "中文部落格" : "中文博客"}</a></li>
+      </ul>
+
+      <h2>${isTraditional ? "使用邊界" : "使用边界"}</h2>
+      <p>
+        ${isTraditional
+          ? "所有輸出都是符合格式習慣的合成測試資料，不保證可投遞，也不能通過真實郵政、銀行、電信、政府或物流驗證。僅用於合法的 QA、開發、展示和佔位資料。"
+          : "所有输出都是符合格式习惯的合成测试数据，不保证可投递，也不能通过真实邮政、银行、电信、政府或物流验证。仅用于合法的 QA、开发、演示和占位数据。"}
+      </p>
+
+      ${footer()}
+    </main>`;
+
+  return pageShell({
+    title,
+    description,
+    canonical: `${siteUrl}/${language}/`,
+    ogType: "website",
+    lang: language,
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${siteUrl}/${language}/#webpage`,
+        name: title,
+        url: `${siteUrl}/${language}/`,
+        description,
+        inLanguage: language,
+        isPartOf: { "@id": `${siteUrl}/#website` }
+      },
+      breadcrumb(["Home", language], `/${language}/`)
+    ],
     body
   });
 }
@@ -300,7 +395,7 @@ function countryPage({ code, country, slug }) {
       </p>
 
       <p>
-        <a class="cta" href="/?country=${escapeHtml(code)}">Generate a ${escapeHtml(country.name)} address</a>
+        <a class="cta" href="/?country=${escapeHtml(code)}">Generate ${escapeHtml(country.name)} test data</a>
       </p>
 
       <h2>Cities and postal codes in this dataset</h2>
@@ -355,7 +450,7 @@ function faqForCountry(country) {
     },
     {
       "@type": "Question",
-      name: `What can a ${country.name} test address be used for?`,
+      name: `What can ${country.name} test address data be used for?`,
       acceptedAnswer: {
         "@type": "Answer",
         text: "Use it for legal QA workflows such as form validation, checkout demos, CRM demos, mock customer records, design prototypes, documentation screenshots, and seed data."
@@ -375,7 +470,7 @@ function faqForCountry(country) {
 function statePage(state) {
   const { isTaxFree, taxText } = stateMeta(state);
   const cityRows = state.cities
-    .map((city) => `<tr><td>${escapeHtml(city.name)}</td><td>${escapeHtml(city.zips.join(", "))}</td><td>Real city and ZIP pair used by the generator dataset.</td></tr>`)
+    .map((city) => `<tr><td><a href="/state/${state.slug}/${citySlug(city)}/">${escapeHtml(city.name)}</a></td><td>${escapeHtml(city.zips.join(", "))}</td><td>Real city and ZIP pair used by the generator dataset.</td></tr>`)
     .join("\n          ");
   const related = relatedStates(state)
     .map((item) => `<li><a href="/state/${item.slug}/">${escapeHtml(item.name)} address generator</a></li>`)
@@ -520,6 +615,142 @@ function faqForState(state) {
   ];
 }
 
+function cityPage({ state, city, slug }) {
+  const { taxText } = stateMeta(state);
+  const cityPath = `/state/${state.slug}/${slug}/`;
+  const description = `${city.name}, ${state.name} random address generator with matched ${state.abbr} ZIP codes (${city.zips.join(", ")}), state area-code data, and synthetic street lines for QA and form testing.`;
+  const nearbyCities = state.cities
+    .filter((item) => item.name !== city.name)
+    .slice(0, 4)
+    .map((item) => `<li><a href="/state/${state.slug}/${citySlug(item)}/">${escapeHtml(item.name)} address generator</a></li>`)
+    .join("\n          ");
+  const zipRows = city.zips
+    .map((zip) => `<tr><td>${escapeHtml(zip)}</td><td>${escapeHtml(city.name)}</td><td>${escapeHtml(state.name)} (${state.abbr})</td></tr>`)
+    .join("\n          ");
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${siteUrl}${cityPath}#webpage`,
+      name: `${city.name} Address Generator`,
+      url: `${siteUrl}${cityPath}`,
+      description,
+      datePublished: "2026-06-30",
+      dateModified: lastmod,
+      inLanguage: "en",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: {
+        "@type": "City",
+        name: city.name,
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: `${state.name}, United States`
+        }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: `Is this ${city.name} address real?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `No. The city, state, ZIP, and area-code data are matched from the ${state.name} dataset, but the street line is synthetic and not deliverable.`
+          }
+        },
+        {
+          "@type": "Question",
+          name: `Which ZIP codes are used for ${city.name}?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `This dataset uses these ${city.name}, ${state.abbr} ZIP examples: ${city.zips.join(", ")}.`
+          }
+        },
+        {
+          "@type": "Question",
+          name: `What can a ${city.name} test address be used for?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Use it for legal QA workflows such as city/ZIP validation, checkout demos, mock customer records, design prototypes, documentation screenshots, and seed data."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+        { "@type": "ListItem", position: 2, name: "States", item: `${siteUrl}/state/` },
+        { "@type": "ListItem", position: 3, name: state.name, item: `${siteUrl}/state/${state.slug}/` },
+        { "@type": "ListItem", position: 4, name: city.name, item: `${siteUrl}${cityPath}` }
+      ]
+    }
+  ];
+
+  const body = `    <main class="page">
+      <nav class="page-header" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/state/">States</a>
+        <span>/</span>
+        <a href="/state/${state.slug}/">${escapeHtml(state.name)}</a>
+        <span>/</span>
+        <span>${escapeHtml(city.name)}</span>
+      </nav>
+
+      <h1>${escapeHtml(city.name)} Address Generator</h1>
+      <p class="meta">${escapeHtml(state.name)} (${state.abbr}) &middot; ZIP codes: ${escapeHtml(city.zips.join(", "))} &middot; ${escapeHtml(taxText)}</p>
+
+      <p>
+        Generate realistic-format ${escapeHtml(city.name)}, ${escapeHtml(state.abbr)} test
+        addresses for city/ZIP validation, checkout UI testing, tax-engine fixtures, seed data,
+        demos, and documentation. The city, state, ZIP, and area-code data come from the same
+        static ${escapeHtml(state.name)} dataset; the street line and person name are synthetic.
+      </p>
+
+      <p>
+        <a class="cta" href="/?state=${state.abbr}">Generate a ${escapeHtml(state.name)} address</a>
+      </p>
+
+      <h2>${escapeHtml(city.name)} ZIP codes in this dataset</h2>
+      <table>
+        <thead><tr><th>ZIP code</th><th>City</th><th>State</th></tr></thead>
+        <tbody>
+          ${zipRows}
+        </tbody>
+      </table>
+
+      <h2>Testing notes</h2>
+      <p>
+        This page is useful when a form needs to preserve a specific city/state/ZIP relationship.
+        It does not verify that a synthetic street line exists. Real USPS, AVS, bank, shipping, or
+        government verification will reject these generated records.
+      </p>
+
+      <h2>Related ${escapeHtml(state.name)} city generators</h2>
+      <ul>
+        ${nearbyCities || `<li><a href="/state/${state.slug}/">${escapeHtml(state.name)} address generator</a></li>`}
+      </ul>
+
+      <p><a href="/state/${state.slug}/">View all ${escapeHtml(state.name)} test-address data</a></p>
+
+      ${disclaimer()}
+      ${footer()}
+    </main>`;
+
+  return pageShell({
+    title: `${city.name} Address Generator | Random ${state.abbr} Test Address With ZIP`,
+    description,
+    canonical: `${siteUrl}${cityPath}`,
+    jsonLd,
+    body
+  });
+}
+
 function relatedStates(state) {
   const index = STATES.findIndex((item) => item.slug === state.slug);
   const picked = [];
@@ -531,7 +762,8 @@ function relatedStates(state) {
 
 function breadcrumb(names, currentPath = "/state/") {
   const sectionName = names[1] || "States";
-  const sectionPath = sectionName === "Countries" ? "/country/" : "/state/";
+  const sectionPath =
+    sectionName === "Countries" ? "/country/" : sectionName === "States" ? "/state/" : currentPath;
   const items = [
     { name: "Home", item: `${siteUrl}/` },
     { name: sectionName, item: `${siteUrl}${sectionPath}` }
@@ -583,8 +815,8 @@ function sitemapUrl(entry) {
   if (entry.alternates) {
     alternates.push(
       `<xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/" />`,
-      `<xhtml:link rel="alternate" hreflang="zh-CN" href="${siteUrl}/?lang=zh-CN" />`,
-      `<xhtml:link rel="alternate" hreflang="zh-TW" href="${siteUrl}/?lang=zh-TW" />`,
+      `<xhtml:link rel="alternate" hreflang="zh-CN" href="${siteUrl}/zh-CN/" />`,
+      `<xhtml:link rel="alternate" hreflang="zh-TW" href="${siteUrl}/zh-TW/" />`,
       `<xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}/" />`
     );
   }
@@ -613,12 +845,13 @@ function sitemapUrl(entry) {
     );
   }
 
+  const alternateBlock = alternates.length ? `\n    ${alternates.join("\n    ")}` : "";
+
   return `  <url>
     <loc>${fullUrl(entry.loc)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>
-    ${alternates.join("\n    ")}
+    <priority>${entry.priority}</priority>${alternateBlock}
   </url>`;
 }
 
@@ -633,11 +866,16 @@ function sitemap() {
     priority: "0.8",
     changefreq: "monthly"
   }));
+  const cityUrls = cityEntries().map(({ state, slug }) => ({
+    loc: `/state/${state.slug}/${slug}/`,
+    priority: "0.6",
+    changefreq: "monthly"
+  }));
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${[...staticUrls, ...stateUrls, ...countryUrls].map(sitemapUrl).join("\n")}
+${[...staticUrls, ...stateUrls, ...cityUrls, ...countryUrls].map(sitemapUrl).join("\n")}
 </urlset>
 `;
 }
@@ -647,6 +885,9 @@ function llms() {
     const { taxText } = stateMeta(state);
     const cities = state.cities.map((city) => city.name).join(", ");
     return `- [${state.name} (${state.abbr}) address generator](${siteUrl}/state/${state.slug}/): ${taxText}; ZIP prefixes ${state.zipPrefixes.join(", ")}; area codes ${state.areaCodes.join(", ")}; sample cities ${cities}.`;
+  }).join("\n");
+  const cityLines = cityEntries().map(({ state, city, slug }) => {
+    return `- [${city.name}, ${state.abbr} address generator](${siteUrl}/state/${state.slug}/${slug}/): ZIP examples ${city.zips.join(", ")}; state page ${siteUrl}/state/${state.slug}/.`;
   }).join("\n");
 
   return `# US Address Generator
@@ -666,6 +907,10 @@ function llms() {
 ## US state address generators
 
 ${stateLines}
+
+## US city address generators
+
+${cityLines}
 
 ## Source notes
 
@@ -701,10 +946,13 @@ async function writePublic(relativePath, content) {
 
 await writePublic("state/index.html", stateIndexPage());
 await Promise.all(STATES.map((state) => writePublic(`state/${state.slug}/index.html`, statePage(state))));
+await Promise.all(cityEntries().map((entry) => writePublic(`state/${entry.state.slug}/${entry.slug}/index.html`, cityPage(entry))));
 await writePublic("country/index.html", countryIndexPage());
 await Promise.all(countryEntries().map((entry) => writePublic(`country/${entry.slug}/index.html`, countryPage(entry))));
+await writePublic("zh-CN/index.html", localizedHomePage("zh-CN"));
+await writePublic("zh-TW/index.html", localizedHomePage("zh-TW"));
 await writePublic("sitemap.xml", sitemap());
 await writePublic("llms.txt", llms());
 await writePublic("llms-full.txt", llms());
 
-console.log(`Generated ${STATES.length} state pages, ${countryEntries().length} country pages, indexes, sitemap.xml, llms.txt, and llms-full.txt.`);
+console.log(`Generated ${STATES.length} state pages, ${cityEntries().length} city pages, ${countryEntries().length} country pages, localized home pages, indexes, sitemap.xml, llms.txt, and llms-full.txt.`);

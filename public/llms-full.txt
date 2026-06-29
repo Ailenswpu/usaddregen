@@ -65,6 +65,169 @@
 - [Wisconsin (WI) address generator](https://usaddregen.com/state/wisconsin/): 5% statewide base sales tax; ZIP prefixes 53, 54; area codes 262, 274, 414, 534, 608, 715, 920; sample cities Milwaukee, Madison, Green Bay.
 - [Wyoming (WY) address generator](https://usaddregen.com/state/wyoming/): 4% statewide base sales tax; ZIP prefixes 82, 83; area codes 307; sample cities Cheyenne, Casper, Laramie.
 
+## US city address generators
+
+- [Birmingham, AL address generator](https://usaddregen.com/state/alabama/birmingham/): ZIP examples 35203, 35205, 35209; state page https://usaddregen.com/state/alabama/.
+- [Montgomery, AL address generator](https://usaddregen.com/state/alabama/montgomery/): ZIP examples 36104, 36106, 36117; state page https://usaddregen.com/state/alabama/.
+- [Huntsville, AL address generator](https://usaddregen.com/state/alabama/huntsville/): ZIP examples 35801, 35802, 35806; state page https://usaddregen.com/state/alabama/.
+- [Anchorage, AK address generator](https://usaddregen.com/state/alaska/anchorage/): ZIP examples 99501, 99503, 99507; state page https://usaddregen.com/state/alaska/.
+- [Fairbanks, AK address generator](https://usaddregen.com/state/alaska/fairbanks/): ZIP examples 99701, 99709; state page https://usaddregen.com/state/alaska/.
+- [Juneau, AK address generator](https://usaddregen.com/state/alaska/juneau/): ZIP examples 99801; state page https://usaddregen.com/state/alaska/.
+- [Sitka, AK address generator](https://usaddregen.com/state/alaska/sitka/): ZIP examples 99835; state page https://usaddregen.com/state/alaska/.
+- [Ketchikan, AK address generator](https://usaddregen.com/state/alaska/ketchikan/): ZIP examples 99901; state page https://usaddregen.com/state/alaska/.
+- [Phoenix, AZ address generator](https://usaddregen.com/state/arizona/phoenix/): ZIP examples 85003, 85004, 85016; state page https://usaddregen.com/state/arizona/.
+- [Tucson, AZ address generator](https://usaddregen.com/state/arizona/tucson/): ZIP examples 85701, 85705, 85711; state page https://usaddregen.com/state/arizona/.
+- [Mesa, AZ address generator](https://usaddregen.com/state/arizona/mesa/): ZIP examples 85201, 85204, 85210; state page https://usaddregen.com/state/arizona/.
+- [Little Rock, AR address generator](https://usaddregen.com/state/arkansas/little-rock/): ZIP examples 72201, 72205, 72211; state page https://usaddregen.com/state/arkansas/.
+- [Fayetteville, AR address generator](https://usaddregen.com/state/arkansas/fayetteville/): ZIP examples 72701, 72703; state page https://usaddregen.com/state/arkansas/.
+- [Fort Smith, AR address generator](https://usaddregen.com/state/arkansas/fort-smith/): ZIP examples 72901, 72903; state page https://usaddregen.com/state/arkansas/.
+- [Los Angeles, CA address generator](https://usaddregen.com/state/california/los-angeles/): ZIP examples 90012, 90017, 90024; state page https://usaddregen.com/state/california/.
+- [San Diego, CA address generator](https://usaddregen.com/state/california/san-diego/): ZIP examples 92101, 92103, 92109; state page https://usaddregen.com/state/california/.
+- [San Jose, CA address generator](https://usaddregen.com/state/california/san-jose/): ZIP examples 95112, 95123, 95128; state page https://usaddregen.com/state/california/.
+- [Denver, CO address generator](https://usaddregen.com/state/colorado/denver/): ZIP examples 80202, 80203, 80205; state page https://usaddregen.com/state/colorado/.
+- [Colorado Springs, CO address generator](https://usaddregen.com/state/colorado/colorado-springs/): ZIP examples 80903, 80906, 80918; state page https://usaddregen.com/state/colorado/.
+- [Aurora, CO address generator](https://usaddregen.com/state/colorado/aurora/): ZIP examples 80010, 80012, 80014; state page https://usaddregen.com/state/colorado/.
+- [Bridgeport, CT address generator](https://usaddregen.com/state/connecticut/bridgeport/): ZIP examples 06604, 06605, 06606; state page https://usaddregen.com/state/connecticut/.
+- [Stamford, CT address generator](https://usaddregen.com/state/connecticut/stamford/): ZIP examples 06901, 06902; state page https://usaddregen.com/state/connecticut/.
+- [New Haven, CT address generator](https://usaddregen.com/state/connecticut/new-haven/): ZIP examples 06510, 06511, 06515; state page https://usaddregen.com/state/connecticut/.
+- [Wilmington, DE address generator](https://usaddregen.com/state/delaware/wilmington/): ZIP examples 19801, 19802, 19805, 19806; state page https://usaddregen.com/state/delaware/.
+- [Dover, DE address generator](https://usaddregen.com/state/delaware/dover/): ZIP examples 19901, 19904; state page https://usaddregen.com/state/delaware/.
+- [Newark, DE address generator](https://usaddregen.com/state/delaware/newark/): ZIP examples 19711, 19713; state page https://usaddregen.com/state/delaware/.
+- [Middletown, DE address generator](https://usaddregen.com/state/delaware/middletown/): ZIP examples 19709; state page https://usaddregen.com/state/delaware/.
+- [Lewes, DE address generator](https://usaddregen.com/state/delaware/lewes/): ZIP examples 19958; state page https://usaddregen.com/state/delaware/.
+- [Jacksonville, FL address generator](https://usaddregen.com/state/florida/jacksonville/): ZIP examples 32202, 32207, 32210; state page https://usaddregen.com/state/florida/.
+- [Miami, FL address generator](https://usaddregen.com/state/florida/miami/): ZIP examples 33130, 33131, 33132; state page https://usaddregen.com/state/florida/.
+- [Tampa, FL address generator](https://usaddregen.com/state/florida/tampa/): ZIP examples 33602, 33606, 33607; state page https://usaddregen.com/state/florida/.
+- [Atlanta, GA address generator](https://usaddregen.com/state/georgia/atlanta/): ZIP examples 30303, 30308, 30309; state page https://usaddregen.com/state/georgia/.
+- [Augusta, GA address generator](https://usaddregen.com/state/georgia/augusta/): ZIP examples 30901, 30904, 30907; state page https://usaddregen.com/state/georgia/.
+- [Columbus, GA address generator](https://usaddregen.com/state/georgia/columbus/): ZIP examples 31901, 31904, 31909; state page https://usaddregen.com/state/georgia/.
+- [Honolulu, HI address generator](https://usaddregen.com/state/hawaii/honolulu/): ZIP examples 96813, 96814, 96815; state page https://usaddregen.com/state/hawaii/.
+- [Hilo, HI address generator](https://usaddregen.com/state/hawaii/hilo/): ZIP examples 96720; state page https://usaddregen.com/state/hawaii/.
+- [Kailua, HI address generator](https://usaddregen.com/state/hawaii/kailua/): ZIP examples 96734; state page https://usaddregen.com/state/hawaii/.
+- [Boise, ID address generator](https://usaddregen.com/state/idaho/boise/): ZIP examples 83702, 83704, 83706; state page https://usaddregen.com/state/idaho/.
+- [Meridian, ID address generator](https://usaddregen.com/state/idaho/meridian/): ZIP examples 83642, 83646; state page https://usaddregen.com/state/idaho/.
+- [Nampa, ID address generator](https://usaddregen.com/state/idaho/nampa/): ZIP examples 83651, 83686; state page https://usaddregen.com/state/idaho/.
+- [Chicago, IL address generator](https://usaddregen.com/state/illinois/chicago/): ZIP examples 60601, 60607, 60614; state page https://usaddregen.com/state/illinois/.
+- [Aurora, IL address generator](https://usaddregen.com/state/illinois/aurora/): ZIP examples 60502, 60505, 60506; state page https://usaddregen.com/state/illinois/.
+- [Naperville, IL address generator](https://usaddregen.com/state/illinois/naperville/): ZIP examples 60540, 60563; state page https://usaddregen.com/state/illinois/.
+- [Indianapolis, IN address generator](https://usaddregen.com/state/indiana/indianapolis/): ZIP examples 46202, 46204, 46220; state page https://usaddregen.com/state/indiana/.
+- [Fort Wayne, IN address generator](https://usaddregen.com/state/indiana/fort-wayne/): ZIP examples 46802, 46805, 46815; state page https://usaddregen.com/state/indiana/.
+- [Evansville, IN address generator](https://usaddregen.com/state/indiana/evansville/): ZIP examples 47708, 47711, 47714; state page https://usaddregen.com/state/indiana/.
+- [Des Moines, IA address generator](https://usaddregen.com/state/iowa/des-moines/): ZIP examples 50309, 50310, 50312; state page https://usaddregen.com/state/iowa/.
+- [Cedar Rapids, IA address generator](https://usaddregen.com/state/iowa/cedar-rapids/): ZIP examples 52401, 52402, 52404; state page https://usaddregen.com/state/iowa/.
+- [Davenport, IA address generator](https://usaddregen.com/state/iowa/davenport/): ZIP examples 52801, 52803, 52806; state page https://usaddregen.com/state/iowa/.
+- [Wichita, KS address generator](https://usaddregen.com/state/kansas/wichita/): ZIP examples 67202, 67203, 67212; state page https://usaddregen.com/state/kansas/.
+- [Overland Park, KS address generator](https://usaddregen.com/state/kansas/overland-park/): ZIP examples 66204, 66210, 66213; state page https://usaddregen.com/state/kansas/.
+- [Kansas City, KS address generator](https://usaddregen.com/state/kansas/kansas-city/): ZIP examples 66101, 66102, 66109; state page https://usaddregen.com/state/kansas/.
+- [Louisville, KY address generator](https://usaddregen.com/state/kentucky/louisville/): ZIP examples 40202, 40203, 40205; state page https://usaddregen.com/state/kentucky/.
+- [Lexington, KY address generator](https://usaddregen.com/state/kentucky/lexington/): ZIP examples 40502, 40503, 40508; state page https://usaddregen.com/state/kentucky/.
+- [Bowling Green, KY address generator](https://usaddregen.com/state/kentucky/bowling-green/): ZIP examples 42101, 42103; state page https://usaddregen.com/state/kentucky/.
+- [New Orleans, LA address generator](https://usaddregen.com/state/louisiana/new-orleans/): ZIP examples 70112, 70115, 70130; state page https://usaddregen.com/state/louisiana/.
+- [Baton Rouge, LA address generator](https://usaddregen.com/state/louisiana/baton-rouge/): ZIP examples 70802, 70806, 70808; state page https://usaddregen.com/state/louisiana/.
+- [Shreveport, LA address generator](https://usaddregen.com/state/louisiana/shreveport/): ZIP examples 71101, 71104, 71106; state page https://usaddregen.com/state/louisiana/.
+- [Portland, ME address generator](https://usaddregen.com/state/maine/portland/): ZIP examples 04101, 04102, 04103; state page https://usaddregen.com/state/maine/.
+- [Lewiston, ME address generator](https://usaddregen.com/state/maine/lewiston/): ZIP examples 04240; state page https://usaddregen.com/state/maine/.
+- [Bangor, ME address generator](https://usaddregen.com/state/maine/bangor/): ZIP examples 04401; state page https://usaddregen.com/state/maine/.
+- [Baltimore, MD address generator](https://usaddregen.com/state/maryland/baltimore/): ZIP examples 21201, 21202, 21218; state page https://usaddregen.com/state/maryland/.
+- [Frederick, MD address generator](https://usaddregen.com/state/maryland/frederick/): ZIP examples 21701, 21702; state page https://usaddregen.com/state/maryland/.
+- [Rockville, MD address generator](https://usaddregen.com/state/maryland/rockville/): ZIP examples 20850, 20852; state page https://usaddregen.com/state/maryland/.
+- [Boston, MA address generator](https://usaddregen.com/state/massachusetts/boston/): ZIP examples 02108, 02110, 02116; state page https://usaddregen.com/state/massachusetts/.
+- [Worcester, MA address generator](https://usaddregen.com/state/massachusetts/worcester/): ZIP examples 01604, 01605, 01610; state page https://usaddregen.com/state/massachusetts/.
+- [Springfield, MA address generator](https://usaddregen.com/state/massachusetts/springfield/): ZIP examples 01103, 01105, 01108; state page https://usaddregen.com/state/massachusetts/.
+- [Detroit, MI address generator](https://usaddregen.com/state/michigan/detroit/): ZIP examples 48201, 48202, 48226; state page https://usaddregen.com/state/michigan/.
+- [Grand Rapids, MI address generator](https://usaddregen.com/state/michigan/grand-rapids/): ZIP examples 49503, 49504, 49506; state page https://usaddregen.com/state/michigan/.
+- [Warren, MI address generator](https://usaddregen.com/state/michigan/warren/): ZIP examples 48088, 48089, 48093; state page https://usaddregen.com/state/michigan/.
+- [Minneapolis, MN address generator](https://usaddregen.com/state/minnesota/minneapolis/): ZIP examples 55401, 55403, 55408; state page https://usaddregen.com/state/minnesota/.
+- [Saint Paul, MN address generator](https://usaddregen.com/state/minnesota/saint-paul/): ZIP examples 55101, 55102, 55104; state page https://usaddregen.com/state/minnesota/.
+- [Rochester, MN address generator](https://usaddregen.com/state/minnesota/rochester/): ZIP examples 55901, 55902; state page https://usaddregen.com/state/minnesota/.
+- [Jackson, MS address generator](https://usaddregen.com/state/mississippi/jackson/): ZIP examples 39201, 39202, 39211; state page https://usaddregen.com/state/mississippi/.
+- [Gulfport, MS address generator](https://usaddregen.com/state/mississippi/gulfport/): ZIP examples 39501, 39503; state page https://usaddregen.com/state/mississippi/.
+- [Southaven, MS address generator](https://usaddregen.com/state/mississippi/southaven/): ZIP examples 38671, 38672; state page https://usaddregen.com/state/mississippi/.
+- [Kansas City, MO address generator](https://usaddregen.com/state/missouri/kansas-city/): ZIP examples 64105, 64108, 64111; state page https://usaddregen.com/state/missouri/.
+- [St. Louis, MO address generator](https://usaddregen.com/state/missouri/st-louis/): ZIP examples 63101, 63103, 63108; state page https://usaddregen.com/state/missouri/.
+- [Springfield, MO address generator](https://usaddregen.com/state/missouri/springfield/): ZIP examples 65802, 65804, 65807; state page https://usaddregen.com/state/missouri/.
+- [Billings, MT address generator](https://usaddregen.com/state/montana/billings/): ZIP examples 59101, 59102, 59105; state page https://usaddregen.com/state/montana/.
+- [Missoula, MT address generator](https://usaddregen.com/state/montana/missoula/): ZIP examples 59801, 59802; state page https://usaddregen.com/state/montana/.
+- [Bozeman, MT address generator](https://usaddregen.com/state/montana/bozeman/): ZIP examples 59715, 59718; state page https://usaddregen.com/state/montana/.
+- [Helena, MT address generator](https://usaddregen.com/state/montana/helena/): ZIP examples 59601, 59602; state page https://usaddregen.com/state/montana/.
+- [Great Falls, MT address generator](https://usaddregen.com/state/montana/great-falls/): ZIP examples 59401, 59405; state page https://usaddregen.com/state/montana/.
+- [Omaha, NE address generator](https://usaddregen.com/state/nebraska/omaha/): ZIP examples 68102, 68104, 68114; state page https://usaddregen.com/state/nebraska/.
+- [Lincoln, NE address generator](https://usaddregen.com/state/nebraska/lincoln/): ZIP examples 68502, 68508, 68510; state page https://usaddregen.com/state/nebraska/.
+- [Bellevue, NE address generator](https://usaddregen.com/state/nebraska/bellevue/): ZIP examples 68005, 68123; state page https://usaddregen.com/state/nebraska/.
+- [Las Vegas, NV address generator](https://usaddregen.com/state/nevada/las-vegas/): ZIP examples 89101, 89109, 89117; state page https://usaddregen.com/state/nevada/.
+- [Henderson, NV address generator](https://usaddregen.com/state/nevada/henderson/): ZIP examples 89012, 89014, 89052; state page https://usaddregen.com/state/nevada/.
+- [Reno, NV address generator](https://usaddregen.com/state/nevada/reno/): ZIP examples 89501, 89502, 89509; state page https://usaddregen.com/state/nevada/.
+- [Manchester, NH address generator](https://usaddregen.com/state/new-hampshire/manchester/): ZIP examples 03101, 03102, 03104; state page https://usaddregen.com/state/new-hampshire/.
+- [Nashua, NH address generator](https://usaddregen.com/state/new-hampshire/nashua/): ZIP examples 03060, 03062; state page https://usaddregen.com/state/new-hampshire/.
+- [Concord, NH address generator](https://usaddregen.com/state/new-hampshire/concord/): ZIP examples 03301, 03303; state page https://usaddregen.com/state/new-hampshire/.
+- [Portsmouth, NH address generator](https://usaddregen.com/state/new-hampshire/portsmouth/): ZIP examples 03801; state page https://usaddregen.com/state/new-hampshire/.
+- [Dover, NH address generator](https://usaddregen.com/state/new-hampshire/dover/): ZIP examples 03820; state page https://usaddregen.com/state/new-hampshire/.
+- [Newark, NJ address generator](https://usaddregen.com/state/new-jersey/newark/): ZIP examples 07102, 07103, 07104; state page https://usaddregen.com/state/new-jersey/.
+- [Jersey City, NJ address generator](https://usaddregen.com/state/new-jersey/jersey-city/): ZIP examples 07302, 07304, 07306; state page https://usaddregen.com/state/new-jersey/.
+- [Paterson, NJ address generator](https://usaddregen.com/state/new-jersey/paterson/): ZIP examples 07501, 07505, 07514; state page https://usaddregen.com/state/new-jersey/.
+- [Albuquerque, NM address generator](https://usaddregen.com/state/new-mexico/albuquerque/): ZIP examples 87102, 87106, 87110; state page https://usaddregen.com/state/new-mexico/.
+- [Las Cruces, NM address generator](https://usaddregen.com/state/new-mexico/las-cruces/): ZIP examples 88001, 88005, 88011; state page https://usaddregen.com/state/new-mexico/.
+- [Rio Rancho, NM address generator](https://usaddregen.com/state/new-mexico/rio-rancho/): ZIP examples 87124, 87144; state page https://usaddregen.com/state/new-mexico/.
+- [New York, NY address generator](https://usaddregen.com/state/new-york/new-york/): ZIP examples 10001, 10002, 10011; state page https://usaddregen.com/state/new-york/.
+- [Buffalo, NY address generator](https://usaddregen.com/state/new-york/buffalo/): ZIP examples 14201, 14202, 14213; state page https://usaddregen.com/state/new-york/.
+- [Rochester, NY address generator](https://usaddregen.com/state/new-york/rochester/): ZIP examples 14604, 14607, 14620; state page https://usaddregen.com/state/new-york/.
+- [Charlotte, NC address generator](https://usaddregen.com/state/north-carolina/charlotte/): ZIP examples 28202, 28203, 28205; state page https://usaddregen.com/state/north-carolina/.
+- [Raleigh, NC address generator](https://usaddregen.com/state/north-carolina/raleigh/): ZIP examples 27601, 27603, 27605; state page https://usaddregen.com/state/north-carolina/.
+- [Greensboro, NC address generator](https://usaddregen.com/state/north-carolina/greensboro/): ZIP examples 27401, 27403, 27408; state page https://usaddregen.com/state/north-carolina/.
+- [Fargo, ND address generator](https://usaddregen.com/state/north-dakota/fargo/): ZIP examples 58102, 58103, 58104; state page https://usaddregen.com/state/north-dakota/.
+- [Bismarck, ND address generator](https://usaddregen.com/state/north-dakota/bismarck/): ZIP examples 58501, 58503; state page https://usaddregen.com/state/north-dakota/.
+- [Grand Forks, ND address generator](https://usaddregen.com/state/north-dakota/grand-forks/): ZIP examples 58201, 58203; state page https://usaddregen.com/state/north-dakota/.
+- [Columbus, OH address generator](https://usaddregen.com/state/ohio/columbus/): ZIP examples 43215, 43219, 43220; state page https://usaddregen.com/state/ohio/.
+- [Cleveland, OH address generator](https://usaddregen.com/state/ohio/cleveland/): ZIP examples 44113, 44114, 44115; state page https://usaddregen.com/state/ohio/.
+- [Cincinnati, OH address generator](https://usaddregen.com/state/ohio/cincinnati/): ZIP examples 45202, 45206, 45208; state page https://usaddregen.com/state/ohio/.
+- [Oklahoma City, OK address generator](https://usaddregen.com/state/oklahoma/oklahoma-city/): ZIP examples 73102, 73103, 73112; state page https://usaddregen.com/state/oklahoma/.
+- [Tulsa, OK address generator](https://usaddregen.com/state/oklahoma/tulsa/): ZIP examples 74103, 74104, 74105; state page https://usaddregen.com/state/oklahoma/.
+- [Norman, OK address generator](https://usaddregen.com/state/oklahoma/norman/): ZIP examples 73069, 73071; state page https://usaddregen.com/state/oklahoma/.
+- [Portland, OR address generator](https://usaddregen.com/state/oregon/portland/): ZIP examples 97201, 97202, 97205, 97209; state page https://usaddregen.com/state/oregon/.
+- [Salem, OR address generator](https://usaddregen.com/state/oregon/salem/): ZIP examples 97301, 97302; state page https://usaddregen.com/state/oregon/.
+- [Eugene, OR address generator](https://usaddregen.com/state/oregon/eugene/): ZIP examples 97401, 97402, 97405; state page https://usaddregen.com/state/oregon/.
+- [Bend, OR address generator](https://usaddregen.com/state/oregon/bend/): ZIP examples 97701, 97702; state page https://usaddregen.com/state/oregon/.
+- [Medford, OR address generator](https://usaddregen.com/state/oregon/medford/): ZIP examples 97501, 97504; state page https://usaddregen.com/state/oregon/.
+- [Philadelphia, PA address generator](https://usaddregen.com/state/pennsylvania/philadelphia/): ZIP examples 19103, 19104, 19107; state page https://usaddregen.com/state/pennsylvania/.
+- [Pittsburgh, PA address generator](https://usaddregen.com/state/pennsylvania/pittsburgh/): ZIP examples 15219, 15222, 15232; state page https://usaddregen.com/state/pennsylvania/.
+- [Allentown, PA address generator](https://usaddregen.com/state/pennsylvania/allentown/): ZIP examples 18101, 18102, 18104; state page https://usaddregen.com/state/pennsylvania/.
+- [Providence, RI address generator](https://usaddregen.com/state/rhode-island/providence/): ZIP examples 02903, 02906, 02908; state page https://usaddregen.com/state/rhode-island/.
+- [Warwick, RI address generator](https://usaddregen.com/state/rhode-island/warwick/): ZIP examples 02886, 02888, 02889; state page https://usaddregen.com/state/rhode-island/.
+- [Cranston, RI address generator](https://usaddregen.com/state/rhode-island/cranston/): ZIP examples 02910, 02920; state page https://usaddregen.com/state/rhode-island/.
+- [Charleston, SC address generator](https://usaddregen.com/state/south-carolina/charleston/): ZIP examples 29401, 29403, 29407; state page https://usaddregen.com/state/south-carolina/.
+- [Columbia, SC address generator](https://usaddregen.com/state/south-carolina/columbia/): ZIP examples 29201, 29205, 29210; state page https://usaddregen.com/state/south-carolina/.
+- [North Charleston, SC address generator](https://usaddregen.com/state/south-carolina/north-charleston/): ZIP examples 29405, 29406, 29418; state page https://usaddregen.com/state/south-carolina/.
+- [Sioux Falls, SD address generator](https://usaddregen.com/state/south-dakota/sioux-falls/): ZIP examples 57103, 57104, 57106; state page https://usaddregen.com/state/south-dakota/.
+- [Rapid City, SD address generator](https://usaddregen.com/state/south-dakota/rapid-city/): ZIP examples 57701, 57702; state page https://usaddregen.com/state/south-dakota/.
+- [Aberdeen, SD address generator](https://usaddregen.com/state/south-dakota/aberdeen/): ZIP examples 57401; state page https://usaddregen.com/state/south-dakota/.
+- [Nashville, TN address generator](https://usaddregen.com/state/tennessee/nashville/): ZIP examples 37203, 37206, 37209; state page https://usaddregen.com/state/tennessee/.
+- [Memphis, TN address generator](https://usaddregen.com/state/tennessee/memphis/): ZIP examples 38103, 38104, 38111; state page https://usaddregen.com/state/tennessee/.
+- [Knoxville, TN address generator](https://usaddregen.com/state/tennessee/knoxville/): ZIP examples 37902, 37917, 37919; state page https://usaddregen.com/state/tennessee/.
+- [Houston, TX address generator](https://usaddregen.com/state/texas/houston/): ZIP examples 77002, 77005, 77007; state page https://usaddregen.com/state/texas/.
+- [San Antonio, TX address generator](https://usaddregen.com/state/texas/san-antonio/): ZIP examples 78205, 78209, 78212; state page https://usaddregen.com/state/texas/.
+- [Dallas, TX address generator](https://usaddregen.com/state/texas/dallas/): ZIP examples 75201, 75204, 75206; state page https://usaddregen.com/state/texas/.
+- [Salt Lake City, UT address generator](https://usaddregen.com/state/utah/salt-lake-city/): ZIP examples 84101, 84102, 84105; state page https://usaddregen.com/state/utah/.
+- [West Valley City, UT address generator](https://usaddregen.com/state/utah/west-valley-city/): ZIP examples 84119, 84120; state page https://usaddregen.com/state/utah/.
+- [Provo, UT address generator](https://usaddregen.com/state/utah/provo/): ZIP examples 84601, 84604; state page https://usaddregen.com/state/utah/.
+- [Burlington, VT address generator](https://usaddregen.com/state/vermont/burlington/): ZIP examples 05401, 05408; state page https://usaddregen.com/state/vermont/.
+- [South Burlington, VT address generator](https://usaddregen.com/state/vermont/south-burlington/): ZIP examples 05403; state page https://usaddregen.com/state/vermont/.
+- [Rutland, VT address generator](https://usaddregen.com/state/vermont/rutland/): ZIP examples 05701; state page https://usaddregen.com/state/vermont/.
+- [Virginia Beach, VA address generator](https://usaddregen.com/state/virginia/virginia-beach/): ZIP examples 23451, 23452, 23454; state page https://usaddregen.com/state/virginia/.
+- [Chesapeake, VA address generator](https://usaddregen.com/state/virginia/chesapeake/): ZIP examples 23320, 23322; state page https://usaddregen.com/state/virginia/.
+- [Norfolk, VA address generator](https://usaddregen.com/state/virginia/norfolk/): ZIP examples 23503, 23510, 23517; state page https://usaddregen.com/state/virginia/.
+- [Seattle, WA address generator](https://usaddregen.com/state/washington/seattle/): ZIP examples 98101, 98103, 98109; state page https://usaddregen.com/state/washington/.
+- [Spokane, WA address generator](https://usaddregen.com/state/washington/spokane/): ZIP examples 99201, 99203, 99205; state page https://usaddregen.com/state/washington/.
+- [Tacoma, WA address generator](https://usaddregen.com/state/washington/tacoma/): ZIP examples 98402, 98405, 98406; state page https://usaddregen.com/state/washington/.
+- [Charleston, WV address generator](https://usaddregen.com/state/west-virginia/charleston/): ZIP examples 25301, 25302, 25304; state page https://usaddregen.com/state/west-virginia/.
+- [Huntington, WV address generator](https://usaddregen.com/state/west-virginia/huntington/): ZIP examples 25701, 25705; state page https://usaddregen.com/state/west-virginia/.
+- [Morgantown, WV address generator](https://usaddregen.com/state/west-virginia/morgantown/): ZIP examples 26501, 26505; state page https://usaddregen.com/state/west-virginia/.
+- [Milwaukee, WI address generator](https://usaddregen.com/state/wisconsin/milwaukee/): ZIP examples 53202, 53203, 53207; state page https://usaddregen.com/state/wisconsin/.
+- [Madison, WI address generator](https://usaddregen.com/state/wisconsin/madison/): ZIP examples 53703, 53704, 53705; state page https://usaddregen.com/state/wisconsin/.
+- [Green Bay, WI address generator](https://usaddregen.com/state/wisconsin/green-bay/): ZIP examples 54301, 54303; state page https://usaddregen.com/state/wisconsin/.
+- [Cheyenne, WY address generator](https://usaddregen.com/state/wyoming/cheyenne/): ZIP examples 82001, 82007, 82009; state page https://usaddregen.com/state/wyoming/.
+- [Casper, WY address generator](https://usaddregen.com/state/wyoming/casper/): ZIP examples 82601, 82604; state page https://usaddregen.com/state/wyoming/.
+- [Laramie, WY address generator](https://usaddregen.com/state/wyoming/laramie/): ZIP examples 82070, 82072; state page https://usaddregen.com/state/wyoming/.
+
 ## Source notes
 
 - USPS ZIP Code Lookup / Postal Explorer; lastVerified 2026-06-29
@@ -78,6 +241,14 @@
 - [Egypt address generator](https://usaddregen.com/country/egypt/): Cairo, Giza, Alexandria, Luxor, Mansoura; +20 phone format.
 - [Turkey address generator](https://usaddregen.com/country/turkey/): Istanbul, Ankara, Izmir, Antalya, Bursa; +90 phone format.
 - [Pakistan address generator](https://usaddregen.com/country/pakistan/): Karachi, Lahore, Islamabad, Rawalpindi, Peshawar; +92 phone format.
+- [India address generator](https://usaddregen.com/country/india/): Mumbai, Delhi, Bengaluru, Chennai, Hyderabad; +91 phone format.
+- [Philippines address generator](https://usaddregen.com/country/philippines/): Manila, Quezon City, Makati, Cebu City, Davao City; +63 phone format.
+- [Indonesia address generator](https://usaddregen.com/country/indonesia/): Jakarta, Surabaya, Bandung, Medan, Denpasar; +62 phone format.
+- [Brazil address generator](https://usaddregen.com/country/brazil/): Sao Paulo, Rio de Janeiro, Brasilia, Salvador, Curitiba; +55 phone format.
+- [Mexico address generator](https://usaddregen.com/country/mexico/): Mexico City, Guadalajara, Monterrey, Puebla, Tijuana; +52 phone format.
+- [United Kingdom address generator](https://usaddregen.com/country/united-kingdom/): London, Manchester, Birmingham, Edinburgh, Cardiff; +44 phone format.
+- [Canada address generator](https://usaddregen.com/country/canada/): Toronto, Montreal, Vancouver, Calgary, Ottawa; +1 phone format.
+- [Australia address generator](https://usaddregen.com/country/australia/): Sydney, Melbourne, Brisbane, Perth, Adelaide; +61 phone format.
 
 ## Related resources
 

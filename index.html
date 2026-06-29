@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Address Generator | US States, Nigeria, Egypt, Turkey, Pakistan</title>
+    <title>Random Address Generator | US States and International Test Addresses</title>
     <meta
       name="description"
-      content="Free random address generator for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan. Produces realistic-format city, region, postal code, and phone combinations for QA, form testing, demos, and seed data."
+      content="Free random address generator for all 50 US states plus multi-country test data. Produces realistic-format city, region, postal code, and phone combinations for QA, form testing, demos, and seed data."
     />
     <meta
       name="keywords"
-      content="random address generator, international address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, US tax-free state address generator, random US address generator, fake address for testing, postal code generator"
+      content="random address generator, international address generator, India address generator, Philippines address generator, Indonesia address generator, Brazil address generator, Mexico address generator, UK address generator, Canada address generator, Australia address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, random US address generator, fake address for testing, postal code generator"
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -22,8 +22,8 @@
     <meta name="theme-color" content="#0f172a" />
     <link rel="canonical" href="https://usaddregen.com/" />
     <link rel="alternate" hreflang="en" href="https://usaddregen.com/" />
-    <link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/?lang=zh-CN" />
-    <link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/?lang=zh-TW" />
+    <link rel="alternate" hreflang="zh-CN" href="https://usaddregen.com/zh-CN/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://usaddregen.com/zh-TW/" />
     <link rel="alternate" hreflang="x-default" href="https://usaddregen.com/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -34,7 +34,7 @@
     <meta property="og:title" content="Random Address Generator for US, Nigeria, Egypt, Turkey, and Pakistan" />
     <meta
       property="og:description"
-      content="Generate realistic-format test addresses for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan. Built for QA, form testing, demos, and seed data."
+      content="Generate realistic-format test addresses for all 50 US states plus multi-country address formats. Built for QA, form testing, demos, and seed data."
     />
     <meta property="og:url" content="https://usaddregen.com/" />
     <meta property="og:site_name" content="US Address Generator" />
@@ -52,7 +52,7 @@
     <meta name="twitter:title" content="Random Address Generator for US and Global Test Data" />
     <meta
       name="twitter:description"
-      content="Free random address generator for all 50 US states, Nigeria, Egypt, Turkey, and Pakistan."
+      content="Free random address generator for all 50 US states and multi-country test data."
     />
     <meta name="twitter:image" content="https://usaddregen.com/og-image.png" />
 
@@ -65,8 +65,8 @@
             "@id": "https://usaddregen.com/#webapp",
             "name": "Random Address Generator for US States and International Test Data",
             "url": "https://usaddregen.com/",
-            "description": "Free browser-based generator that produces realistic-format random addresses for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan. Output includes a full name, street address, city, state or region, postal or ZIP code, and phone number matched to the selected country or region.",
-            "keywords": "random address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, US tax-free state address generator, test address generator",
+            "description": "Free browser-based generator that produces realistic-format random addresses for all 50 US states plus multi-country test data. Output includes a full name, street address, city, state or region, postal or ZIP code, and phone number matched to the selected country or region.",
+            "keywords": "random address generator, India address generator, Philippines address generator, Indonesia address generator, Brazil address generator, Mexico address generator, UK address generator, Canada address generator, Australia address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, US tax-free state address generator, test address generator",
             "applicationCategory": "DeveloperApplication",
             "applicationSubCategory": "Test Data Generator",
             "operatingSystem": "Any (web browser)",
@@ -85,6 +85,7 @@
               "Random address for Egypt with governorate, postal code, and +20 phone format",
               "Random address for Turkey with province, postal code, and +90 phone format",
               "Random address for Pakistan with province, postal code, and +92 phone format",
+              "Random address for India, Philippines, Indonesia, Brazil, Mexico, United Kingdom, Canada, and Australia",
               "Country-matched postal code and phone format",
               "One-click copy of the full address",
               "Multilingual UI: English, Simplified Chinese, Traditional Chinese"
@@ -98,7 +99,15 @@
               { "@type": "Country", "name": "Nigeria" },
               { "@type": "Country", "name": "Egypt" },
               { "@type": "Country", "name": "Turkey" },
-              { "@type": "Country", "name": "Pakistan" }
+              { "@type": "Country", "name": "Pakistan" },
+              { "@type": "Country", "name": "India" },
+              { "@type": "Country", "name": "Philippines" },
+              { "@type": "Country", "name": "Indonesia" },
+              { "@type": "Country", "name": "Brazil" },
+              { "@type": "Country", "name": "Mexico" },
+              { "@type": "Country", "name": "United Kingdom" },
+              { "@type": "Country", "name": "Canada" },
+              { "@type": "Country", "name": "Australia" }
             ]
           },
           {
@@ -222,8 +231,8 @@
           <p class="eyebrow" data-i18n="eyebrow">US and International Address Generator</p>
           <h1 id="page-title" data-i18n="h1">Random address generator for US and global test data</h1>
           <p class="lede" data-i18n="lede">
-            Generate realistic-format address data for all 50 US states plus Nigeria, Egypt,
-            Turkey, and Pakistan. Use it for QA, form development, demos, seed data, and safe
+            Generate realistic-format address data for all 50 US states plus multi-country
+            address formats. Use it for QA, form development, demos, seed data, and safe
             placeholder records.
           </p>
         </section>
@@ -249,6 +258,38 @@
             <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="PK">
               <span>PK</span>
               <strong data-i18n="tabPakistan">Pakistan</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="IN">
+              <span>IN</span>
+              <strong>India</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="PH">
+              <span>PH</span>
+              <strong>Philippines</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="ID">
+              <span>ID</span>
+              <strong>Indonesia</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="BR">
+              <span>BR</span>
+              <strong>Brazil</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="MX">
+              <span>MX</span>
+              <strong>Mexico</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="GB">
+              <span>GB</span>
+              <strong>United Kingdom</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="CA">
+              <span>CA</span>
+              <strong>Canada</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="AU">
+              <span>AU</span>
+              <strong>Australia</strong>
             </button>
           </div>
           <div class="controls-panel">
@@ -370,6 +411,9 @@
               </p>
             </article>
           </div>
+          <p class="section-link-row">
+            <a href="/country/" data-i18n="viewAllCountries">View all country address generators</a>
+          </p>
         </section>
 
         <section class="features-section" aria-labelledby="features-title">
@@ -392,8 +436,8 @@
             <article class="feature-card">
               <h3 data-i18n="featureThreeTitle">Focused, audit-friendly dataset</h3>
               <p data-i18n="featureThreeBody">
-                A deliberately small static dataset for all 50 US states plus Nigeria, Egypt,
-                Turkey, and Pakistan keeps the tool fast, predictable, and easy to audit.
+                A deliberately small static dataset for all 50 US states plus multi-country
+                address formats keeps the tool fast, predictable, and easy to audit.
               </p>
             </article>
             <article class="feature-card">
@@ -410,8 +454,8 @@
           <h2 id="usage-title" data-i18n="usageTitle">Built for clean test data</h2>
           <div class="copy-columns">
             <p data-i18n="usageBodyOne">
-              This tool keeps a focused dataset: all 50 US states plus Nigeria, Egypt, Turkey, and
-              Pakistan for international form testing. The dataset keeps the static site fast, easy
+              This tool keeps a focused dataset: all 50 US states plus country-specific address
+              formats for international form testing. The dataset keeps the static site fast, easy
               to audit, and simple to deploy on Cloudflare Pages.
             </p>
             <p data-i18n="usageBodyTwo">
@@ -642,6 +686,14 @@
             <h4 class="footer-heading" data-i18n="footerColCountries">Countries</h4>
             <ul>
               <li><a href="/country/nigeria/">Nigeria</a></li>
+              <li><a href="/country/india/">India</a></li>
+              <li><a href="/country/philippines/">Philippines</a></li>
+              <li><a href="/country/indonesia/">Indonesia</a></li>
+              <li><a href="/country/brazil/">Brazil</a></li>
+              <li><a href="/country/mexico/">Mexico</a></li>
+              <li><a href="/country/united-kingdom/">United Kingdom</a></li>
+              <li><a href="/country/canada/">Canada</a></li>
+              <li><a href="/country/australia/">Australia</a></li>
               <li><a href="/country/egypt/">Egypt</a></li>
               <li><a href="/country/turkey/">Turkey</a></li>
               <li><a href="/country/pakistan/">Pakistan</a></li>

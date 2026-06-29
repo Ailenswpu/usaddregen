@@ -6,7 +6,7 @@
     <title>About | US Address Generator</title>
     <meta
       name="description"
-      content="About usaddregen.com — a browser-only random address generator for all 50 US states plus Nigeria, Egypt, Turkey, and Pakistan, built for QA engineers, developers, and designers who need clean test fixtures."
+      content="About usaddregen.com — a browser-only random address generator for all 50 US states plus country-specific international test data, built for QA engineers, developers, and designers."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://usaddregen.com/about/" />
@@ -68,15 +68,16 @@
       <h2>What this site is</h2>
       <p>
         <strong>US Address Generator</strong> (usaddregen.com) is a free, browser-based tool that
-        produces realistic-format random addresses for all 50 US states plus four international
-        datasets:
+        produces realistic-format random addresses for all 50 US states plus country-specific
+        international datasets:
       </p>
       <ul>
         <li><a href="/state/">US state generators</a> &mdash; all 50 states with city, ZIP code,
           area-code, and statewide sales-tax notes.</li>
-        <li><a href="/country/nigeria/">Nigeria</a>, <a href="/country/egypt/">Egypt</a>,
-          <a href="/country/turkey/">Turkey</a>, and <a href="/country/pakistan/">Pakistan</a>
-          &mdash; country-specific city, region, postal-code, and phone-number formats.</li>
+        <li><a href="/country/">International generators</a> &mdash; country-specific city,
+          region, postal-code, and phone-number formats for markets such as India, Philippines,
+          Indonesia, Brazil, Mexico, United Kingdom, Canada, Australia, Nigeria, Egypt, Turkey,
+          and Pakistan.</li>
         <li><a href="/blog/nomad-states-explained.html">No-sales-tax state reference</a> &mdash;
           Delaware, Montana, New Hampshire, Oregon, and Alaska remain highlighted for checkout and
           tax-engine testing.</li>
@@ -117,7 +118,7 @@
       </p>
       <ul>
         <li>A small in-memory dataset of 50 US states with ZIP codes, area codes, and sales-tax notes.</li>
-        <li>Four international datasets for Nigeria, Egypt, Turkey, and Pakistan.</li>
+        <li>Country-specific international datasets for common form-testing markets.</li>
         <li>Random street numbers and names assembled from a fixed wordlist.</li>
         <li>A multilingual UI (English, Simplified Chinese, Traditional Chinese) controlled by a
           single dropdown, with the language preference syncing via URL parameter and

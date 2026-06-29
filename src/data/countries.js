@@ -67,6 +67,142 @@ export const INTERNATIONAL_COUNTRIES = {
       { name: "Rawalpindi", region: "Punjab", zips: ["46000", "46300"] },
       { name: "Peshawar", region: "Khyber Pakhtunkhwa", zips: ["25000", "25120"] }
     ]
+  },
+  IN: {
+    name: "India",
+    short: "IN",
+    phoneCode: "+91",
+    phonePrefixes: ["700", "801", "900", "981", "987"],
+    firstNames: ["Aarav", "Ananya", "Rohan", "Priya", "Vikram", "Neha", "Ishaan", "Meera"],
+    lastNames: ["Sharma", "Patel", "Singh", "Iyer", "Gupta", "Rao", "Mehta", "Nair"],
+    streetNames: ["MG", "Nehru", "Linking", "Anna Salai", "Park", "Brigade", "Rajpath", "Ring"],
+    streetSuffixes: ["Road", "Marg", "Street", "Avenue", "Lane"],
+    cities: [
+      { name: "Mumbai", region: "Maharashtra", zips: ["400001", "400050", "400076"] },
+      { name: "Delhi", region: "Delhi", zips: ["110001", "110016", "110092"] },
+      { name: "Bengaluru", region: "Karnataka", zips: ["560001", "560038", "560100"] },
+      { name: "Chennai", region: "Tamil Nadu", zips: ["600001", "600028", "600100"] },
+      { name: "Hyderabad", region: "Telangana", zips: ["500001", "500032", "500081"] }
+    ]
+  },
+  PH: {
+    name: "Philippines",
+    short: "PH",
+    phoneCode: "+63",
+    phonePrefixes: ["917", "918", "927", "935", "956"],
+    firstNames: ["Jose", "Maria", "Carlo", "Angela", "Miguel", "Sofia", "Paolo", "Isabela"],
+    lastNames: ["Santos", "Reyes", "Cruz", "Garcia", "Dela Cruz", "Ramos", "Mendoza", "Torres"],
+    streetNames: ["Rizal", "Mabini", "Bonifacio", "Quezon", "Taft", "Ayala", "Ortigas", "Roxas"],
+    streetSuffixes: ["Street", "Avenue", "Road", "Drive"],
+    cities: [
+      { name: "Manila", region: "Metro Manila", zips: ["1000", "1004", "1012"] },
+      { name: "Quezon City", region: "Metro Manila", zips: ["1100", "1101", "1128"] },
+      { name: "Makati", region: "Metro Manila", zips: ["1200", "1226"] },
+      { name: "Cebu City", region: "Cebu", zips: ["6000"] },
+      { name: "Davao City", region: "Davao del Sur", zips: ["8000"] }
+    ]
+  },
+  ID: {
+    name: "Indonesia",
+    short: "ID",
+    phoneCode: "+62",
+    phonePrefixes: ["812", "813", "821", "822", "856"],
+    firstNames: ["Budi", "Siti", "Agus", "Dewi", "Rizky", "Putri", "Adi", "Maya"],
+    lastNames: ["Santoso", "Wijaya", "Pratama", "Sari", "Saputra", "Hidayat", "Lestari", "Kusuma"],
+    streetNames: ["Sudirman", "Thamrin", "Gatot Subroto", "Diponegoro", "Merdeka", "Asia Afrika", "Pemuda"],
+    streetSuffixes: ["Jalan", "Street", "Road"],
+    cities: [
+      { name: "Jakarta", region: "DKI Jakarta", zips: ["10110", "10220", "12950"] },
+      { name: "Surabaya", region: "East Java", zips: ["60111", "60234", "60271"] },
+      { name: "Bandung", region: "West Java", zips: ["40111", "40132", "40286"] },
+      { name: "Medan", region: "North Sumatra", zips: ["20111", "20152", "20222"] },
+      { name: "Denpasar", region: "Bali", zips: ["80111", "80222"] }
+    ]
+  },
+  BR: {
+    name: "Brazil",
+    short: "BR",
+    phoneCode: "+55",
+    phonePrefixes: ["11", "21", "31", "41", "51"],
+    firstNames: ["Lucas", "Mariana", "Joao", "Ana", "Pedro", "Camila", "Rafael", "Beatriz"],
+    lastNames: ["Silva", "Santos", "Oliveira", "Souza", "Pereira", "Costa", "Almeida", "Lima"],
+    streetNames: ["Paulista", "Atlantica", "Rio Branco", "Brasil", "Ibirapuera", "Sete de Setembro", "Liberdade"],
+    streetSuffixes: ["Avenida", "Rua", "Travessa"],
+    cities: [
+      { name: "Sao Paulo", region: "Sao Paulo", zips: ["01001-000", "01310-100", "04538-132"] },
+      { name: "Rio de Janeiro", region: "Rio de Janeiro", zips: ["20010-000", "22010-000", "22290-240"] },
+      { name: "Brasilia", region: "Distrito Federal", zips: ["70040-010", "70701-000"] },
+      { name: "Salvador", region: "Bahia", zips: ["40020-000", "40140-110"] },
+      { name: "Curitiba", region: "Parana", zips: ["80010-000", "80420-090"] }
+    ]
+  },
+  MX: {
+    name: "Mexico",
+    short: "MX",
+    phoneCode: "+52",
+    phonePrefixes: ["55", "33", "81", "222", "664"],
+    firstNames: ["Santiago", "Valeria", "Diego", "Sofia", "Carlos", "Lucia", "Mateo", "Camila"],
+    lastNames: ["Garcia", "Hernandez", "Lopez", "Martinez", "Gonzalez", "Perez", "Rodriguez", "Sanchez"],
+    streetNames: ["Reforma", "Insurgentes", "Juarez", "Hidalgo", "Madero", "Universidad", "Chapultepec"],
+    streetSuffixes: ["Avenida", "Calle", "Boulevard"],
+    cities: [
+      { name: "Mexico City", region: "Ciudad de Mexico", zips: ["01000", "03100", "06700"] },
+      { name: "Guadalajara", region: "Jalisco", zips: ["44100", "44600", "45050"] },
+      { name: "Monterrey", region: "Nuevo Leon", zips: ["64000", "64650", "64800"] },
+      { name: "Puebla", region: "Puebla", zips: ["72000", "72410"] },
+      { name: "Tijuana", region: "Baja California", zips: ["22000", "22320"] }
+    ]
+  },
+  GB: {
+    name: "United Kingdom",
+    short: "GB",
+    phoneCode: "+44",
+    phonePrefixes: ["7700", "7911", "7400", "7555", "7800"],
+    firstNames: ["Oliver", "Amelia", "George", "Isla", "Harry", "Ava", "Noah", "Freya"],
+    lastNames: ["Smith", "Jones", "Taylor", "Brown", "Wilson", "Evans", "Thomas", "Roberts"],
+    streetNames: ["High", "Station", "Church", "Victoria", "Queen", "King", "Oxford", "Park"],
+    streetSuffixes: ["Street", "Road", "Avenue", "Lane", "Close"],
+    cities: [
+      { name: "London", region: "England", zips: ["SW1A 1AA", "EC1A 1BB", "W1A 0AX"] },
+      { name: "Manchester", region: "England", zips: ["M1 1AE", "M2 5DB"] },
+      { name: "Birmingham", region: "England", zips: ["B1 1AA", "B2 4QA"] },
+      { name: "Edinburgh", region: "Scotland", zips: ["EH1 1YZ", "EH3 9DR"] },
+      { name: "Cardiff", region: "Wales", zips: ["CF10 1AA", "CF24 0AB"] }
+    ]
+  },
+  CA: {
+    name: "Canada",
+    short: "CA",
+    phoneCode: "+1",
+    phonePrefixes: ["416", "514", "604", "613", "778"],
+    firstNames: ["Liam", "Emma", "Noah", "Olivia", "Lucas", "Ava", "Ethan", "Mia"],
+    lastNames: ["Smith", "Brown", "Tremblay", "Martin", "Roy", "Wilson", "Taylor", "Lee"],
+    streetNames: ["Queen", "King", "Main", "Yonge", "Bloor", "Granville", "Robson", "Rue Sainte-Catherine"],
+    streetSuffixes: ["Street", "Avenue", "Road", "Boulevard"],
+    cities: [
+      { name: "Toronto", region: "Ontario", zips: ["M5V 2T6", "M4B 1B3", "M6H 3A5"] },
+      { name: "Montreal", region: "Quebec", zips: ["H3Z 2Y7", "H2X 1Y4"] },
+      { name: "Vancouver", region: "British Columbia", zips: ["V6B 1A1", "V5K 0A1"] },
+      { name: "Calgary", region: "Alberta", zips: ["T2P 1J9", "T3A 5K8"] },
+      { name: "Ottawa", region: "Ontario", zips: ["K1A 0B1", "K2P 1L4"] }
+    ]
+  },
+  AU: {
+    name: "Australia",
+    short: "AU",
+    phoneCode: "+61",
+    phonePrefixes: ["412", "414", "421", "431", "450"],
+    firstNames: ["Jack", "Charlotte", "William", "Olivia", "Noah", "Amelia", "Henry", "Mia"],
+    lastNames: ["Smith", "Jones", "Williams", "Brown", "Wilson", "Taylor", "Martin", "Anderson"],
+    streetNames: ["George", "Collins", "Queen", "King", "Elizabeth", "Flinders", "Pitt", "Adelaide"],
+    streetSuffixes: ["Street", "Road", "Avenue", "Drive", "Parade"],
+    cities: [
+      { name: "Sydney", region: "New South Wales", zips: ["2000", "2010", "2060"] },
+      { name: "Melbourne", region: "Victoria", zips: ["3000", "3004", "3121"] },
+      { name: "Brisbane", region: "Queensland", zips: ["4000", "4101", "4171"] },
+      { name: "Perth", region: "Western Australia", zips: ["6000", "6005", "6151"] },
+      { name: "Adelaide", region: "South Australia", zips: ["5000", "5006"] }
+    ]
   }
 };
 
