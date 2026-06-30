@@ -10,7 +10,7 @@
     />
     <meta
       name="keywords"
-      content="random address generator, international address generator, India address generator, Philippines address generator, Indonesia address generator, Brazil address generator, Mexico address generator, UK address generator, Canada address generator, Australia address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, random US address generator, fake address for testing, postal code generator"
+      content="random address generator, synthetic address generator, test address generator, international address generator, Japan address generator, France address generator, China Mainland address generator, India address generator, Philippines address generator, Indonesia address generator, Brazil address generator, Mexico address generator, UK address generator, Canada address generator, Australia address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, random US address generator, postal code generator"
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -31,7 +31,7 @@
          crossorigin="anonymous"></script>
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Random Address Generator for US, Nigeria, Egypt, Turkey, and Pakistan" />
+    <meta property="og:title" content="Random Address Generator for US and International Test Data" />
     <meta
       property="og:description"
       content="Generate realistic-format test addresses for all 50 US states plus multi-country address formats. Built for QA, form testing, demos, and seed data."
@@ -66,7 +66,7 @@
             "name": "Random Address Generator for US States and International Test Data",
             "url": "https://usaddregen.com/",
             "description": "Free browser-based generator that produces realistic-format random addresses for all 50 US states plus multi-country test data. Output includes a full name, street address, city, state or region, postal or ZIP code, and phone number matched to the selected country or region.",
-            "keywords": "random address generator, India address generator, Philippines address generator, Indonesia address generator, Brazil address generator, Mexico address generator, UK address generator, Canada address generator, Australia address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, US tax-free state address generator, test address generator",
+            "keywords": "random address generator, synthetic address generator, test address generator, Japan address generator, France address generator, China Mainland address generator, India address generator, Philippines address generator, Indonesia address generator, Brazil address generator, Mexico address generator, UK address generator, Canada address generator, Australia address generator, Nigeria address generator, Egypt address generator, Turkey address generator, Pakistan address generator, US address generator, postal code generator",
             "applicationCategory": "DeveloperApplication",
             "applicationSubCategory": "Test Data Generator",
             "operatingSystem": "Any (web browser)",
@@ -80,19 +80,20 @@
             },
             "featureList": [
               "Random address generator for all 50 US states",
-              "No-sales-tax state reference for Delaware, Montana, New Hampshire, Oregon, and Alaska",
+              "Sales-tax field testing reference for Delaware, Montana, New Hampshire, Oregon, and Alaska",
               "Random address for Nigeria with Nigerian state, postal code, and +234 phone format",
               "Random address for Egypt with governorate, postal code, and +20 phone format",
               "Random address for Turkey with province, postal code, and +90 phone format",
               "Random address for Pakistan with province, postal code, and +92 phone format",
               "Random address for India, Philippines, Indonesia, Brazil, Mexico, United Kingdom, Canada, and Australia",
+              "Random address for Japan, France, and China Mainland",
               "Country-matched postal code and phone format",
               "One-click copy of the full address",
               "Multilingual UI: English, Simplified Chinese, Traditional Chinese"
             ],
             "audience": {
               "@type": "Audience",
-              "audienceType": "Software developers, QA engineers, and designers needing synthetic address test data for US, Nigerian, Egyptian, Turkish, and Pakistani forms"
+              "audienceType": "Software developers, QA engineers, and designers needing synthetic address test data for US and international forms"
             },
             "about": [
               { "@type": "Country", "name": "United States" },
@@ -107,7 +108,10 @@
               { "@type": "Country", "name": "Mexico" },
               { "@type": "Country", "name": "United Kingdom" },
               { "@type": "Country", "name": "Canada" },
-              { "@type": "Country", "name": "Australia" }
+              { "@type": "Country", "name": "Australia" },
+              { "@type": "Country", "name": "Japan" },
+              { "@type": "Country", "name": "France" },
+              { "@type": "Country", "name": "China Mainland" }
             ]
           },
           {
@@ -164,10 +168,10 @@
               },
               {
                 "@type": "Question",
-                "name": "Does this generate Nigeria, Egypt, Turkey, and Pakistan addresses?",
+                "name": "Does this generate international test addresses?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. The country tabs generate synthetic address records for Nigeria, Egypt, Turkey, and Pakistan with country-matched city, region, postal code, and phone-number formats. The output is intended for testing and demos, not for identity claims or deliverable mail."
+                  "text": "Yes. The country tabs generate synthetic address records for multiple countries with country-matched city, region, postal code, and phone-number formats. The output is intended for testing and demos, not for identity claims or deliverable mail."
                 }
               },
               {
@@ -291,6 +295,18 @@
               <span>AU</span>
               <strong>Australia</strong>
             </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="JP">
+              <span>JP</span>
+              <strong>Japan</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="FR">
+              <span>FR</span>
+              <strong>France</strong>
+            </button>
+            <button class="country-tab" type="button" role="tab" aria-selected="false" data-country="CN">
+              <span>CN</span>
+              <strong>China Mainland</strong>
+            </button>
           </div>
           <div class="controls-panel">
             <label id="location-select-label" for="state-select" data-i18n="stateLabel">US state</label>
@@ -368,7 +384,7 @@
             <div>
               <p class="eyebrow" data-i18n="internationalEyebrow">International generators</p>
               <h2 id="international-title" data-i18n="internationalTitle">
-                Nigeria, Egypt, Turkey, and Pakistan address generators
+                International test address generators
               </h2>
             </div>
             <p data-i18n="internationalIntro">
@@ -408,6 +424,30 @@
               <p data-i18n="seoPakistanBody">
                 Generate Pakistan test addresses for Karachi, Lahore, Islamabad, Rawalpindi, and
                 Peshawar with province names, postal codes, and +92 mobile phone formatting.
+              </p>
+            </article>
+            <article class="country-seo-card">
+              <span class="country-code-pill">JP</span>
+              <h3><a href="/country/japan/">Japan address generator</a></h3>
+              <p>
+                Generate Japan test addresses for Tokyo, Osaka, Yokohama, Nagoya, and Sapporo with
+                postal-code examples and +81 mobile phone formatting.
+              </p>
+            </article>
+            <article class="country-seo-card">
+              <span class="country-code-pill">FR</span>
+              <h3><a href="/country/france/">France address generator</a></h3>
+              <p>
+                Generate France test addresses for Paris, Lyon, Marseille, Toulouse, and Nice with
+                five-digit postal-code examples and +33 mobile phone formatting.
+              </p>
+            </article>
+            <article class="country-seo-card">
+              <span class="country-code-pill">CN</span>
+              <h3><a href="/country/china-mainland/">China Mainland address generator</a></h3>
+              <p>
+                Generate China Mainland test addresses for Beijing, Shanghai, Guangzhou, Shenzhen,
+                and Hangzhou with six-digit postal-code examples and +86 phone formatting.
               </p>
             </article>
           </div>
@@ -579,12 +619,11 @@
               </p>
             </details>
             <details>
-              <summary data-i18n="faqSevenQuestion">Does this generate Nigeria, Egypt, Turkey, and Pakistan addresses?</summary>
+              <summary data-i18n="faqSevenQuestion">Does this generate international test addresses?</summary>
               <p data-i18n="faqSevenAnswer">
-                Yes. The country tabs generate synthetic address records for Nigeria, Egypt, Turkey,
-                and Pakistan with country-matched city, region, postal code, and phone-number
-                formats. The output is intended for testing and demos, not for identity claims or
-                deliverable mail.
+                Yes. The country tabs generate synthetic address records for multiple countries with
+                country-matched city, region, postal code, and phone-number formats. The output is
+                intended for testing and demos, not for identity claims or deliverable mail.
               </p>
             </details>
             <details>
@@ -673,7 +712,7 @@
             </div>
           </div>
           <div class="footer-col">
-            <h4 class="footer-heading" data-i18n="footerColStates">Tax-Free States</h4>
+            <h4 class="footer-heading" data-i18n="footerColStates">Sales Tax Testing</h4>
             <ul>
               <li><a href="/state/delaware/">Delaware</a></li>
               <li><a href="/state/montana/">Montana</a></li>
@@ -694,6 +733,9 @@
               <li><a href="/country/united-kingdom/">United Kingdom</a></li>
               <li><a href="/country/canada/">Canada</a></li>
               <li><a href="/country/australia/">Australia</a></li>
+              <li><a href="/country/japan/">Japan</a></li>
+              <li><a href="/country/france/">France</a></li>
+              <li><a href="/country/china-mainland/">China Mainland</a></li>
               <li><a href="/country/egypt/">Egypt</a></li>
               <li><a href="/country/turkey/">Turkey</a></li>
               <li><a href="/country/pakistan/">Pakistan</a></li>
@@ -702,6 +744,7 @@
           <div class="footer-col">
             <h4 class="footer-heading" data-i18n="footerColResources">Resources</h4>
             <ul>
+              <li><a href="/test-data/">Synthetic Test Data</a></li>
               <li><a href="/blog/" data-blog-link data-i18n="footerBlog">Blog</a></li>
               <li><a href="/about/" data-i18n="footerAbout">About</a></li>
               <li><a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a></li>

@@ -249,6 +249,9 @@
 - [United Kingdom address generator](https://usaddregen.com/country/united-kingdom/): London, Manchester, Birmingham, Edinburgh, Cardiff; +44 phone format.
 - [Canada address generator](https://usaddregen.com/country/canada/): Toronto, Montreal, Vancouver, Calgary, Ottawa; +1 phone format.
 - [Australia address generator](https://usaddregen.com/country/australia/): Sydney, Melbourne, Brisbane, Perth, Adelaide; +61 phone format.
+- [Japan address generator](https://usaddregen.com/country/japan/): Tokyo, Osaka, Yokohama, Nagoya, Sapporo; +81 phone format.
+- [France address generator](https://usaddregen.com/country/france/): Paris, Lyon, Marseille, Toulouse, Nice; +33 phone format.
+- [China Mainland address generator](https://usaddregen.com/country/china-mainland/): Beijing, Shanghai, Guangzhou, Shenzhen, Hangzhou; +86 phone format.
 
 ## Related resources
 

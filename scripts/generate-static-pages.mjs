@@ -17,6 +17,7 @@ const staticUrls = [
   { loc: "/zh-TW/", priority: "0.9", changefreq: "monthly", alternates: true },
   { loc: "/state/", priority: "0.8", changefreq: "monthly" },
   { loc: "/country/", priority: "0.8", changefreq: "monthly" },
+  { loc: "/test-data/", priority: "0.8", changefreq: "monthly" },
   { loc: "/about/", priority: "0.5", changefreq: "yearly" },
   { loc: "/blog/", priority: "0.6", changefreq: "monthly", blogAlternates: true },
   { loc: "/blog/zh-CN/", priority: "0.6", changefreq: "monthly", blogAlternates: true },
@@ -135,7 +136,7 @@ function stateIndexPage() {
         synthetic and intended only for QA, testing, demos, and placeholder records.
       </p>
 
-      <h2>No-sales-tax states</h2>
+      <h2>Sales-tax field testing shortcuts</h2>
       <div class="state-grid">
         ${taxFreeCards}
       </div>
@@ -268,6 +269,91 @@ function countryIndexPage() {
     title: "International Address Generators | Country-Specific Test Addresses",
     description: `Browse country-specific random address generators for ${countryNames().join(", ")}. Built for QA, form testing, demos, and placeholder records.`,
     canonical: `${siteUrl}/country/`,
+    ogType: "website",
+    jsonLd,
+    body
+  });
+}
+
+function testDataPage() {
+  const featuredStates = ["California", "New York", "Texas", "Oregon", "Delaware"]
+    .map((name) => STATES.find((state) => state.name === name))
+    .filter(Boolean);
+  const stateLinks = featuredStates
+    .map((state) => `<li><a href="/state/${state.slug}/">${escapeHtml(state.name)} test address data</a> - ZIP prefixes ${escapeHtml(state.zipPrefixes.join(", "))}, area codes ${escapeHtml(state.areaCodes.join(" / "))}.</li>`)
+    .join("\n          ");
+  const countryLinks = countryEntries()
+    .slice(0, 10)
+    .map(({ country, slug }) => `<li><a href="/country/${slug}/">${escapeHtml(country.name)} test address data</a> - ${escapeHtml(country.phoneCode)} phone format, ${escapeHtml(country.cities.slice(0, 3).map((city) => city.name).join(", "))} examples.</li>`)
+    .join("\n          ");
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${siteUrl}/test-data/#webpage`,
+      name: "Synthetic Address Test Data",
+      url: `${siteUrl}/test-data/`,
+      description: "Synthetic address test data for QA fixtures, form validation, checkout demos, CRM demos, seed records, and documentation examples.",
+      datePublished: "2026-06-30",
+      dateModified: lastmod,
+      inLanguage: "en",
+      isPartOf: { "@id": `${siteUrl}/#website` }
+    },
+    breadcrumb(["Home", "Test Data"], "/test-data/")
+  ];
+
+  const body = `    <main class="page page-wide">
+      <nav class="page-header" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Test Data</span>
+      </nav>
+
+      <h1>Synthetic Address Test Data</h1>
+      <p class="meta">
+        Use these address-format datasets for QA fixtures, form validation, checkout demos, CRM
+        demos, seed records, documentation screenshots, and local development. The records are
+        synthetic placeholders and are not deliverable.
+      </p>
+
+      <p>
+        <a class="cta" href="/">Open the address generator</a>
+        <a class="cta cta-secondary" href="https://inbrowser.sh/mock-data-generator">Generate JSON, CSV, or SQL mock data</a>
+      </p>
+
+      <h2>Best US state test-data pages</h2>
+      <ul>
+        ${stateLinks}
+      </ul>
+
+      <h2>International test-data pages</h2>
+      <ul>
+        ${countryLinks}
+      </ul>
+
+      <h2>Recommended QA workflow</h2>
+      <ol>
+        <li>Pick a state or country page that matches the form you are testing.</li>
+        <li>Generate one or more synthetic records and copy the visible fields into your fixture.</li>
+        <li>Keep generated street lines out of real shipping, identity, payment, banking, telecom, or government workflows.</li>
+        <li>Use <a href="https://inbrowser.sh/mock-data-generator">inbrowser.sh Mock Data Generator</a> when you need JSON, CSV, or SQL rows around the address fields.</li>
+      </ol>
+
+      <h2>What this is not</h2>
+      <p>
+        This is not an address-verification service, tax engine, mail-delivery service, or identity
+        data source. It formats internally consistent placeholder records for legal testing and
+        demos only.
+      </p>
+
+      ${disclaimer()}
+      ${footer()}
+    </main>`;
+
+  return pageShell({
+    title: "Synthetic Address Test Data | QA Fixtures for Forms, Demos, and Seed Records",
+    description: "Synthetic address test data for QA fixtures, form validation, checkout demos, CRM demos, seed records, and documentation examples.",
+    canonical: `${siteUrl}/test-data/`,
     ogType: "website",
     jsonLd,
     body
@@ -799,6 +885,10 @@ function footer() {
           &nbsp;&middot;&nbsp;
           <a href="/state/">States</a>
           &nbsp;&middot;&nbsp;
+          <a href="/country/">Countries</a>
+          &nbsp;&middot;&nbsp;
+          <a href="/test-data/">Test Data</a>
+          &nbsp;&middot;&nbsp;
           <a href="/blog/">Blog</a>
           &nbsp;&middot;&nbsp;
           <a href="/about/">About</a>
@@ -949,10 +1039,11 @@ await Promise.all(STATES.map((state) => writePublic(`state/${state.slug}/index.h
 await Promise.all(cityEntries().map((entry) => writePublic(`state/${entry.state.slug}/${entry.slug}/index.html`, cityPage(entry))));
 await writePublic("country/index.html", countryIndexPage());
 await Promise.all(countryEntries().map((entry) => writePublic(`country/${entry.slug}/index.html`, countryPage(entry))));
+await writePublic("test-data/index.html", testDataPage());
 await writePublic("zh-CN/index.html", localizedHomePage("zh-CN"));
 await writePublic("zh-TW/index.html", localizedHomePage("zh-TW"));
 await writePublic("sitemap.xml", sitemap());
 await writePublic("llms.txt", llms());
 await writePublic("llms-full.txt", llms());
 
-console.log(`Generated ${STATES.length} state pages, ${cityEntries().length} city pages, ${countryEntries().length} country pages, localized home pages, indexes, sitemap.xml, llms.txt, and llms-full.txt.`);
+console.log(`Generated ${STATES.length} state pages, ${cityEntries().length} city pages, ${countryEntries().length} country pages, test-data page, localized home pages, indexes, sitemap.xml, llms.txt, and llms-full.txt.`);

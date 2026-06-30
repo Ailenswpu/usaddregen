@@ -50,7 +50,7 @@ const TRANSLATIONS = {
     usageBodyTwo:
       "The generator creates synthetic street lines and pairs them with real city, state, ZIP Code, and area code combinations. It does not verify deliverability and should not be used to misrepresent identity, evade rules, or submit fraudulent information.",
     internationalEyebrow: "International generators",
-    internationalTitle: "Nigeria, Egypt, Turkey, and Pakistan address generators",
+    internationalTitle: "International test address generators",
     internationalIntro:
       "These country tabs generate synthetic but realistic-format address records for international form testing. Each output keeps city, region, postal code, and phone format aligned to the selected country.",
     viewAllCountries: "View all country address generators",
@@ -85,9 +85,9 @@ const TRANSLATIONS = {
     faqSixQuestion: "How is this different from a generic US address generator?",
     faqSixAnswer:
       "Generic generators often mix city, ZIP, and phone data without explaining the source. This tool keeps an audit-friendly static dataset, runs entirely in the browser with no signup, and matches the phone area code to the selected state — making it predictable test fixture data.",
-    faqSevenQuestion: "Does this generate Nigeria, Egypt, Turkey, and Pakistan addresses?",
+    faqSevenQuestion: "Does this generate international test addresses?",
     faqSevenAnswer:
-      "Yes. The country tabs generate synthetic address records for Nigeria, Egypt, Turkey, and Pakistan with country-matched city, region, postal code, and phone-number formats. The output is intended for testing and demos, not for identity claims or deliverable mail.",
+      "Yes. The country tabs generate synthetic address records for multiple countries with country-matched city, region, postal code, and phone-number formats. The output is intended for testing and demos, not for identity claims or deliverable mail.",
     faqEightQuestion: "Can these international addresses pass real verification?",
     faqEightAnswer:
       "No. They are realistic-format placeholders. They may look internally consistent, but they are not verified against postal, banking, telecom, government, or shipping databases.",
@@ -109,7 +109,7 @@ const TRANSLATIONS = {
     footerPrivacy: "Privacy Policy",
     footerBlog: "Blog",
     footerAbout: "About",
-    footerColStates: "Tax-Free States",
+    footerColStates: "Sales Tax Testing",
     footerColCountries: "Countries",
     footerColResources: "Resources",
     footerContactLabel: "Contact:",
@@ -176,7 +176,7 @@ const TRANSLATIONS = {
     usageBodyTwo:
       "生成器会合成街道地址，并匹配真实的城市、州、ZIP Code 和电话区号组合。它不会验证地址是否可投递，也不应用于冒充身份、规避规则或提交欺诈信息。",
     internationalEyebrow: "国际地址生成器",
-    internationalTitle: "尼日利亚、埃及、土耳其、巴基斯坦地址生成器",
+    internationalTitle: "国际测试地址生成器",
     internationalIntro:
       "这些国家 Tab 用于生成符合格式习惯的国际测试地址。每条输出都会让城市、地区、邮政编码和电话号码格式与所选国家保持一致。",
     viewAllCountries: "查看全部国家地址生成器",
@@ -211,9 +211,9 @@ const TRANSLATIONS = {
     faqSixQuestion: "和通用美国地址生成器有什么区别？",
     faqSixAnswer:
       "很多通用生成器不会说明城市、ZIP Code 和电话区号的数据来源。本工具使用易审核的静态数据集，完全在浏览器中运行，无需注册，并且电话区号会匹配所选州，更适合做可预测的测试夹具数据。",
-    faqSevenQuestion: "是否支持尼日利亚、埃及、土耳其和巴基斯坦地址？",
+    faqSevenQuestion: "是否支持国际测试地址？",
     faqSevenAnswer:
-      "支持。国家 Tab 可以生成尼日利亚、埃及、土耳其和巴基斯坦的合成地址记录，并匹配对应国家的城市、地区、邮政编码和电话号码格式。输出仅用于测试和演示，不用于身份声明或真实投递。",
+      "支持。国家 Tab 可以生成多个国家的合成地址记录，并匹配对应国家的城市、地区、邮政编码和电话号码格式。输出仅用于测试和演示，不用于身份声明或真实投递。",
     faqEightQuestion: "这些国际地址能通过真实验证吗？",
     faqEightAnswer:
       "不能。它们只是符合格式习惯的占位数据，可能在字段内部保持一致，但没有经过邮政、银行、电信、政府或物流数据库验证。",
@@ -234,7 +234,7 @@ const TRANSLATIONS = {
     footerPrivacy: "隐私政策",
     footerBlog: "博客",
     footerAbout: "关于",
-    footerColStates: "免税州",
+    footerColStates: "销售税测试",
     footerColCountries: "国家",
     footerColResources: "资源",
     footerContactLabel: "联系：",
@@ -301,7 +301,7 @@ const TRANSLATIONS = {
     usageBodyTwo:
       "產生器會合成街道地址，並匹配真實的城市、州、ZIP Code 和電話區碼組合。它不會驗證地址是否可投遞，也不應用於冒充身分、規避規則或提交詐欺資訊。",
     internationalEyebrow: "國際地址產生器",
-    internationalTitle: "奈及利亞、埃及、土耳其、巴基斯坦地址產生器",
+    internationalTitle: "國際測試地址產生器",
     internationalIntro:
       "這些國家 Tab 用於產生符合格式習慣的國際測試地址。每筆輸出都會讓城市、地區、郵遞區號和電話號碼格式與所選國家保持一致。",
     viewAllCountries: "查看全部國家地址產生器",
@@ -336,9 +336,9 @@ const TRANSLATIONS = {
     faqSixQuestion: "與通用美國地址產生器有什麼差別？",
     faqSixAnswer:
       "很多通用產生器不會說明城市、ZIP Code 和電話區碼的資料來源。本工具使用易稽核的靜態資料集，完全在瀏覽器中執行，無需註冊，並且電話區碼會配對所選州，更適合可預測的測試夾具資料。",
-    faqSevenQuestion: "是否支援奈及利亞、埃及、土耳其和巴基斯坦地址？",
+    faqSevenQuestion: "是否支援國際測試地址？",
     faqSevenAnswer:
-      "支援。國家 Tab 可以產生奈及利亞、埃及、土耳其和巴基斯坦的合成地址記錄，並配對對應國家的城市、地區、郵遞區號和電話號碼格式。輸出僅用於測試和展示，不用於身分聲明或真實投遞。",
+      "支援。國家 Tab 可以產生多個國家的合成地址記錄，並配對對應國家的城市、地區、郵遞區號和電話號碼格式。輸出僅用於測試和展示，不用於身分聲明或真實投遞。",
     faqEightQuestion: "這些國際地址能通過真實驗證嗎？",
     faqEightAnswer:
       "不能。它們只是符合格式習慣的佔位資料，可能在欄位內部保持一致，但沒有經過郵政、銀行、電信、政府或物流資料庫驗證。",
@@ -359,7 +359,7 @@ const TRANSLATIONS = {
     footerPrivacy: "隱私政策",
     footerBlog: "部落格",
     footerAbout: "關於",
-    footerColStates: "免稅州",
+    footerColStates: "銷售稅測試",
     footerColCountries: "國家",
     footerColResources: "資源",
     footerContactLabel: "聯絡：",

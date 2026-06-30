@@ -203,6 +203,57 @@ export const INTERNATIONAL_COUNTRIES = {
       { name: "Perth", region: "Western Australia", zips: ["6000", "6005", "6151"] },
       { name: "Adelaide", region: "South Australia", zips: ["5000", "5006"] }
     ]
+  },
+  JP: {
+    name: "Japan",
+    short: "JP",
+    phoneCode: "+81",
+    phonePrefixes: ["70", "80", "90"],
+    firstNames: ["Haruto", "Yui", "Sota", "Aoi", "Ren", "Hina", "Daiki", "Mio"],
+    lastNames: ["Sato", "Suzuki", "Takahashi", "Tanaka", "Watanabe", "Ito", "Yamamoto", "Nakamura"],
+    streetNames: ["Chuo", "Sakura", "Aoyama", "Shinjuku", "Ginza", "Nakamachi", "Minami", "Kita"],
+    streetSuffixes: ["Dori", "Street", "Avenue", "Lane"],
+    cities: [
+      { name: "Tokyo", region: "Tokyo", zips: ["100-0001", "150-0001", "160-0022"] },
+      { name: "Osaka", region: "Osaka", zips: ["530-0001", "542-0081"] },
+      { name: "Yokohama", region: "Kanagawa", zips: ["220-0012", "231-0005"] },
+      { name: "Nagoya", region: "Aichi", zips: ["450-0002", "460-0008"] },
+      { name: "Sapporo", region: "Hokkaido", zips: ["060-0001", "064-0801"] }
+    ]
+  },
+  FR: {
+    name: "France",
+    short: "FR",
+    phoneCode: "+33",
+    phonePrefixes: ["6", "7"],
+    firstNames: ["Lucas", "Emma", "Louis", "Chloe", "Hugo", "Lea", "Jules", "Manon"],
+    lastNames: ["Martin", "Bernard", "Dubois", "Thomas", "Robert", "Richard", "Petit", "Moreau"],
+    streetNames: ["Victor Hugo", "Jean Jaures", "de la Republique", "Pasteur", "Nationale", "Voltaire", "de Paris"],
+    streetSuffixes: ["Rue", "Avenue", "Boulevard", "Place"],
+    cities: [
+      { name: "Paris", region: "Ile-de-France", zips: ["75001", "75008", "75015"] },
+      { name: "Lyon", region: "Auvergne-Rhone-Alpes", zips: ["69001", "69003"] },
+      { name: "Marseille", region: "Provence-Alpes-Cote d'Azur", zips: ["13001", "13008"] },
+      { name: "Toulouse", region: "Occitanie", zips: ["31000", "31400"] },
+      { name: "Nice", region: "Provence-Alpes-Cote d'Azur", zips: ["06000", "06300"] }
+    ]
+  },
+  CN: {
+    name: "China Mainland",
+    short: "CN",
+    phoneCode: "+86",
+    phonePrefixes: ["130", "131", "138", "150", "186"],
+    firstNames: ["Wei", "Ming", "Li", "Jie", "Hao", "Yan", "Rui", "Ning"],
+    lastNames: ["Wang", "Li", "Zhang", "Liu", "Chen", "Yang", "Zhao", "Huang"],
+    streetNames: ["Renmin", "Zhongshan", "Jiefang", "Chang'an", "Nanjing", "Huaihai", "Tiyu", "Xinhua"],
+    streetSuffixes: ["Road", "Street", "Avenue", "Lane"],
+    cities: [
+      { name: "Beijing", region: "Beijing", zips: ["100000", "100020", "100089"] },
+      { name: "Shanghai", region: "Shanghai", zips: ["200000", "200041", "200120"] },
+      { name: "Guangzhou", region: "Guangdong", zips: ["510000", "510620"] },
+      { name: "Shenzhen", region: "Guangdong", zips: ["518000", "518048"] },
+      { name: "Hangzhou", region: "Zhejiang", zips: ["310000", "310012"] }
+    ]
   }
 };
 
